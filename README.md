@@ -8,11 +8,11 @@
 
 <h3 align="left"> 👨‍💻 Developers:</h3>
 
-CoshuLy
+CoshuLy<br>
 https://github.com/CoshuLy
 
-Ashio245
+Ashio245<br>
 https://github.com/Ashio245
 
-tcker
+tcker<br>
 https://github.com/tcker
