@@ -160,15 +160,14 @@ int main(){
     cout << "Enter your salary: ";
     cin >> monthly_income;
     cout << "===========================" << endl;
+    cout << "\n";
 
    
-    
+
     
     annual = monthly_income * 12;
 
-    cout << "\n";
-    cout << "\tFor more information kindly visit this link " << endl;
-    cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
+ 
 
     if (annual <= 250000) {
         final = annual / 12;
@@ -182,6 +181,10 @@ int main(){
         cout << "\t||Your salary with tax deducted is: " << final << endl;
         cout << "\t||TOTAL: " << final << endl;
         cout << "\t=======================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
     } else {
         if (annual <= 400000) {
             tax = 0.15;
@@ -197,6 +200,10 @@ int main(){
         cout << "\t||Your salary with tax deducted is: " << final << endl;
         cout << "\t||TOTAL: " << final << endl;
         cout << "\t=======================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
         } else if (annual <= 800000) {
             tax = 0.2;
             excess = annual - 400000;
@@ -211,6 +218,10 @@ int main(){
         cout << "\t||Your salary with tax deducted is: " << final << endl;
         cout << "\t||TOTAL: " << final << endl;
         cout << "\t=======================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
         } else if (annual <= 2000000) {
             tax = 0.25;
             excess = annual - 800000;
@@ -225,6 +236,10 @@ int main(){
         cout << "\t||Your salary with tax deducted is: " << final << endl;
         cout << "\t||TOTAL: " << final << endl;
         cout << "\t=======================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
         } else if (annual <= 8000000) {
             tax = 0.3;
             excess = annual - 2000000;
@@ -239,6 +254,10 @@ int main(){
         cout << "\t||Your salary with tax deducted is: " << final << endl;
         cout << "\t||TOTAL: " << final << endl;
         cout << "\t=======================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
         } else {
             tax = 0.35;
             excess = annual - 8000000;  
@@ -253,6 +272,10 @@ int main(){
         cout << "\t||Your salary with tax deducted is: " << final << endl;
         cout << "\t||TOTAL: " << final << endl;;
         cout << "\t=======================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
         }
         taxed_income = final / 12;
         addon = monthly_income - taxed_income;
@@ -265,10 +288,6 @@ int main(){
         break;
     }
 }
-
-//EMERSON DELOS REYES CODE
-
-
 //   cout << "Do you want to compute your funds? " << endl;
 //    cout << "Type: [1]. Yes Type: [2]. No Type [3]. Double Pay Option " << endl;
 //    cout << "> ";
