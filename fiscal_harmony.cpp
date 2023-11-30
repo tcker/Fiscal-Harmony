@@ -265,6 +265,10 @@ int main(){
         break;
     }
 }
+
+//EMERSON DELOS REYES CODE
+
+
 //   cout << "Do you want to compute your funds? " << endl;
 //    cout << "Type: [1]. Yes Type: [2]. No Type [3]. Double Pay Option " << endl;
 //    cout << "> ";
