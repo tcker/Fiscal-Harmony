@@ -181,6 +181,7 @@ int main(){
         cout << "\n";
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
     } else {
         if (annual <= 400000) {
             tax = 0.15;
@@ -200,6 +201,7 @@ int main(){
         cout << "\n";
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
         } else if (annual <= 800000) {
             tax = 0.2;
             excess = annual - 400000;
@@ -218,6 +220,7 @@ int main(){
         cout << "\n";
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
         } else if (annual <= 2000000) {
             tax = 0.25;
             excess = annual - 800000;
@@ -236,6 +239,7 @@ int main(){
         cout << "\n";
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
         } else if (annual <= 8000000) {
             tax = 0.3;
             excess = annual - 2000000;
@@ -254,6 +258,7 @@ int main(){
         cout << "\n";
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
         } else {
             tax = 0.35;
             excess = annual - 8000000;  
@@ -272,6 +277,7 @@ int main(){
         cout << "\n";
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
         }
         taxed_income = final / 12;
         addon = monthly_income - taxed_income;
@@ -284,6 +290,9 @@ int main(){
         break;
     }
 }
+
+// Program ni Emerson
+
 //   cout << "Do you want to compute your funds? " << endl;
 //    cout << "Type: [1]. Yes Type: [2]. No Type [3]. Double Pay Option " << endl;
 //    cout << "> ";
