@@ -162,12 +162,8 @@ int main(){
     cout << "===========================" << endl;
     cout << "\n";
 
-   
 
-    
     annual = monthly_income * 12;
-
- 
 
     if (annual <= 250000) {
         final = annual / 12;
