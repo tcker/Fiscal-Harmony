@@ -3,21 +3,14 @@
 //statement of the problem
 //15mins presentation
 
-
-
-
-
-
 //Inclusions of the Program
 //Computation of overall salary for certain months
 //Computation for Emergency Fund
 //Receipt Implementation
 
-
 #include <iostream>
 #include <cmath>
 #include <string>
-
 
 using namespace std;
 int main(){
@@ -154,7 +147,6 @@ int main(){
         cout << "\n";
     }
 
-
     switch (userOption) {
         case 3:
             cout << "Do you want to compute your funds with double pay? " << endl;
@@ -171,10 +163,7 @@ int main(){
     cout << "Enter your salary: ";
     cin >> monthly_income;
     cout << "===========================" << endl;
-
-   
-    
-    
+        
     annual = monthly_income * 12;
 
     cout << "\n";
