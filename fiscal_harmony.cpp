@@ -3,21 +3,14 @@
 //statement of the problem
 //15mins presentation
 
-
-
-
-
-
 //Inclusions of the Program
 //Computation of overall salary for certain months
 //Computation for Emergency Fund
 //Receipt Implementation
 
-
 #include <iostream>
 #include <cmath>
 #include <string>
-
 
 using namespace std;
 int main(){
