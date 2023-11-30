@@ -3,14 +3,21 @@
 //statement of the problem
 //15mins presentation
 
+
+
+
+
+
 //Inclusions of the Program
 //Computation of overall salary for certain months
 //Computation for Emergency Fund
 //Receipt Implementation
 
+
 #include <iostream>
 #include <cmath>
 #include <string>
+
 
 using namespace std;
 int main(){
@@ -113,9 +120,7 @@ int main(){
     }
     cout << "Welcome, " << userEmail << " I hope you have a great time!" << endl;
 
-
 // MONTHLY INCOME TAX DEDUCTOR PROGRAM
-
 
     double monthly_income;
     double annual;
@@ -125,13 +130,11 @@ int main(){
     double taxed_income;
     double addon;
 
-
     cout << "Do you want to compute your funds? " << endl;
     cout << "Type: [1]. Yes Type: [2]. No Type [3]. Double Pay Option " << endl;
     cout << "> ";
     cin >> userOption;
     cout << "\n";
-
 
     while (userOption != 1 && userOption != 2 && userOption != 3) {
         cout << "_________________________________" << endl;
@@ -146,6 +149,7 @@ int main(){
         cin >> userOption;
         cout << "\n";
     }
+
 
     switch (userOption) {
         case 3:
@@ -163,7 +167,10 @@ int main(){
     cout << "Enter your salary: ";
     cin >> monthly_income;
     cout << "===========================" << endl;
-        
+
+   
+    
+    
     annual = monthly_income * 12;
 
     cout << "\n";
@@ -179,7 +186,8 @@ int main(){
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 0%" << endl;
         cout << "\t||No Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << final << endl;;
+        cout << "\t||Your salary with tax deducted is: " << final << endl;
+        cout << "\t||TOTAL: " << final << endl;
         cout << "\t=======================" << endl;
     } else {
         if (annual <= 400000) {
@@ -193,7 +201,8 @@ int main(){
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 15%" << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << final << endl;;
+        cout << "\t||Your salary with tax deducted is: " << final << endl;
+        cout << "\t||TOTAL: " << final << endl;
         cout << "\t=======================" << endl;
         } else if (annual <= 800000) {
             tax = 0.2;
@@ -206,7 +215,8 @@ int main(){
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 2%" << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << final << endl;;
+        cout << "\t||Your salary with tax deducted is: " << final << endl;
+        cout << "\t||TOTAL: " << final << endl;
         cout << "\t=======================" << endl;
         } else if (annual <= 2000000) {
             tax = 0.25;
@@ -219,7 +229,8 @@ int main(){
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 25%" << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << final << endl;;
+        cout << "\t||Your salary with tax deducted is: " << final << endl;
+        cout << "\t||TOTAL: " << final << endl;
         cout << "\t=======================" << endl;
         } else if (annual <= 8000000) {
             tax = 0.3;
@@ -232,7 +243,8 @@ int main(){
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 3%" << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << final << endl;;
+        cout << "\t||Your salary with tax deducted is: " << final << endl;
+        cout << "\t||TOTAL: " << final << endl;
         cout << "\t=======================" << endl;
         } else {
             tax = 0.35;
@@ -245,7 +257,8 @@ int main(){
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 35%" << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << final << endl;;
+        cout << "\t||Your salary with tax deducted is: " << final << endl;
+        cout << "\t||TOTAL: " << final << endl;;
         cout << "\t=======================" << endl;
         }
         taxed_income = final / 12;
