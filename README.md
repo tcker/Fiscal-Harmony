@@ -18,3 +18,10 @@ https://github.com/Ashio245
 
 tcker<br>
 https://github.com/tcker
+
+---
+
+<h4 align="left"> Updates:</h3>
+
+- FIXED THE BUGS, C++ HANDLING LARGE VALUES <br>
+- UPDATED RECEIPT
