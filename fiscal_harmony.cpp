@@ -8,9 +8,14 @@
 //Computation for Emergency Fund
 //Receipt Implementation
 
+// UPDATES: 
+// FIXED THE BUGS, C++ HANDLING LARGE VALUES
+// UPDATED RECEIPT
+
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 int main(){
@@ -162,7 +167,6 @@ int main(){
     cout << "===========================" << endl;
     cout << "\n";
 
-
     annual = monthly_income * 12;
 
     if (annual <= 250000) {
@@ -173,6 +177,7 @@ int main(){
         cout << "\tand you are in the 0% tax bracket." << endl;
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 0%" << endl;
+        cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||No Tax Deduction: " << final << endl;
         cout << "\t||Your salary with tax deducted is: " << final << endl;
         cout << "\t||TOTAL: " << final << endl;
@@ -187,15 +192,18 @@ int main(){
             tax = 0.15;
             excess = annual - 250000;
             final = (excess * tax) / 12;
+            taxed_income = final / 12;
+            addon = monthly_income - taxed_income;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
         cout << "\tYour monthly income did not exceed PHP400,000"<< endl; 
         cout << "\tand you are in the 15% tax bracket." << endl;
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 15%" << endl;
+        cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << final << endl;
-        cout << "\t||TOTAL: " << final << endl;
+        cout << "\t||Your salary with tax deducted is: " << taxed_income << endl;
+        cout << "\t||TOTAL: " << taxed_income << endl;
         cout << "\t=======================" << endl;
 
         cout << "\n";
@@ -206,15 +214,18 @@ int main(){
             tax = 0.2;
             excess = annual - 400000;
             final = (excess * tax) + 22500;
+            taxed_income = final / 12;
+            addon = monthly_income - taxed_income;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
         cout << "\tYour monthly income did not exceed PHP800,000"<< endl; 
         cout << "\tand you are in the 2% tax bracket." << endl;
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 2%" << endl;
+        cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << final << endl;
-        cout << "\t||TOTAL: " << final << endl;
+        cout << "\t||Your salary with tax deducted is: " << addon << endl;
+        cout << "\t||TOTAL: " << addon << endl;
         cout << "\t=======================" << endl;
 
         cout << "\n";
@@ -225,15 +236,18 @@ int main(){
             tax = 0.25;
             excess = annual - 800000;
             final = (excess * tax) + 102500;
+            taxed_income = final / 12;
+            addon = monthly_income - taxed_income;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
         cout << "\tYour monthly income did not exceed PHP2,000,000"<< endl; 
         cout << "\tand you are in the 25% tax bracket." << endl;
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 25%" << endl;
+        cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << final << endl;
-        cout << "\t||TOTAL: " << final << endl;
+        cout << "\t||Your salary with tax deducted is: " << addon << endl;
+        cout << "\t||TOTAL: " << addon << endl;
         cout << "\t=======================" << endl;
 
         cout << "\n";
@@ -244,15 +258,18 @@ int main(){
             tax = 0.3;
             excess = annual - 2000000;
             final = (excess * tax) + 402500;
+            taxed_income = final / 12;
+            addon = monthly_income - taxed_income;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
         cout << "\tYour monthly income did not exceed PHP8,000,000"<< endl; 
         cout << "\tand you are in the 3% tax bracket." << endl;
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 3%" << endl;
+        cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << final << endl;
-        cout << "\t||TOTAL: " << final << endl;
+        cout << "\t||Your salary with tax deducted is: " << addon << endl;
+        cout << "\t||TOTAL: " << addon << endl;
         cout << "\t=======================" << endl;
 
         cout << "\n";
@@ -263,15 +280,18 @@ int main(){
             tax = 0.35;
             excess = annual - 8000000;  
             final = (excess * tax) + 2202500;
+            taxed_income = final / 12;
+            addon = monthly_income - taxed_income;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
         cout << "\tYour monthly income exceed PHP8,000,000"<< endl; 
         cout << "\tand you are in the 35% tax bracket." << endl;
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 35%" << endl;
+        cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << final << endl;
-        cout << "\t||TOTAL: " << final << endl;;
+        cout << "\t||Your salary with tax deducted is: " << addon << endl;
+        cout << "\t||TOTAL: " << addon << endl;;
         cout << "\t=======================" << endl;
 
         cout << "\n";
@@ -279,8 +299,7 @@ int main(){
         cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
         cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
         }
-        taxed_income = final / 12;
-        addon = monthly_income - taxed_income;
+        
 
         }
         break;
