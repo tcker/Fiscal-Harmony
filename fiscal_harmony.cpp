@@ -16,6 +16,8 @@
 #include <cmath>
 #include <string>
 #include <iomanip>
+#include <limits>  // Added this for fixing the bugs when changing folders in vscode
+#include <algorithm>  // Added this for fixing the bugs when changing folders in vscode
 
 using namespace std;
 int main(){
