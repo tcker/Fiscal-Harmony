@@ -33,7 +33,7 @@ int main() {
         "Food & Drink", "Shopping & Groceries", "Transport", "Home", "Bills/Fees & others"};
 
     cout << "=============================================================" << endl;
-    cout << "\t\t\t\tWelcome to Fiscal Harmony" << endl;
+    cout << "\t\tWelcome to Fiscal Harmony" << endl;
     cout << "=============================================================" << endl;
     cout << "Planning your future for a financially free life." << endl;
     cout << "[1]. Sign In [2]. Sign Up" << endl;
@@ -147,7 +147,7 @@ int main() {
         switch (userFeatureChoice) {
         case 1:
             cout << "=============================================================" << endl;
-            cout << "\t\t\t\tIncome and Expenses Allocation" << endl;
+            cout << "\t\tIncome and Expenses Allocation" << endl;
             cout << "=============================================================" << endl;
             cout << "Kindly choose one of the following: " << endl;
             cout << "[1]. Income [2]. Expenses [3]. Exit" << endl;
@@ -301,10 +301,219 @@ int main() {
                 cout << "_________________________________" << endl;
                 break;
             }
+        
             break;
+        
+            case 2:
+            cout << "=============================================================" << endl;
+            cout << "\t\tAnnual Income Taxed Calculator " << endl;
+            cout << "=============================================================" << endl;
+    double monthly_income;
+    double annual;
+    double final;
+    double tax;
+    double excess;
+    double taxed_income;
+    double addon;
+
+    cout << "Do you want to compute your funds? " << endl;
+    cout << "Type: [1]. Yes Type: [2]. No Type [3]. Double Pay Option " << endl;
+    cout << "> ";
+    cin >> userOption;
+    cout << "\n";
+
+    while (userOption != 1 && userOption != 2 && userOption != 3) {
+        cout << "_________________________________" << endl;
+        if (cin.fail() || (userOption != 1 && userOption != 2 && userOption != 3)) {
+            // Invalid input, clear the error state and discard the invalid input
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            // They need to input a valid number which is only 1 and 2, rather than 3 to ∞ or 0 to -∞, also invalid alphabetical letters
+            cout << "Invalid input. Please enter a valid number (1, 2, or 3)." << endl;
+            cout << "> ";
+        }
+        cin >> userOption;
+        cout << "\n";
+    }
+        
+
+    switch (userOption) {
+        case 3:
+            cout << "Do you want to compute your funds with double pay? " << endl;
+            cout << "Type: [1]. Yes Type: [2]. No" << endl;
+            cout << "> ";
+            cin >> userOption;
+            cout << "||SERVICE IS NOT WORKING, I'M SORRY HAVE A GREAT TIME||" << endl;
+            break;
+        case 2:
+            cout << "Signing out " << endl;
+            exit(0);
+        case 1:
+    cout << "===========================" << endl;
+    cout << "Enter your salary: ";
+    cin >> monthly_income;
+    cout << "===========================" << endl;
+    cout << "\n";
+
+    annual = monthly_income * 12;
+
+    if (annual <= 250000) {
+        final = annual / 12;
+        cout << "\t\tRECEIPT" << endl;
+        cout << "\t=======================" << endl;
+        cout << "\tYour monthly income did not exceed PHP250,000"<< endl; 
+        cout << "\tand you are in the 0% tax bracket." << endl;
+        cout << "\t=======================" << endl;
+        cout << "\t||Tax Bracket: 0%" << endl;
+        cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
+        cout << "\t||No Tax Deduction: " << final << endl;
+        cout << "\t||Your salary with tax deducted is: " << final << endl;
+        cout << "\t||TOTAL: " << final << endl;
+        cout << "\t=======================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
+    } else {
+        if (annual <= 400000) {
+            tax = 0.15;
+            excess = annual - 250000;
+            final = (excess * tax) / 12;
+            taxed_income = final / 12;
+            addon = monthly_income - taxed_income;
+        cout << "\t\tRECEIPT" << endl;
+        cout << "\t=======================" << endl;
+        cout << "\tYour monthly income did not exceed PHP400,000"<< endl; 
+        cout << "\tand you are in the 15% tax bracket." << endl;
+        cout << "\t=======================" << endl;
+        cout << "\t||Tax Bracket: 15%" << endl;
+        cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
+        cout << "\t||Tax Deduction: " << final << endl;
+        cout << "\t||Your salary with tax deducted is: " << taxed_income << endl;
+        cout << "\t||TOTAL: " << taxed_income << endl;
+        cout << "\t=======================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
+        } else if (annual <= 800000) {
+            tax = 0.2;
+            excess = annual - 400000;
+            final = (excess * tax) + 22500;
+            taxed_income = final / 12;
+            addon = monthly_income - taxed_income;
+        cout << "\t\tRECEIPT" << endl;
+        cout << "\t=======================" << endl;
+        cout << "\tYour monthly income did not exceed PHP800,000"<< endl; 
+        cout << "\tand you are in the 2% tax bracket." << endl;
+        cout << "\t=======================" << endl;
+        cout << "\t||Tax Bracket: 2%" << endl;
+        cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
+        cout << "\t||Tax Deduction: " << final << endl;
+        cout << "\t||Your salary with tax deducted is: " << addon << endl;
+        cout << "\t||TOTAL: " << addon << endl;
+        cout << "\t=======================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
+        } else if (annual <= 2000000) {
+            tax = 0.25;
+            excess = annual - 800000;
+            final = (excess * tax) + 102500;
+            taxed_income = final / 12;
+            addon = monthly_income - taxed_income;
+        cout << "\t\tRECEIPT" << endl;
+        cout << "\t=======================" << endl;
+        cout << "\tYour monthly income did not exceed PHP2,000,000"<< endl; 
+        cout << "\tand you are in the 25% tax bracket." << endl;
+        cout << "\t=======================" << endl;
+        cout << "\t||Tax Bracket: 25%" << endl;
+        cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
+        cout << "\t||Tax Deduction: " << final << endl;
+        cout << "\t||Your salary with tax deducted is: " << addon << endl;
+        cout << "\t||TOTAL: " << addon << endl;
+        cout << "\t=======================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
+        } else if (annual <= 8000000) {
+            tax = 0.3;
+            excess = annual - 2000000;
+            final = (excess * tax) + 402500;
+            taxed_income = final / 12;
+            addon = monthly_income - taxed_income;
+        cout << "\t\tRECEIPT" << endl;
+        cout << "\t=======================" << endl;
+        cout << "\tYour monthly income did not exceed PHP8,000,000"<< endl; 
+        cout << "\tand you are in the 3% tax bracket." << endl;
+        cout << "\t=======================" << endl;
+        cout << "\t||Tax Bracket: 3%" << endl;
+        cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
+        cout << "\t||Tax Deduction: " << final << endl;
+        cout << "\t||Your salary with tax deducted is: " << addon << endl;
+        cout << "\t||TOTAL: " << addon << endl;
+        cout << "\t=======================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
+        } else {
+            tax = 0.35;
+            excess = annual - 8000000;  
+            final = (excess * tax) + 2202500;
+            taxed_income = final / 12;
+            addon = monthly_income - taxed_income;
+        cout << "\t\tRECEIPT" << endl;
+        cout << "\t=======================" << endl;
+        cout << "\tYour monthly income exceed PHP8,000,000"<< endl; 
+        cout << "\tand you are in the 35% tax bracket." << endl;
+        cout << "\t=======================" << endl;
+        cout << "\t||Tax Bracket: 35%" << endl;
+        cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
+        cout << "\t||Tax Deduction: " << final << endl;
+        cout << "\t||Your salary with tax deducted is: " << addon << endl;
+        cout << "\t||TOTAL: " << addon << endl;;
+        cout << "\t=======================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
+        }
+char backOrLogOut2;
+cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
+cout << "> ";
+cin >> backOrLogOut2;
+
+if (backOrLogOut2 == '1') {
+    continue;
+} else if (backOrLogOut2 == '2') {
+    userFeatureChoiceBool = false;
+    exit(0);
+} else {
+        cout << "Invalid input. Please enter either 1 or 2." << endl;
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    userFeatureChoiceBool = false;
+}
+ break;
+    }
+        }
+    
+    
+
 case 3:
+
     cout << "=============================================================" << endl;
-    cout << "\t\t\tYour Trusty Emergency Fund Calculator" << endl;
+    cout << "\t\tYour Trusty Emergency Fund Calculator" << endl;
     cout << "=============================================================" << endl;
     double totalExpensesPerMonth;
     int numberOfMonths;
