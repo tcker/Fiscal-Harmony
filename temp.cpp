@@ -375,6 +375,8 @@ int main() {
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
         cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
+
+        exit(0);
     } else {
         if (annual <= 400000) {
             tax = 0.15;
