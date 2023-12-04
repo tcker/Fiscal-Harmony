@@ -25,3 +25,10 @@ https://github.com/tcker
 
 - FIXED THE BUGS, C++ HANDLING LARGE VALUES <br>
 - UPDATED RECEIPT
+
+---
+
+<h4 align="left"> Bugs:</h4>
+
+- LACKS THE INCOME TAX CALCULATOR
+- GOING BACK TO THE MAIN MENU BUG
