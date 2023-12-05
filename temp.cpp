@@ -376,7 +376,28 @@ int main() {
         cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
         cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
 
-        exit(0);
+        char backOrLogOut2;
+            cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
+            cout << "> ";
+            cin >> backOrLogOut2;
+
+        while (backOrLogOut2 != '1' && backOrLogOut2 != '2') {
+            cout << "Invalid input. Please enter either 1 or 2." << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
+            cout << "> ";
+            cin >> backOrLogOut2;
+        }
+
+        if (backOrLogOut2 == '1') {
+            continue;
+        } else if (backOrLogOut2 == '2') {
+            userFeatureChoiceBool = false;
+            exit(0);
+        }
     } else {
         if (annual <= 400000) {
             tax = 0.15;
@@ -400,7 +421,29 @@ int main() {
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
         cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
-        } else if (annual <= 800000) {
+        char backOrLogOut2;
+            cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
+            cout << "> ";
+            cin >> backOrLogOut2;
+
+        while (backOrLogOut2 != '1' && backOrLogOut2 != '2') {
+            cout << "Invalid input. Please enter either 1 or 2." << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
+            cout << "> ";
+            cin >> backOrLogOut2;
+        }
+
+        if (backOrLogOut2 == '1') {
+            continue;
+        } else if (backOrLogOut2 == '2') {
+            userFeatureChoiceBool = false;
+            exit(0);
+        }
+    } else if (annual <= 800000) {
             tax = 0.2;
             excess = annual - 400000;
             final = (excess * tax) + 22500;
@@ -422,7 +465,29 @@ int main() {
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
         cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
-        } else if (annual <= 2000000) {
+        char backOrLogOut2;
+            cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
+            cout << "> ";
+            cin >> backOrLogOut2;
+
+        while (backOrLogOut2 != '1' && backOrLogOut2 != '2') {
+            cout << "Invalid input. Please enter either 1 or 2." << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
+            cout << "> ";
+            cin >> backOrLogOut2;
+        }
+
+        if (backOrLogOut2 == '1') {
+            continue;
+        } else if (backOrLogOut2 == '2') {
+            userFeatureChoiceBool = false;
+            exit(0);
+        }
+    } else if (annual <= 2000000) {
             tax = 0.25;
             excess = annual - 800000;
             final = (excess * tax) + 102500;
@@ -444,7 +509,29 @@ int main() {
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
         cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
-        } else if (annual <= 8000000) {
+        char backOrLogOut2;
+            cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
+            cout << "> ";
+            cin >> backOrLogOut2;
+
+        while (backOrLogOut2 != '1' && backOrLogOut2 != '2') {
+            cout << "Invalid input. Please enter either 1 or 2." << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
+            cout << "> ";
+            cin >> backOrLogOut2;
+        }
+
+        if (backOrLogOut2 == '1') {
+            continue;
+        } else if (backOrLogOut2 == '2') {
+            userFeatureChoiceBool = false;
+            exit(0);
+        }
+    } else if (annual <= 8000000) {
             tax = 0.3;
             excess = annual - 2000000;
             final = (excess * tax) + 402500;
@@ -466,7 +553,30 @@ int main() {
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
         cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
-        } else {
+
+        char backOrLogOut2;
+            cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
+            cout << "> ";
+            cin >> backOrLogOut2;
+
+        while (backOrLogOut2 != '1' && backOrLogOut2 != '2') {
+            cout << "Invalid input. Please enter either 1 or 2." << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
+            cout << "> ";
+            cin >> backOrLogOut2;
+        }
+
+        if (backOrLogOut2 == '1') {
+            continue;
+        } else if (backOrLogOut2 == '2') {
+            userFeatureChoiceBool = false;
+            exit(0);
+        }
+    } else {
             tax = 0.35;
             excess = annual - 8000000;  
             final = (excess * tax) + 2202500;
@@ -489,26 +599,31 @@ int main() {
         cout << "\thttps://www.taxumo.com/tax-computation-philippines/ \n\n";
         cout << "\t<><> Fiscal Harmony Enterprises <><>" << endl;
         }
-char backOrLogOut2;
-cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
-cout << "> ";
-cin >> backOrLogOut2;
+        char backOrLogOut2;
+            cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
+            cout << "> ";
+            cin >> backOrLogOut2;
 
-if (backOrLogOut2 == '1') {
-    continue;
-} else if (backOrLogOut2 == '2') {
-    userFeatureChoiceBool = false;
-    exit(0);
-} else {
-        cout << "Invalid input. Please enter either 1 or 2." << endl;
+        while (backOrLogOut2 != '1' && backOrLogOut2 != '2') {
+            cout << "Invalid input. Please enter either 1 or 2." << endl;
 
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    userFeatureChoiceBool = false;
-}
- break;
-    }
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
+            cout << "> ";
+            cin >> backOrLogOut2;
         }
+
+        if (backOrLogOut2 == '1') {
+            continue;
+        } else if (backOrLogOut2 == '2') {
+            userFeatureChoiceBool = false;
+            exit(0);
+        }
+            break;
+        }
+            }
     
     
 
