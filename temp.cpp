@@ -157,7 +157,7 @@ int main() {
             cout << "=============================================================" << endl;
             cout << "Kindly choose one of the following: " << endl;
             cout << "[1]. Income [2]. Expenses [3]. Exit" << endl;
-            cout << "<|";
+            cout << "> ";
             cin >> userAllocationChoice;
 
             while (userAllocationChoice != 1 && userAllocationChoice != 2 && userAllocationChoice != 3) {
@@ -303,7 +303,6 @@ int main() {
                 break;
 
             case 3:
-                userFeatureChoiceBool = false;
                 cout << "_________________________________" << endl;
                 break;
             }
@@ -327,7 +326,7 @@ int main() {
 
     emergencyFund = totalExpensesPerMonth * numberOfMonths + 50;
 
-    cout << "\nYour recommended emergency fund is: PHP " << emergencyFund << endl;
+    cout << fixed << setprecision(2) << "\nYour recommended emergency fund is: PHP " << emergencyFund << endl;
 
     char backOrLogOut3;
     cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
@@ -383,8 +382,8 @@ case 3:
 
     switch (userOption) {
         case 2:
-            cout << "Signing out " << endl;
-            exit(0);
+            cout << "Thank you for using our service " << endl;
+            break;
         case 1:
     while (true) {
         cout << "===========================" << endl;
