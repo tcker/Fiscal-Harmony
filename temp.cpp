@@ -311,7 +311,7 @@ int main() {
             
 // ============================= [2] EMERGENCY FUND CALCULATOR  ==============================
 
-            case 2:
+    case 2:
     cout << "=============================================================" << endl;
     cout << "\t\tYour Trusty Emergency Fund Calculator" << endl;
     cout << "=============================================================" << endl;
@@ -2194,7 +2194,7 @@ case 4:
         return 0;
     }
         
-    // User chose not to log out, continue to the MAIN MENU | FEATURES
+    // User chose not to log out, breaks the loop and continue to the MAIN MENU | FEATURES
     break;
     }
         } while (userFeatureChoiceBool);
