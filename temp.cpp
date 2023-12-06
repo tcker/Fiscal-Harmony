@@ -427,6 +427,8 @@ if (annual<=250000){
         cout << "\t==================================================" << endl;
         cout << "\t||\t\tRECEIPT\t\t\t\t||" << endl;
         cout << "\t==================================================" << endl;
+        cout << "\t||\t\tTAX\t\t\t\t||" << endl;
+        cout << "\t==================================================" << endl;
         cout << "\tYour monthly income did not exceed PHP250,000"<< endl; 
         cout << "\tand you are in the 0% tax bracket." << endl;
         cout << "\t==================================================" << endl;
@@ -449,6 +451,8 @@ else if (annual<=400000){
 	taxed_income= monthly_income - final;
         cout << "\t==================================================" << endl;
         cout << "\t||\t\tRECEIPT\t\t\t\t||" << endl;
+        cout << "\t==================================================" << endl;
+        cout << "\t||\t\tTAX\t\t\t\t||" << endl;
         cout << "\t==================================================" << endl;
         cout << "\tYour monthly income did not exceed PHP400,000"<< endl; 
         cout << "\tand you are in the 15% tax bracket." << endl;
@@ -474,6 +478,8 @@ else if (annual<=800000){
 
         cout << "\t==================================================" << endl;
         cout << "\t||\t\tRECEIPT\t\t\t\t||" << endl;
+        cout << "\t==================================================" << endl;
+        cout << "\t||\t\tTAX\t\t\t\t||" << endl;
         cout << "\t==================================================" << endl;
         cout << "\tYour monthly income did not exceed PHP800,000"<< endl; 
         cout << "\tand you are in the 20% tax bracket." << endl;
@@ -501,6 +507,8 @@ else if (annual<=2000000){
         cout << "\t==================================================" << endl;
         cout << "\t||\t\tRECEIPT\t\t\t\t||" << endl;
         cout << "\t==================================================" << endl;
+        cout << "\t||\t\tTAX\t\t\t\t||" << endl;
+        cout << "\t==================================================" << endl;
         cout << "\tYour monthly income did not exceed PHP800,000"<< endl; 
         cout << "\tand you are in the 25% tax bracket." << endl;
         cout << "\t==================================================" << endl;
@@ -527,6 +535,8 @@ else if (annual<=800000){
         cout << "\t==================================================" << endl;
         cout << "\t||\t\tRECEIPT\t\t\t\t||" << endl;
         cout << "\t==================================================" << endl;
+        cout << "\t||\t\tTAX\t\t\t\t||" << endl;
+        cout << "\t==================================================" << endl;
         cout << "\tYour monthly income did not exceed PHP800,000"<< endl; 
         cout << "\tand you are in the 30% tax bracket." << endl;
         cout << "\t==================================================" << endl;
@@ -551,6 +561,8 @@ else{
 
         cout << "\t==================================================" << endl;
         cout << "\t||\t\tRECEIPT\t\t\t\t||" << endl;
+        cout << "\t==================================================" << endl;
+        cout << "\t||\t\tTAX\t\t\t\t||" << endl;
         cout << "\t==================================================" << endl;
         cout << "\tYour monthly income did not exceed PHP800,000"<< endl; 
         cout << "\tand you are in the 35% tax bracket." << endl;
