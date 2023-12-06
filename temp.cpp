@@ -338,7 +338,7 @@ int main() {
     break;
 
 case 3:
-                cout << "=============================================================" << endl;
+            cout << "=============================================================" << endl;
             cout << "\t\tAnnual Income Taxed Calculator " << endl;
             cout << "=============================================================" << endl;
     double monthly_income;
@@ -350,7 +350,7 @@ case 3:
     double addon;
 
     cout << "Do you want to compute your funds? " << endl;
-    cout << "Type: [1]. Yes Type: [2]. No Type [3]. Double Pay Option " << endl;
+    cout << "[1]. Yes [2]. No " << endl;
     cout << "> ";
     cin >> userOption;
     cout << "\n";
