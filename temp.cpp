@@ -138,7 +138,7 @@ int main() {
         cout << ">|";
         cin >> userFeatureChoice;
 
-        userFeatureChoiceBool = true;
+        userFeatureChoiceBool = true;   
 
           while (userFeatureChoice != 1 && userFeatureChoice != 2 && userFeatureChoice != 3 && userFeatureChoice != 4) {
             cout << "Invalid input. Please enter a valid number (1, 2, 3, or 4)." << endl;
@@ -348,7 +348,10 @@ int main() {
 
 case 3:
     cout << "=============================================================" << endl;
-    cout << "\t\tAnnual Income Taxed Calculator " << endl;
+    cout << "\t\tSalary Calculator " << endl;
+    cout << "=============================================================" << endl;
+    cout << "MUST READ! - You must finish the feature first before you go back" << endl;
+    cout << "\t\tTo the main Menu" << endl;
     cout << "=============================================================" << endl;
     double monthly_income;
     double annual;
@@ -382,8 +385,8 @@ case 3:
 
     switch (userOption) {
         case 2:
-            cout << "Thank you for using our service " << endl;
-            break;
+            cout << "Signing out " << endl;
+            exit(0);
         case 1:
     while (true) {
         cout << "===========================" << endl;
@@ -412,16 +415,16 @@ if (annual<=250000){
 	
 	final = annual / 12;
         cout << "\t\tRECEIPT" << endl;
-        cout << "\t=======================" << endl;
+        cout << "\t==============================================" << endl;
         cout << "\tYour monthly income did not exceed PHP250,000"<< endl; 
         cout << "\tand you are in the 0% tax bracket." << endl;
-        cout << "\t=======================" << endl;
+        cout << "\t==============================================" << endl;
         cout << "\t||Tax Bracket: 0%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||No Tax Deduction: " << final << endl;
         cout << "\t||Your salary with tax deducted is: " << final << endl;
-        cout << "\t||TOTAL: " << final << endl;
-        cout << "\t=======================" << endl;
+        cout << "\t||TOTAL: "  << final << "\t\t\t\t\t||" <<endl;
+        cout << "\t==============================================" << endl;
 
         cout << "\n";
         cout << "\tFor more information kindly visit this link " << endl;
@@ -431,7 +434,7 @@ if (annual<=250000){
 else if (annual<=400000){
 	tax = 0.15;
 	excess = annual - 250000;
-	final = (excess * tax)/12;
+	 final = (excess * tax)/12;
 	taxed_income= monthly_income - final;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -453,14 +456,14 @@ else if (annual<=400000){
 else if (annual<=800000){
 	tax = 0.2;
 	excess = annual - 400000;
-	final = (excess *tax)+ 22500;
-	taxed_income = final / 12;
-	addon = monthly_income - taxed_income;
+	 final = (excess *tax)+ 22500;
+	 taxed_income = final / 12;
+	 addon = monthly_income - taxed_income;
 
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
         cout << "\tYour monthly income did not exceed PHP800,000"<< endl; 
-        cout << "\tand you are in the 2% tax bracket." << endl;
+        cout << "\tand you are in the 20% tax bracket." << endl;
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 2%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
@@ -478,14 +481,14 @@ else if (annual<=800000){
 else if (annual<=2000000){
 	tax = 0.25;
 	excess = annual - 800000;
-    final = (excess *tax)+ 102500;
-	taxed_income = final / 12;
+ final = (excess *tax)+ 102500;
+	 taxed_income = final / 12;
 	addon = monthly_income - taxed_income;
 
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
         cout << "\tYour monthly income did not exceed PHP800,000"<< endl; 
-        cout << "\tand you are in the 2% tax bracket." << endl;
+        cout << "\tand you are in the 25% tax bracket." << endl;
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 2%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
@@ -503,14 +506,14 @@ else if (annual<=2000000){
 else if (annual<=800000){
 	tax = 0.3;
 	excess = annual - 2000000;
-    final = (excess *tax)+ 402500;
-	taxed_income = final / 12;
+ final = (excess *tax)+ 402500;
+	 taxed_income = final / 12;
 	addon = monthly_income - taxed_income;
 
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
         cout << "\tYour monthly income did not exceed PHP800,000"<< endl; 
-        cout << "\tand you are in the 2% tax bracket." << endl;
+        cout << "\tand you are in the 30% tax bracket." << endl;
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 2%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
@@ -527,14 +530,14 @@ else if (annual<=800000){
 else{
 	tax = 0.35;
 	excess = annual - 8000000;
-    final = (excess *tax)+ 2202500;
-	taxed_income = final / 12;
-	addon = monthly_income - taxed_income;
+ final = (excess *tax)+ 2202500;
+	 taxed_income = final / 12;
+	 addon = monthly_income - taxed_income;
 
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
         cout << "\tYour monthly income did not exceed PHP800,000"<< endl; 
-        cout << "\tand you are in the 2% tax bracket." << endl;
+        cout << "\tand you are in the 35% tax bracket." << endl;
         cout << "\t=======================" << endl;
         cout << "\t||Tax Bracket: 2%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
@@ -549,7 +552,6 @@ else{
         cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
 }
 
-// ============================= {[3] EXTRA FEATURE SSS CONTRIBUTIONS }  ======================
 
 int sss;
 int member;
@@ -560,14 +562,17 @@ double cr = 0.14;
 double tmc;
 double final_sss;
 
-cout << "=============================================================" << endl;
-cout << "\t\t| SSS CONTRIBUTIONS| " << endl;
-cout << "=============================================================" << endl;
-cout<<"Do you want to compute your sss contribution? [1] YES, [2] NO" << endl;
-cout << "> ";
+    cout << "=============================================================" << endl;
+    cout << "\t\t| SSS CONTRIBUTIONS| " << endl;
+    cout << "=============================================================" << endl;
+    cout << "Do you want to compute your SSS contribution? [1] YES, [2] NO" << endl;
+    cout << "> ";
+
+    // Input validation loop for sss choice
     do {
         cin >> sss;
 
+        // Check if input is not an integer or is not 1 or 2
         if (cin.fail() || (sss != 1 && sss != 2)) {
             cin.clear();                                           // Clear error flag
             cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Discard invalid input
@@ -581,30 +586,30 @@ cout << "> ";
         cout << "What kind of member are you? [1] HOUSEHOLD, [2] EMPLOYEE " << endl;
         cout << "> ";
 
+        // Input validation loop for member choice
         do {
             cin >> member;
+
+            // Check if input is not an integer or is not 1 or 2
             if (cin.fail() || (member != 1 && member != 2)) {
                 cin.clear();                                           // Clear error flag
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Discard invalid input
                 cout << "Invalid input. Please enter [1] for HOUSEHOLD or [2] for EMPLOYEE: ";
             }
         } while (member != 1 && member != 2);
-
-// ============================= [1] IF HOUSEHOLD   ======================
-
 	if(member == 1){
         if(monthly_income<=5000){
             cout<<"This was paid by your employer.";
         }
             
-        else if (monthly_income <=5249.99){
+else if (monthly_income <=5249.99){
             msc = 5000;
             ec = 10;
             tmc = (msc * cr)+ ec;
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -617,7 +622,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -631,7 +636,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -645,7 +650,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -659,7 +664,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -673,7 +678,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -687,7 +692,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -701,7 +706,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -715,7 +720,7 @@ cout << "> ";
             final_sss = final- tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -729,7 +734,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -743,12 +748,12 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
         cout << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t=======================\n" << endl;
+        cout << "\t=======================" << endl;
         }
          else if (monthly_income <=10749.99){
             msc = 10500;
@@ -757,7 +762,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -771,7 +776,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -785,12 +790,12 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
         cout << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t=======================\n" << endl;
+           cout << "\t=======================\n" << endl;
         }
          else if (monthly_income <=12249.99){
             msc = 12000;
@@ -799,7 +804,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -813,7 +818,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -828,7 +833,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -842,7 +847,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -856,7 +861,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -870,12 +875,12 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
         cout << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t=======================\n" << endl;
+        cout << "\t=======================" << endl;
         }
          else if (monthly_income <=15249.99){
             msc = 15000;
@@ -884,7 +889,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -898,7 +903,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -912,7 +917,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -926,7 +931,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -940,7 +945,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -954,7 +959,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -968,7 +973,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -982,7 +987,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -996,7 +1001,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1010,7 +1015,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1024,7 +1029,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1039,7 +1044,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1055,7 +1060,7 @@ cout << "> ";
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1068,7 +1073,7 @@ cout << "> ";
               final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1084,7 +1089,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1099,7 +1104,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1114,7 +1119,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1129,7 +1134,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1144,7 +1149,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1159,7 +1164,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1174,7 +1179,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1189,7 +1194,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1204,7 +1209,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1219,7 +1224,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1234,7 +1239,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1249,7 +1254,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1264,7 +1269,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1279,14 +1284,14 @@ cout << "> ";
             final_sss = taxed_income- tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-        else if (monthly_income <=28749.99){
+ else if (monthly_income <=28749.99){
             msc = 20000;
             ec = 30;
             mpf = 8500;
@@ -1294,7 +1299,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1309,14 +1314,14 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-        else if (monthly_income <=29749.99){
+         else if (monthly_income <=29749.99){
             msc = 20000;
             ec = 30;
             mpf = 9500;
@@ -1324,14 +1329,14 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-        else{//breaking point
+         else{//breaking point
             msc = 20000;
             ec = 30;
             mpf = 10000;
@@ -1340,7 +1345,7 @@ cout << "> ";
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
-        cout << "\t\tSSS"<< endl; 
+       cout << "\t\tSSS"<< endl; 
         cout << "\t=======================" << endl;
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
@@ -1362,7 +1367,9 @@ cout << "> ";
           }
         }
 
-// ======================================= [2] IF EMPLOYEE   ============================================
+
+
+///EMPLOYEEEEE
 
     }
     else if (member == 2){
@@ -1380,7 +1387,7 @@ cout << "> ";
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-        else if (monthly_income <=4749){
+         else if (monthly_income <=4749){
             msc = 4500;
             ec = 10;
             tmc = (msc * cr)+ ec;
@@ -1448,7 +1455,7 @@ cout << "> ";
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
         cout << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t=======================\n" << endl;
+        cout << "\t=======================" << endl;
         }
          else if (monthly_income <=7249.99){
             msc = 7000;
@@ -1476,7 +1483,7 @@ cout << "> ";
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
         cout << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t=======================\n" << endl;;
+        cout << "\t=======================\n" << endl;
         }
          else if (monthly_income <=8249.99){
             msc = 8000;
@@ -1848,7 +1855,7 @@ cout << "> ";
             msc = 20000;
             ec = 30;
             mpf = 1000;
-          tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             if (monthly_income <=20833.33){
             final_sss = final - tmc;
         cout << "\t\tRECEIPT" << endl;
@@ -1878,7 +1885,7 @@ cout << "> ";
             msc = 20000;
             ec = 30;
             mpf = 1500;
-           tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -1893,7 +1900,7 @@ cout << "> ";
             msc = 20000;
             ec = 30;
             mpf = 2000;
-          tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -1908,7 +1915,7 @@ cout << "> ";
             msc = 20000;
             ec = 30;
             mpf = 2500;
-         tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -1923,7 +1930,7 @@ cout << "> ";
             msc = 20000;
             ec = 30;
             mpf = 3000;
-          tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -1938,7 +1945,7 @@ cout << "> ";
             msc = 20000;
             ec = 30;
             mpf = 3500;
-          tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -1949,11 +1956,11 @@ cout << "> ";
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-         else if (monthly_income <=24249.99){
+        else if (monthly_income <=24249.99){
             msc = 20000;
             ec = 30;
             mpf = 4000;
-       tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -1964,11 +1971,11 @@ cout << "> ";
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-         else if (monthly_income <=24749.99){
+        else if (monthly_income <=24749.99){
             msc = 20000;
             ec = 30;
             mpf= 4500;
-          tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -1979,11 +1986,11 @@ cout << "> ";
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-         else if (monthly_income <=25249.99){
+        else if (monthly_income <=25249.99){
             msc = 20000;
             ec = 30;
             mpf = 5000;
-           tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -1994,11 +2001,11 @@ cout << "> ";
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-         else if (monthly_income <=25749.99){
+        else if (monthly_income <=25749.99){
             msc = 20000;
             ec = 30;
             mpf = 5500;
-           tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -2009,11 +2016,11 @@ cout << "> ";
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-         else if (monthly_income <=26249.99){
+        else if (monthly_income <=26249.99){
             msc = 20000;
             ec = 30;
             mpf = 6000;
-        tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -2024,11 +2031,11 @@ cout << "> ";
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-         else if (monthly_income <=26749.99){
+        else if (monthly_income <=26749.99){
             msc = 20000;
             ec = 30;
             mpf = 6500;
-        tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -2039,11 +2046,11 @@ cout << "> ";
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-         else if (monthly_income <=27249.99){
+        else if (monthly_income <=27249.99){
             msc = 20000;
             ec = 30;
             mpf = 7000;
-         tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -2054,11 +2061,11 @@ cout << "> ";
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-         else if (monthly_income <=27749.99){
+        else if (monthly_income <=27749.99){
             msc = 20000;
             ec = 30;
             mpf = 7500;
-         tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -2069,11 +2076,11 @@ cout << "> ";
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-         else if (monthly_income <=28249.99){
+        else if (monthly_income <=28249.99){
             msc = 20000;
             ec = 30;
             mpf = 8000;
-           tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income- tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -2082,13 +2089,13 @@ cout << "> ";
         cout << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
         cout << "\t||TOTAL: " << final_sss << endl;
-         cout << "\t=======================\n" << endl;
+        cout << "\t=======================\n" << endl;
         }
         else if (monthly_income <=28749.99){
             msc = 20000;
             ec = 30;
             mpf = 8500;
-          tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -2099,11 +2106,11 @@ cout << "> ";
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-        else if (monthly_income <=29249.99){
+         else if (monthly_income <=29249.99){
             msc = 20000;
             ec = 30;
             mpf = 9000;
-          tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -2114,11 +2121,11 @@ cout << "> ";
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-        else if (monthly_income <=29749.99){
+         else if (monthly_income <=29749.99){
             msc = 20000;
             ec = 30;
             mpf = 9500;
-          tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
@@ -2129,11 +2136,11 @@ cout << "> ";
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
         }
-        else{  //breaking point
+         else{//breaking point
             msc = 20000;
             ec = 30;
             mpf = 10000;
-          tmc = (msc * cr)+ec +(mpf * cr);
+            tmc = (msc * cr)+ec +(mpf * cr);
           if (monthly_income <=33333.33){
             final_sss = taxed_income - tmc;
         cout << "\t\tRECEIPT" << endl;
@@ -2148,7 +2155,7 @@ cout << "> ";
           else
           {
 
-              final_sss = addon - tmc;
+            final_sss = addon - tmc;
         cout << "\t\tRECEIPT" << endl;
         cout << "\t=======================" << endl;
         cout << "\t\tSSS"<< endl; 
@@ -2157,11 +2164,154 @@ cout << "> ";
         cout << "\t||Your remaining balance with tax, SSS deduction : " << final_sss << endl;
         cout << "\t||TOTAL: " << final_sss << endl;
         cout << "\t=======================\n" << endl;
+            }
           }
-         }
+        }
+        
+    } else if (sss == 2); {
+double gsis_contri = 0.09;
+double final_gsis;
+double total_gsis;
+double gsis;
+
+cout << "=============================================================" << endl;
+cout << "\t\t| GSIS CONTRIBUTIONS| " << endl;
+cout << "=============================================================" << endl;
+
+cout << "Do you want to compute your GSIS contribution? " << endl;
+cout << "[1]. YES, [2]. NO " << endl;
+cout << "> ";
+cin >> gsis;
+
+   while (gsis != 1 && gsis != 2) {
+        cout << "_________________________________" << endl;
+        if (cin.fail() || (gsis != 1 && gsis != 2)) {
+            // Invalid input, clear the error state and discard the invalid input
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            // They need to input a valid number which is only 1 and 2, rather than 3 to ∞ or 0 to -∞, also invalid alphabetical letters
+            cout << "Invalid input. Please enter a valid number (1, 2)." << endl;
+            cout << "> ";
+        }
+        cin >> gsis;
+        cout << "\n";
+    }
+
+if (gsis == 1){
+if(annual <= 250000){
+    total_gsis = monthly_income * gsis_contri;
+    final_gsis ==  final- total_gsis;
+    cout << "\t\tRECEIPT" << endl;
+    cout << "\t=======================" << endl;
+    cout << "\t\tGSIS"<< endl; 
+    cout << "\t=======================" << endl;
+    cout << "\t||GSIS Contribution Percentage: " << "9%" << endl;
+    cout << "\t||Your total monthly contribution is: " << total_gsis << endl;
+    cout << "\t||Your remaining balance with tax, with GSIS " << final_gsis << endl;
+    cout << "\t||TOTAL: " << final_gsis << endl;
+    cout << "\t=======================\n" << endl;
+}
+else if( annual<= 400000){
+    total_gsis = monthly_income * gsis_contri;
+    final_gsis =  taxed_income - total_gsis;
+    cout << "\t\tRECEIPT" << endl;
+    cout << "\t=======================" << endl;
+    cout << "\t\tGSIS"<< endl; 
+    cout << "\t=======================" << endl;
+    cout << "\t||GSIS Contribution Percentage: " << "9%" << endl;
+    cout << "\t||Your total monthly contribution is: " << total_gsis << endl;
+    cout << "\t||Your remaining balance with tax, with GSIS " << final_gsis << endl;
+    cout << "\t||TOTAL: " << final_gsis << endl;
+    cout << "\t=======================\n" << endl;
+}
+else {
+    total_gsis = monthly_income * gsis_contri;
+    final_gsis =  addon - total_gsis;
+    cout << "\t\tRECEIPT" << endl;
+    cout << "\t=======================" << endl;
+    cout << "\t\tGSIS"<< endl; 
+    cout << "\t=======================" << endl;
+    cout << "\t||GSIS Contribution Percentage: " << "9%" << endl;
+    cout << "\t||Your total monthly contribution is: " << total_gsis << endl;
+    cout << "\t||Your remaining balance with tax, with GSIS " << final_gsis << endl;
+    cout << "\t||TOTAL: " << final_gsis << endl;
+    cout << "\t=======================\n" << endl;
+    }
+}
+else 
+
+cout << "=============================================================" << endl;
+cout << "\t\t| PhilHealth CONTRIBUTIONS| " << endl;
+cout << "=============================================================" << endl;
+
+double ph;
+double ph_total;
+double ph_final;
+
+cout << "Do you want to compute your Philhealth contribution? " << endl;
+cout << "[1]. YES, [2]. NO " << endl;
+cout << "> ";
+cin >> ph;
+
+   while (ph != 1 && ph != 2) {
+        cout << "_________________________________" << endl;
+        if (cin.fail() || (ph != 1 && ph != 2)) {
+            // Invalid input, clear the error state and discard the invalid input
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            // They need to input a valid number which is only 1 and 2, rather than 3 to ∞ or 0 to -∞, also invalid alphabetical letters
+            cout << "Invalid input. Please enter a valid number (1, 2)." << endl;
+            cout << "> ";
+        }
+        cin >> ph;
+        cout << "\n";
+    }
+
+if(ph == 1){
+    if (annual <= 250000){
+           ph_total = monthly_income * 0.04;
+    ph_final = final - ph_total;
+    cout << "\t\tRECEIPT" << endl;
+    cout << "\t=======================" << endl;
+    cout << "\t\tGSIS"<< endl; 
+    cout << "\t=======================" << endl;
+    cout << "\t||Philhealth Contribution Percentage: " << "4%" << endl;
+    cout << "\t||Your total monthly contribution is: " << ph_total << endl;
+    cout << "\t||Your remaining balance with tax, with Philhealth " << ph_final << endl;
+    cout << "\t||TOTAL: " << ph_final << endl;
+    cout << "\t=======================\n" << endl;
+    }
+    else if(annual <=400000){
+           ph_total = monthly_income * 0.04;
+    ph_final = taxed_income - ph_total;
+    cout << "\t\tRECEIPT" << endl;
+    cout << "\t=======================" << endl;
+    cout << "\t\tGSIS"<< endl; 
+    cout << "\t=======================" << endl;
+    cout << "\t||Philhealth Contribution Percentage: " << "4%" << endl;
+    cout << "\t||Your total monthly contribution is: " << ph_total << endl;
+    cout << "\t||Your remaining balance with tax, with Philhealth " << ph_final << endl;
+    cout << "\t||TOTAL: " << ph_final << endl;
+    cout << "\t=======================\n" << endl;
+    }
+    else{
+           ph_total = monthly_income * 0.04;
+    ph_final = addon - ph_total;
+    cout << "\t\tRECEIPT" << endl;
+    cout << "\t=======================" << endl;
+    cout << "\t\tGSIS"<< endl; 
+    cout << "\t=======================" << endl;
+    cout << "\t||Philhealth Contribution Percentage: " << "4%" << endl;
+    cout << "\t||Your total monthly contribution is: " << ph_total << endl;
+    cout << "\t||Your remaining balance with tax, with Philhealth " << ph_final << endl;
+    cout << "\t||TOTAL: " << ph_final << endl;
+    cout << "\t=======================\n" << endl;
+    }
+}
+
             break;
         }
-            }}
+            }
     
 break;
 
