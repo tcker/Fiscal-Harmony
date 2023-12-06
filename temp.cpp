@@ -127,8 +127,8 @@ int main() {
         cout << "Welcome, " << userEmail << " I hope you have a great time!" << endl;
         cout << "Here are our current available features, check them out!:" << endl;
         cout << "[1]. Income and Expense Allocation" << endl;
-        cout << "[2]. Annual Income Taxed Calculator" << endl;
-        cout << "[3]. Emergency Fund Calculator" << endl;
+        cout << "[2]. Emergency Fund Calculator" << endl;
+        cout << "[3]. Annual Income Taxed Calculator" << endl;
         cout << "[4]. Log out" << endl;
 
         cout << ">|";
@@ -305,7 +305,40 @@ int main() {
             break;
         
             case 2:
-            cout << "=============================================================" << endl;
+    cout << "=============================================================" << endl;
+    cout << "\t\tYour Trusty Emergency Fund Calculator" << endl;
+    cout << "=============================================================" << endl;
+    double totalExpensesPerMonth;
+    int numberOfMonths;
+
+    cout << "Enter your total monthly expenses: PHP ";
+    cin >> totalExpensesPerMonth;
+
+    cout << "Enter the number of months you want to cover: ";
+    cin >> numberOfMonths;
+
+    emergencyFund = totalExpensesPerMonth * numberOfMonths + 50;
+
+    cout << "\nYour recommended emergency fund is: PHP " << emergencyFund << endl;
+
+    char backOrLogOut3;
+    cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
+    cout << "> ";
+    cin >> backOrLogOut3;
+
+    if (backOrLogOut3 == '1') {
+        continue;
+    } else if (backOrLogOut3 == '2') {
+
+        userFeatureChoiceBool = false;
+    } else {
+        cout << "Invalid input. Exiting." << endl;
+        userFeatureChoiceBool = false;
+    }
+    break;
+
+case 3:
+                cout << "=============================================================" << endl;
             cout << "\t\tAnnual Income Taxed Calculator " << endl;
             cout << "=============================================================" << endl;
     double monthly_income;
@@ -625,41 +658,7 @@ int main() {
         }
             }
     
-    
-
-case 3:
-
-    cout << "=============================================================" << endl;
-    cout << "\t\tYour Trusty Emergency Fund Calculator" << endl;
-    cout << "=============================================================" << endl;
-    double totalExpensesPerMonth;
-    int numberOfMonths;
-
-    cout << "Enter your total monthly expenses: PHP ";
-    cin >> totalExpensesPerMonth;
-
-    cout << "Enter the number of months you want to cover: ";
-    cin >> numberOfMonths;
-
-    emergencyFund = totalExpensesPerMonth * numberOfMonths + 50;
-
-    cout << "\nYour recommended emergency fund is: PHP " << emergencyFund << endl;
-
-    char backOrLogOut3;
-    cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
-    cout << "> ";
-    cin >> backOrLogOut3;
-
-    if (backOrLogOut3 == '1') {
-        continue;
-    } else if (backOrLogOut3 == '2') {
-
-        userFeatureChoiceBool = false;
-    } else {
-        cout << "Invalid input. Exiting." << endl;
-        userFeatureChoiceBool = false;
-    }
-    break;
+break;
 case 4:
     int userLogOut;
 
