@@ -35,5 +35,5 @@ https://github.com/tcker
 <h4 align="left"> Bugs:</h4>
 
 temp.cpp file
-- TEMPORARY INCOME TAX CALCULATOR
+- LACKS GSIS, PHILHEALTH CONTRUBUTIONS 
   
