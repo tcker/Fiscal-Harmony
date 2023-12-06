@@ -30,10 +30,10 @@ https://github.com/tcker
 - INCOME TAX CALCULATOR, FIXED INVALID INPUT IN LOGOUT TERMINAL ( use temp.cpp file)
 - CHANGED POSITION "INCOME TAX TO [3] AND EMERGENCY FUND TO [2]" ( use temp.cpp file)
 - FIXED SSS TERMINAL WITH WORKING INVALID ENTRIES ( use temp.cpp file)
+- ONE BUG LEFT
 ---
 
-<h4 align="left"> Bugs:</h4>
 
-temp.cpp file
-- LACKS GSIS, PHILHEALTH CONTRIBUTIONS 
+
+
   
