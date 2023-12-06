@@ -35,5 +35,5 @@ https://github.com/tcker
 <h4 align="left"> Bugs:</h4>
 
 temp.cpp file
-- LACKS GSIS, PHILHEALTH CONTRUBUTIONS 
+- LACKS GSIS, PHILHEALTH CONTRIBUTIONS 
   
