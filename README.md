@@ -31,7 +31,7 @@ https://github.com/tcker
 - CHANGED POSITION "INCOME TAX TO [3] AND EMERGENCY FUND TO [2]" ( use temp.cpp file)
 - FIXED SSS TERMINAL WITH WORKING INVALID ENTRIES ( use temp.cpp file)
 - ONE BUG LEFT
----
+
 
 
 
