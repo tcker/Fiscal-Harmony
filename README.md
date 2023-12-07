@@ -23,7 +23,7 @@ https://github.com/tcker
 
 <h4 align="left"> Updates:</h4>
 
-- NO MORE BUGS! (FINAL_fiscal_harmony.cpp)
+- LITTLE BUGS LEFT! (fiscal_harmony.cpp)
 
 
 
