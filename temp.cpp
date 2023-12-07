@@ -223,12 +223,14 @@ int main() {
                     cout << "Pick a category (1-" << INCOME_CATEGORIES << "): ";
                     cin >> categoryChoice;
 
-                    if (categoryChoice < 1 || categoryChoice > INCOME_CATEGORIES) {
-                        cout << "Invalid category choice. Please try again." << endl;
-                        continue;
+                    while (cin.fail() || categoryChoice < 1 || categoryChoice > INCOME_CATEGORIES) {
+                    cout << "Invalid input. Please enter a valid number (1-" << INCOME_CATEGORIES << "): ";
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cin >> categoryChoice;
                     }
 
-                    cout << "Enter amount for " << incomeCategories[categoryChoice - 1] << ": ₱";
+                    cout << "Enter amount for " << incomeCategories[categoryChoice - 1] << ": PHP ";
                     cin >> userIncome;
 
                     if (categoryChoice == 0) {
@@ -250,15 +252,15 @@ int main() {
                 for (int i = 0; i < INCOME_CATEGORIES - 1; ++i) {
                     userIncomeSumPercentage = round(((income[i] / userIncomeSum) * 100));
                     cout << " " << userIncomeSumPercentage << "% "
-                         << "\t| " << incomeCategories[i] << " Income: ₱" << income[i] << endl;
+                         << "\t| " << incomeCategories[i] << " Income: PHP " << income[i] << endl;
                 }
 
                 userIncomeSum += income[INCOME_CATEGORIES - 1];
                 userIncomeSumPercentage = round(((income[INCOME_CATEGORIES - 1] / userIncomeSum) * 100));
                 cout << " " << userIncomeSumPercentage << "% \t| "
-                     << "Others Income: ₱" << income[INCOME_CATEGORIES - 1] << endl;
+                     << "Others Income: PHP " << income[INCOME_CATEGORIES - 1] << endl;
                 cout << "_________________________________" << endl;
-                cout << "Total Income: ₱" << userIncomeSum << endl;
+                cout << "Total Income: PHP " << userIncomeSum << endl;
                 cout << "_________________________________" << endl;
                 break;
 
@@ -282,12 +284,14 @@ int main() {
                     cout << "Pick a category (1-" << EXPENSE_CATEGORIES << "): ";
                     cin >> categoryChoice;
 
-                    if (categoryChoice < 1 || categoryChoice > EXPENSE_CATEGORIES) {
-                        cout << "Invalid category choice. Please try again." << endl;
-                        continue;
+                     while (cin.fail() || categoryChoice < 1 || categoryChoice > EXPENSE_CATEGORIES) {
+                    cout << "Invalid input. Please enter a valid number (1-" << EXPENSE_CATEGORIES << "): ";
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cin >> categoryChoice;
                     }
 
-                    cout << "Enter amount for " << expenseCategories[categoryChoice - 1] << ": ₱";
+                    cout << "Enter amount for " << expenseCategories[categoryChoice - 1] << ": PHP ";
                     cin >> userExpense;
 
                     if (userExpense > userIncomeSum) {
@@ -319,18 +323,18 @@ int main() {
 
                     userExpenseSumPercentage = round(((expense[i] / userExpenseSum) * 100));
                     cout << " " << userExpenseSumPercentage << "% "
-                         << "\t| " << expenseCategories[i] << " Expense: ₱" << expense[i] << endl;
+                         << "\t| " << expenseCategories[i] << " Expense: PHP " << expense[i] << endl;
                 }
 
                 userExpenseSum += expense[EXPENSE_CATEGORIES - 1];
                 userExpenseSumPercentage = round(((expense[EXPENSE_CATEGORIES - 1] / userExpenseSum) * 100));
 
                 cout << " " << userExpenseSumPercentage << "% \t| "
-                     << "Bills/Fees & others: ₱" << expense[EXPENSE_CATEGORIES - 1] << endl;
+                     << "Bills/Fees & others: PHP " << expense[EXPENSE_CATEGORIES - 1] << endl;
 
                 cout << "_________________________________" << endl;
-                cout << "Total Expenses: ₱" << userExpenseSum << endl;
-                cout << "Total Funds: ₱" << userIncomeSum - userExpenseSum << endl;
+                cout << "Total Expenses: PHP " << userExpenseSum << endl;
+                cout << "Total Funds: PHP " << userIncomeSum - userExpenseSum << endl;
                 cout << "_________________________________" << endl;
                 break;
 
@@ -2580,7 +2584,7 @@ if(ph == 1){
     cout << "\t==================================================\n" << endl;
     }
     else{
-           ph_total = monthly_income * 0.04;
+    ph_total = monthly_income * 0.04;
     ph_final = addon - ph_total;
     cout << "\t==================================================" << endl;
     cout << "\t||\t\tRECEIPT \t\t\t||"<< endl;
