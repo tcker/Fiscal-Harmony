@@ -2477,7 +2477,7 @@ cout << "\n";
         cout << "\n";
     }
 
-if (gsis = 1){
+if (gsis == 1){
 if(annual <= 250000){
     total_gsis = monthly_income * gsis_contri;
     final_gsis = final - total_gsis;
