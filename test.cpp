@@ -78,7 +78,8 @@ int main() {
 
                 if (signInAttempts == 2) {
                     cout << "You have reached the maximum number of sign-in attempts." << endl;
-                    cout << "[1]. Go back to Sign Up [2]. Exit" << endl;
+                    cout << "=======================================================" << endl;
+                    cout << "[1]. Go back to Sign-up Terminal [2]. Exit" << endl;
                     cout << "> ";
                     cin >> userOption;
 
@@ -89,10 +90,10 @@ int main() {
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     cout << "Invalid input. Please enter a valid number (1 or 2)." << endl;
                     cout << "> ";
-                    }
+                        }
                     cin >> userOption;
                     }
-                    
+
                     if (userOption == 1) {
                         signInAttempts = 0;
                         goBackToSignUp = true;
