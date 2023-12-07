@@ -32,51 +32,75 @@ int main() {
     string expenseCategories[EXPENSE_CATEGORIES] = {
         "Food & Drink", "Shopping & Groceries", "Transport", "Home", "Bills/Fees & others"};
 
+    int signInAttempts = 0;
+    bool goBackToSignUp = true;
+
 // =================== LOGIN TERMINAL ================================
 
-    cout << "=============================================================" << endl;
-    cout << "\t\tWelcome to Fiscal Harmony" << endl;
-    cout << "=============================================================" << endl;
-    cout << "Planning your future for a financially free life." << endl;
-    cout << "[1]. Sign In [2]. Sign Up" << endl;
-    cout << "> ";
-    cin >> userOption;
-    cout << "\n";
-
-    while (userOption != 1 && userOption != 2) {
-        cout << "_________________________________" << endl;
-        if (cin.fail() || (userOption != 1 && userOption != 2)) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter a valid number (1 or 2)." << endl;
-            cout << ">|";
-        }
+    while (goBackToSignUp) {
+        cout << "=============================================================" << endl;
+        cout << "\t\tWelcome to Fiscal Harmony" << endl;
+        cout << "=============================================================" << endl;
+        cout << "Planning your future for a financially free life." << endl;
+        cout << "[1]. Sign In [2]. Sign Up" << endl;
+        cout << "> ";
         cin >> userOption;
-    }
-
-    switch (userOption) {
-    case 1:
-        cout << "_________________________________" << endl;
-        cout << "You are now signing in..." << endl;
-        cout << "Username: ";
-        cin >> userEmail;
-        cout << "Password: ";
-        cin >> userPassword;
         cout << "\n";
-        cout << "_________________________________" << endl;
 
-        if (userEmail != "admin" || userPassword != "password") {
-            while (userEmail != "admin" || userPassword != "password") {
-                cout << "Invalid password or username, please try again!" << endl;
-                cout << "Username: ";
-                cin >> userEmail;
-                cout << "Password: ";
-                cin >> userPassword;
-                cout << "_________________________________" << endl;
+        while (userOption != 1 && userOption != 2) {
+            cout << "_________________________________" << endl;
+            if (cin.fail() || (userOption != 1 && userOption != 2)) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Invalid input. Please enter a valid number (1 or 2)." << endl;
+                cout << "> ";
             }
+            cin >> userOption;
         }
 
-        break;
+        switch (userOption) {
+            case 1:
+                cout << "_________________________________" << endl;
+                cout << "You are now signing in..." << endl;
+
+                do {
+                    cout << "Username: ";
+                    cin >> userEmail;
+                    cout << "Password: ";
+                    cin >> userPassword;
+                    cout << "_________________________________" << endl;
+
+                    if (userEmail != "admin" || userPassword != "password") {
+                        signInAttempts++;
+                        cout << "Invalid password or username, please try again!" << endl;
+                    }
+                } while ((userEmail != "admin" || userPassword != "password") && signInAttempts < 2);
+
+                if (signInAttempts == 2) {
+                    cout << "You have reached the maximum number of sign-in attempts." << endl;
+                    cout << "[1]. Go back to Sign Up [2]. Exit" << endl;
+                    cout << "> ";
+                    cin >> userOption;
+
+                    while (userOption != 1 && userOption != 2) {
+                        cout << "Invalid input. Please enter a valid number (1 or 2)." << endl;
+                        cout << "> ";
+                        cin >> userOption;
+                    }
+
+                    if (userOption == 1) {
+                        signInAttempts = 0;
+                        goBackToSignUp = true;
+                        continue;
+                    } else {
+                        cout << "Have a great day ahead!";
+                        exit(0);
+                    }
+                } else {
+                    goBackToSignUp = false;
+                }
+
+                break;
 
     case 2:
         cout << "_________________________________" << endl;
@@ -2613,4 +2637,5 @@ case 4:
         } while (userFeatureChoiceBool);
 
 return 0;
-} 
+	} 
+}
