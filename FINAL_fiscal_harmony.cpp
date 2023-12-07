@@ -78,14 +78,20 @@ int main() {
 
                 if (signInAttempts == 2) {
                     cout << "You have reached the maximum number of sign-in attempts." << endl;
-                    cout << "[1]. Go back to Sign Up [2]. Exit" << endl;
+                    cout << "=======================================================" << endl;
+                    cout << "[1]. Go back to Sign-up Terminal [2]. Exit" << endl;
                     cout << "> ";
                     cin >> userOption;
 
                     while (userOption != 1 && userOption != 2) {
-                        cout << "Invalid input. Please enter a valid number (1 or 2)." << endl;
-                        cout << "> ";
-                        cin >> userOption;
+                    cout << "_________________________________" << endl;
+                    if (cin.fail() || (userOption != 1 && userOption != 2)) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "Invalid input. Please enter a valid number (1 or 2)." << endl;
+                    cout << "> ";
+                        }
+                    cin >> userOption;
                     }
 
                     if (userOption == 1) {
@@ -231,7 +237,12 @@ int main() {
                     }
 
                     cout << "Enter amount for " << incomeCategories[categoryChoice - 1] << ": PHP ";
-                    cin >> userIncome;
+
+                    while (!(cin >> userIncome) || userIncome < 0) {
+                    cout << "Invalid input. Please enter a valid numerical value: PHP ";
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    }
 
                     if (categoryChoice == 0) {
                         userIncomeSum += userIncome;
@@ -260,7 +271,7 @@ int main() {
                 cout << " " << userIncomeSumPercentage << "% \t| "
                      << "Others Income: PHP " << income[INCOME_CATEGORIES - 1] << endl;
                 cout << "_________________________________" << endl;
-                cout << "Total Income: PHP " << userIncomeSum << endl;
+                cout << fixed << setprecision(2) << "Total Income: PHP " << userIncomeSum << endl;
                 cout << "_________________________________" << endl;
                 break;
 
@@ -284,7 +295,7 @@ int main() {
                     cout << "Pick a category (1-" << EXPENSE_CATEGORIES << "): ";
                     cin >> categoryChoice;
 
-                     while (cin.fail() || categoryChoice < 1 || categoryChoice > EXPENSE_CATEGORIES) {
+                    while (cin.fail() || categoryChoice < 1 || categoryChoice > EXPENSE_CATEGORIES) {
                     cout << "Invalid input. Please enter a valid number (1-" << EXPENSE_CATEGORIES << "): ";
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -292,7 +303,13 @@ int main() {
                     }
 
                     cout << "Enter amount for " << expenseCategories[categoryChoice - 1] << ": PHP ";
-                    cin >> userExpense;
+                    
+
+                    while (!(cin >> userExpense) || userExpense < 0) {
+                    cout << "Invalid input. Please enter a valid numerical value: PHP ";
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    }
 
                     if (userExpense > userIncomeSum) {
                         cout << " " << endl;
@@ -333,8 +350,8 @@ int main() {
                      << "Bills/Fees & others: PHP " << expense[EXPENSE_CATEGORIES - 1] << endl;
 
                 cout << "_________________________________" << endl;
-                cout << "Total Expenses: PHP " << userExpenseSum << endl;
-                cout << "Total Funds: PHP " << userIncomeSum - userExpenseSum << endl;
+                cout << fixed << setprecision(2) << "Total Expenses: PHP " << userExpenseSum << endl;
+                cout << fixed << setprecision(2) << "Total Funds: PHP " << userIncomeSum - userExpenseSum << endl;
                 cout << "_________________________________" << endl;
                 break;
 
@@ -355,29 +372,43 @@ int main() {
     int numberOfMonths;
 
     cout << "Enter your total monthly expenses: PHP ";
-    cin >> totalExpensesPerMonth;
+
+    while (!(cin >> totalExpensesPerMonth)) {
+    cout << "Invalid input. Please enter a numerical value: PHP ";
+    cin.clear(); 
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+    }
 
     cout << "Enter the number of months you want to cover: ";
-    cin >> numberOfMonths;
+
+    while (!(cin >> numberOfMonths)) {
+    cout << "Invalid input. Please enter a numerical value: ";
+    cin.clear(); 
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+    }
+
+    cout << "You entered: " << numberOfMonths << " months \n";
 
     emergencyFund = totalExpensesPerMonth * numberOfMonths + 50;
 
     cout << fixed << setprecision(2) << "\nYour recommended emergency fund is: PHP " << emergencyFund << endl;
 
     char backOrLogOut3;
+    cout << "=============================================================" << endl;
     cout << "Do you want to go back to the main menu (1) or log out (2)? " << endl;
     cout << "> ";
-    cin >> backOrLogOut3;
+
+    while (!(cin >> backOrLogOut3) || (backOrLogOut3 != '1' && backOrLogOut3 != '2')) {
+    cout << "Invalid input. Please enter 1 or 2: ";
+    cin.clear(); 
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+    }
 
     if (backOrLogOut3 == '1') {
         continue;
     } else if (backOrLogOut3 == '2') {
-
         userFeatureChoiceBool = false;
-    } else {
-        cout << "Invalid input. Exiting." << endl;
-        userFeatureChoiceBool = false;
-    }
+    } 
     break;
     
 // ============================= [3] ANNUAL INCOME TAXED CALCULATOR  ==============================
@@ -432,15 +463,10 @@ case 3:
 
   
         if (cin >> monthly_income) {
- 
             break;
         } else {
-  
             cin.clear();
-
-     
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
             cout << "Invalid input. Please enter a numeric value." << endl;
         }
     }
