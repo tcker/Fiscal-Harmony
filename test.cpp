@@ -83,11 +83,16 @@ int main() {
                     cin >> userOption;
 
                     while (userOption != 1 && userOption != 2) {
-                        cout << "Invalid input. Please enter a valid number (1 or 2)." << endl;
-                        cout << "> ";
-                        cin >> userOption;
+                    cout << "_________________________________" << endl;
+                    if (cin.fail() || (userOption != 1 && userOption != 2)) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "Invalid input. Please enter a valid number (1 or 2)." << endl;
+                    cout << "> ";
                     }
-
+                    cin >> userOption;
+                    }
+                    
                     if (userOption == 1) {
                         signInAttempts = 0;
                         goBackToSignUp = true;
@@ -231,7 +236,7 @@ int main() {
                     }
 
                     cout << "Enter amount for " << incomeCategories[categoryChoice - 1] << ": PHP ";
-                    
+
                     while (!(cin >> userIncome) || userIncome < 0) {
                     cout << "Invalid input. Please enter a valid numerical value: PHP ";
                     cin.clear();
