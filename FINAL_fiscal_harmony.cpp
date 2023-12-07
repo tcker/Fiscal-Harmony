@@ -170,7 +170,7 @@ int main() {
         cout << "Here are our current available features, check them out!:" << endl;
         cout << "[1]. Income and Expense Allocation" << endl;
         cout << "[2]. Emergency Fund Calculator" << endl;
-        cout << "[3]. Annual Income Taxed Calculator" << endl;
+        cout << "[3]. Salary Calculator" << endl;
         cout << "[4]. Log out" << endl;
         cout << "================================================================" << endl;
         cout << "> ";
