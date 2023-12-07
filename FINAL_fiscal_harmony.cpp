@@ -165,13 +165,14 @@ int main() {
 // ============================= MAIN MENU | FEATURES TERMINAL ==============================
 
     do {
+        cout << "================================================================" << endl;
         cout << "Welcome, " << userEmail << " I hope you have a great time!" << endl;
         cout << "Here are our current available features, check them out!:" << endl;
         cout << "[1]. Income and Expense Allocation" << endl;
         cout << "[2]. Emergency Fund Calculator" << endl;
         cout << "[3]. Annual Income Taxed Calculator" << endl;
         cout << "[4]. Log out" << endl;
-
+        cout << "================================================================" << endl;
         cout << "> ";
         cin >> userFeatureChoice;
         cout << "\n";
@@ -686,7 +687,9 @@ double final_sss;
 
 	if(member == 1){
         if(monthly_income<=5000){
-            cout<<"This was paid by your employer.\n" << endl;
+            cout << "==============================" << endl;
+            cout << "This was paid by your employer." << endl;
+            cout << "==============================" << endl;
         }
             
 else if (monthly_income <=5249.99){
@@ -703,7 +706,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         } else if (monthly_income <=5749.99){
             msc = 5500;
             ec = 10;
@@ -714,11 +722,16 @@ else if (monthly_income <=5249.99){
         cout << "\t==================================================" << endl;
         cout << "\t||\t\t SSS \t\t\t\t||"<< endl; 
         cout << "\t==================================================" << endl;
-        cout << fixed << setprecision(2) <<  "\t||Your total monthly contribution is: " << tmc << endl;
+        cout << fixed << setprecision(2) << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=6249.99){
             msc = 6000;
@@ -734,7 +747,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=6749.99){
             msc = 6500;
@@ -750,7 +768,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=7249.99){
             msc = 7000;
@@ -766,7 +789,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=7749.99){
             msc = 7500;
@@ -782,7 +810,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=8249.99){
             msc = 8000;
@@ -798,7 +831,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=8749.99){
             msc = 8500;
@@ -814,7 +852,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=9249.99){
             msc = 9000;
@@ -830,7 +873,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=9749.99){
             msc = 9500;
@@ -846,7 +894,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=10249.99){
             msc = 10000;
@@ -862,7 +915,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=10749.99){
             msc = 10500;
@@ -878,7 +936,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=11249.99){
             msc = 11000;
@@ -894,7 +957,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=11749.99){
             msc = 11500;
@@ -910,7 +978,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=12249.99){
             msc = 12000;
@@ -926,7 +999,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=12749.99){
             msc = 12500;
@@ -942,7 +1020,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
 
          else if (monthly_income <=13249.99){
@@ -959,7 +1042,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=13749.99){
             msc = 13500;
@@ -975,7 +1063,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=14249.99){
             msc = 14000;
@@ -991,7 +1084,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=14749.99){
             msc = 14500;
@@ -1007,7 +1105,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=15249.99){
             msc = 15000;
@@ -1023,7 +1126,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=15749.99){
             msc = 15500;
@@ -1039,7 +1147,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=16249.99){
             msc = 16000;
@@ -1055,7 +1168,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=16749.99){
             msc = 16500;
@@ -1071,7 +1189,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=17249.99){
             msc = 17000;
@@ -1087,7 +1210,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=17749.99){
             msc = 17500;
@@ -1103,7 +1231,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=18249.99){
             msc = 18000;
@@ -1119,7 +1252,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=18749.99){
             msc = 18500;
@@ -1135,7 +1273,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=19249.99){
             msc = 19000;
@@ -1151,7 +1294,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=19749.99){
             msc = 19500;
@@ -1167,7 +1315,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=20249.99){
             msc = 20000;
@@ -1183,7 +1336,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=20749.99){
             msc = 20000;
@@ -1200,7 +1358,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=21249.99){  //breaking point
             msc = 20000;
@@ -1218,7 +1381,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
           }
           else
           {
@@ -1233,7 +1401,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
           }
         }
          else if (monthly_income <=21749.99){
@@ -1251,7 +1424,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=22249.99){
             msc = 20000;
@@ -1268,7 +1446,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=22749.99){
             msc = 20000;
@@ -1285,7 +1468,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=23249.99){
             msc = 20000;
@@ -1302,7 +1490,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=23749.99){
             msc = 20000;
@@ -1319,7 +1512,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=24249.99){
             msc = 20000;
@@ -1336,7 +1534,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=24749.99){
             msc = 20000;
@@ -1353,7 +1556,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=25249.99){
             msc = 20000;
@@ -1370,7 +1578,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=25749.99){
             msc = 20000;
@@ -1387,7 +1600,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=26249.99){
             msc = 20000;
@@ -1404,7 +1622,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=26749.99){
             msc = 20000;
@@ -1421,7 +1644,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=27249.99){
             msc = 20000;
@@ -1438,7 +1666,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=27749.99){
             msc = 20000;
@@ -1455,7 +1688,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=28249.99){
             msc = 20000;
@@ -1472,7 +1710,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
  else if (monthly_income <=28749.99){
             msc = 20000;
@@ -1489,7 +1732,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=29249.99){
             msc = 20000;
@@ -1506,7 +1754,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=29749.99){
             msc = 20000;
@@ -1523,7 +1776,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else{  //breaking point
             msc = 20000;
@@ -1541,7 +1799,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
           }
           else
           {
@@ -1556,7 +1819,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
           }
         }
 
@@ -1580,7 +1848,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=4749){
             msc = 4500;
@@ -1596,7 +1869,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
         else if (monthly_income <=5249.99){
             msc = 5000;
@@ -1612,7 +1890,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
         else if (monthly_income <=5749.99){
             msc = 5500;
@@ -1628,7 +1911,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=6249.99){
             msc = 6000;
@@ -1644,7 +1932,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=6749.99){
             msc = 6500;
@@ -1660,7 +1953,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=7249.99){
             msc = 7000;
@@ -1676,7 +1974,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=7749.99){
             msc = 7500;
@@ -1692,7 +1995,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=8249.99){
             msc = 8000;
@@ -1708,7 +2016,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=8749.99){
             msc = 8500;
@@ -1724,7 +2037,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=9249.99){
             msc = 9000;
@@ -1740,7 +2058,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=9749.99){
             msc = 9500;
@@ -1756,7 +2079,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=10249.99){
             msc = 10000;
@@ -1772,7 +2100,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=10749.99){
             msc = 10500;
@@ -1788,7 +2121,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=11249.99){
             msc = 11000;
@@ -1804,7 +2142,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=11749.99){
             msc = 11500;
@@ -1820,7 +2163,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=12249.99){
             msc = 12000;
@@ -1836,7 +2184,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=12749.99){
             msc = 12500;
@@ -1852,7 +2205,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
 
          else if (monthly_income <=13249.99){
@@ -1869,7 +2227,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=13749.99){
             msc = 13500;
@@ -1885,7 +2248,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=14249.99){
             msc = 14000;
@@ -1901,7 +2269,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=14749.99){
             msc = 14500;
@@ -1917,7 +2290,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=15249.99){
             msc = 15000;
@@ -1933,7 +2311,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=15749.99){
             msc = 15500;
@@ -1949,7 +2332,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=16249.99){
             msc = 16000;
@@ -1965,7 +2353,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=16749.99){
             msc = 16500;
@@ -1981,7 +2374,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=17249.99){
             msc = 17000;
@@ -1997,7 +2395,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=17749.99){
             msc = 17500;
@@ -2013,7 +2416,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=18249.99){
             msc = 18000;
@@ -2029,7 +2437,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=18749.99){
             msc = 18500;
@@ -2045,7 +2458,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=19249.99){
             msc = 19000;
@@ -2061,7 +2479,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=19749.99){
             msc = 19500;
@@ -2077,7 +2500,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=20249.99){
             msc = 20000;
@@ -2093,7 +2521,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=20749.99){
             msc = 20000;
@@ -2110,9 +2543,14 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
-         else if (monthly_income <=21249.99){//breaking point
+         else if (monthly_income <=21249.99){  //breaking point
             msc = 20000;
             ec = 30;
             mpf = 1000;
@@ -2128,7 +2566,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
           }
           else
           {
@@ -2143,7 +2586,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
           }
         }
          else if (monthly_income <=21749.99){
@@ -2161,7 +2609,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=22249.99){
             msc = 20000;
@@ -2178,7 +2631,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=22749.99){
             msc = 20000;
@@ -2195,7 +2653,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=23249.99){
             msc = 20000;
@@ -2212,7 +2675,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=23749.99){
             msc = 20000;
@@ -2229,7 +2697,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
         else if (monthly_income <=24249.99){
             msc = 20000;
@@ -2246,7 +2719,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
         else if (monthly_income <=24749.99){
             msc = 20000;
@@ -2263,7 +2741,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
         else if (monthly_income <=25249.99){
             msc = 20000;
@@ -2280,7 +2763,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
         else if (monthly_income <=25749.99){
             msc = 20000;
@@ -2297,7 +2785,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
         else if (monthly_income <=26249.99){
             msc = 20000;
@@ -2314,7 +2807,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
         else if (monthly_income <=26749.99){
             msc = 20000;
@@ -2331,7 +2829,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
         else if (monthly_income <=27249.99){
             msc = 20000;
@@ -2348,7 +2851,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
         else if (monthly_income <=27749.99){
             msc = 20000;
@@ -2365,7 +2873,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
         else if (monthly_income <=28249.99){
             msc = 20000;
@@ -2382,7 +2895,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
         else if (monthly_income <=28749.99){
             msc = 20000;
@@ -2399,7 +2917,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=29249.99){
             msc = 20000;
@@ -2416,7 +2939,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=29749.99){
             msc = 20000;
@@ -2433,7 +2961,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else{//breaking point
             msc = 20000;
@@ -2451,7 +2984,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
           }
           else
           {
@@ -2466,7 +3004,12 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================\n" << endl;
+        cout << "\t==================================================" << endl;
+
+        cout << "\n";
+        cout << "\tFor more information kindly visit this link " << endl;
+        cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
+        cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
             }
           }
         }
@@ -2516,7 +3059,12 @@ if(annual <= 250000){
     cout << fixed << setprecision(2) << "\t||Your total monthly contribution is: " << total_gsis << endl;
     cout << fixed << setprecision(2) << "\t||Your remaining balance with tax, GSIS: " << final_gsis << endl;
     cout << fixed << setprecision(2) << "\t||TOTAL: " << final_gsis << endl;
-    cout << "\t==================================================\n" << endl;
+    cout << "\t==================================================" << endl;
+
+    cout << "\n";
+    cout << "\tFor more information kindly visit this link " << endl;
+    cout << "\thttps://www.gsis.gov.ph/active-members/contributions/ \n\n";
+    cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
 }
 else if( annual<= 400000){
     total_gsis = monthly_income * gsis_contri;
@@ -2530,7 +3078,12 @@ else if( annual<= 400000){
     cout << fixed << setprecision(2) << "\t||Your total monthly contribution is: " << total_gsis << endl;
     cout << fixed << setprecision(2) << "\t||Your remaining balance with tax, GSIS: " << final_gsis << endl;
     cout << fixed << setprecision(2) << "\t||TOTAL: " << final_gsis << endl;
-    cout << "\t==================================================\n" << endl;
+    cout << "\t==================================================" << endl;
+
+    cout << "\n";
+    cout << "\tFor more information kindly visit this link " << endl;
+    cout << "\thttps://www.gsis.gov.ph/active-members/contributions/ \n\n";
+    cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
 }
 else {
     total_gsis = monthly_income * gsis_contri;
@@ -2544,7 +3097,12 @@ else {
     cout << fixed << setprecision(2) << "\t||Your total monthly contribution is: " << total_gsis << endl;
     cout << fixed << setprecision(2) << "\t||Your remaining balance with tax, GSIS: " << final_gsis << endl;
     cout << fixed << setprecision(2) << "\t||TOTAL: " << final_gsis << endl;
-    cout << "\t==================================================\n" << endl;
+    cout << "\t==================================================" << endl;
+
+    cout << "\n";
+    cout << "\tFor more information kindly visit this link " << endl;
+    cout << "\thttps://www.gsis.gov.ph/active-members/contributions/ \n\n";
+    cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
     }
 }
 else 
@@ -2593,7 +3151,12 @@ if(ph == 1){
     cout << fixed << setprecision(2) << "\t||Your total monthly contribution is: " << ph_total << endl;
     cout << fixed << setprecision(2) << "\t||Your remaining balance with tax, Philhealth: " << ph_final << endl;
     cout << fixed << setprecision(2) << "\t||TOTAL: " << ph_final << endl;
-    cout << "\t==================================================\n" << endl;
+    cout << "\t==================================================" << endl;
+
+    cout << "\n";
+    cout << "\tFor more information kindly visit this link " << endl;
+    cout << "\thttps://sprout.ph/blog/philhealth-new-contribution-rates/ \n\n";
+    cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
     }
     else if(annual <=400000){
            ph_total = monthly_income * 0.04;
@@ -2607,7 +3170,12 @@ if(ph == 1){
     cout << fixed << setprecision(2) << "\t||Your total monthly contribution is: " << ph_total << endl;
     cout << fixed << setprecision(2) << "\t||Your remaining balance with tax, Philhealth: " << ph_final << endl;
     cout << fixed << setprecision(2) << "\t||TOTAL: " << ph_final << endl;
-    cout << "\t==================================================\n" << endl;
+    cout << "\t==================================================" << endl;
+
+    cout << "\n";
+    cout << "\tFor more information kindly visit this link " << endl;
+    cout << "\thttps://sprout.ph/blog/philhealth-new-contribution-rates/ \n\n";
+    cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
     }
     else{
     ph_total = monthly_income * 0.04;
@@ -2621,7 +3189,12 @@ if(ph == 1){
     cout << fixed << setprecision(2) << "\t||Your total monthly contribution is: " << ph_total << endl;
     cout << fixed << setprecision(2) << "\t||Your remaining balance with tax, Philhealth: " << ph_final << endl;
     cout << fixed << setprecision(2) << "\t||TOTAL: " << ph_final << endl;
-    cout << "\t==================================================\n" << endl;
+    cout << "\t==================================================" << endl;
+
+    cout << "\n";
+    cout << "\tFor more information kindly visit this link " << endl;
+    cout << "\thttps://sprout.ph/blog/philhealth-new-contribution-rates/ \n\n";
+    cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
     }
 }
 
@@ -2649,7 +3222,6 @@ case 4:
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Invalid input. Please enter a valid number: " << endl;
             cout << "> ";
-            cout << "\n";
         }
         cin >> userLogOut;
     }
