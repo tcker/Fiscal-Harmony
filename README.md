@@ -21,7 +21,7 @@ https://github.com/tcker
 
 ---
 
-<h4 align="left"> Updates:</h3>
+<h4 align="left"> Updates:</h4>
 
 - FIXED THE BUGS, C++ HANDLING LARGE VALUES <br>
 - UPDATED RECEIPT
@@ -33,7 +33,8 @@ https://github.com/tcker
 - ONE BUG LEFT
 - FIXED HANDLING LARGE VALUES IN OTHER TAXES
 
-
+<h4 align="left"> Only One Bug: </h4>
+- GSIS TOTAL IF SALARY IS ONLY 4 DIGITS DID NOT COMPUTE TOTAL
 
 
 
