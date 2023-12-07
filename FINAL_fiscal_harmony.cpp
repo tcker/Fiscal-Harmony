@@ -45,7 +45,7 @@ int main() {
         cout << "[1]. Sign In [2]. Sign Up" << endl;
         cout << "> ";
         cin >> userOption;
-        cout << "\n";
+        
 
         while (userOption != 1 && userOption != 2) {
             cout << "_________________________________" << endl;
@@ -115,12 +115,11 @@ int main() {
         cin >> userRegisterEmail;
         cout << "Password: ";
         cin >> userRegisterPassword;
-        cout << "\n";
         cout << "You have successfully created an account, would you like to sign in?" << endl;
         cout << "[1]. Yes [2]. No" << endl;
         cout << "> ";
         cin >> userSignIn;
-        cout << "\n";
+        
         cout << "_________________________________" << endl;
 
         while (userSignIn != 1 && userSignIn != 2) {
@@ -131,7 +130,6 @@ int main() {
                 cout << ">|";
             }
             cin >> userSignIn;
-            cout << "\n";
             cout << "_________________________________" << endl;
         }
 
@@ -140,7 +138,6 @@ int main() {
             cin >> userEmail;
             cout << "Password: ";
             cin >> userPassword;
-            cout << "\n";
             cout << "_________________________________" << endl;
             if (userEmail != userRegisterEmail || userPassword != userRegisterPassword) {
                 while (userEmail != userRegisterEmail || userPassword != userRegisterPassword) {
@@ -150,7 +147,6 @@ int main() {
                     cin >> userEmail;
                     cout << "Password: ";
                     cin >> userPassword;
-                    cout << "\n";
                     cout << "_________________________________" << endl;
                 }
             }
@@ -191,9 +187,9 @@ int main() {
 
         switch (userFeatureChoice) {
         case 1:
-            cout << "=============================================================" << endl;
-            cout << "\t\tIncome and Expenses Allocation" << endl;
-            cout << "=============================================================" << endl;
+            cout << "**************************************************" << endl;
+            cout << "\tIncome and Expenses Allocation" << endl;
+            cout << "**************************************************" << endl;
             cout << "Kindly choose one of the following: " << endl;
             cout << "[1]. Income [2]. Expenses [3]. Exit" << endl;
             cout << "> ";
@@ -366,9 +362,10 @@ int main() {
 // ============================= [2] EMERGENCY FUND CALCULATOR  ==============================
 
     case 2:
-    cout << "=============================================================" << endl;
-    cout << "\t\tYour Trusty Emergency Fund Calculator" << endl;
-    cout << "=============================================================" << endl;
+    cout << "+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+" << endl;
+    cout << "\tYour Trusty Emergency Fund Calculator" << endl;
+    cout << "\t\tNon negative Values only" << endl;
+    cout << "+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+" << endl;
     double totalExpensesPerMonth;
     int numberOfMonths;
 
@@ -415,12 +412,12 @@ int main() {
 // ============================= [3] SALARY CALCULATOR  =================================
 
 case 3:
-    cout << "=================================================================" << endl;
-    cout << "\t\t\tSalary Calculator " << endl;
-    cout << "=================================================================" << endl;
+    cout << "=========tX==========sSs=================gSis============pHealth==========" << endl;
+    cout << "\t\t\tSALARY CALCULATOR " << endl;
+    cout << "=========tX==========sSs=================gSis============pHealth==========" << endl;
     cout << "MUST READ! - You must finish the feature first before you go back" << endl;
     cout << "\t\tTo the main Menu after you click [1] YES" << endl;
-    cout << "=================================================================" << endl;
+    cout << "=========tX==========sSs=================gSis============pHealth==========" << endl;
 
 // ===============================   TAX DEDUCTOR   =================================
 
@@ -706,7 +703,7 @@ else if (monthly_income <=5249.99){
         cout << "\t||Your remaining balance with tax " << endl;
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
-        cout << "\t==================================================" << endl;
+        cout << "\t===============================================" << endl;
 
         cout << "\n";
         cout << "\tFor more information kindly visit this link " << endl;
