@@ -249,6 +249,15 @@ int main() {
 
                     cout << "Do you want to enter another income (y/n): ";
                     cin >> userInputIE;
+
+                    while (userInputIE != 'y' && userInputIE != 'Y' && userInputIE != 'n' && userInputIE != 'N') {
+                    cout << "Invalid input. Please enter 'y' or 'n': ";
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cin >> userInputIE;
+                    }
+
+                    
                 } while (userInputIE == 'y' || userInputIE == 'Y');
 
                 cout << "_________________________________" << endl;
@@ -324,6 +333,13 @@ int main() {
 
                     cout << "Do you want to enter another expense? (y/n): ";
                     cin >> userInputIE;
+
+                    while (userInputIE != 'y' && userInputIE != 'Y' && userInputIE != 'n' && userInputIE != 'N') {
+                    cout << "Invalid input. Please enter 'y' or 'n': ";
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cin >> userInputIE;
+                    }
 
                 } while (userInputIE == 'y' || userInputIE == 'Y');
 
