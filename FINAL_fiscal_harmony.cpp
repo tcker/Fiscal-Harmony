@@ -487,8 +487,8 @@ if (annual<=250000){
         cout << "\t||Tax Bracket: 0%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||No Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << final << endl;
-        cout << "\t||TOTAL: "  << final << endl;
+        cout << fixed << setprecision(2) << "\t||Your salary with tax deducted is: " << final << endl;
+        cout << fixed << setprecision(2) << "\t||TOTAL: "  << final << endl;
         cout << "\t==================================================" << endl;
 
         cout << "\n";
@@ -512,8 +512,8 @@ else if (annual<=400000){
         cout << "\t||Tax Bracket: 15%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << taxed_income << endl;
-        cout << "\t||TOTAL: " << taxed_income << endl;
+        cout << fixed << setprecision(2) << "\t||Your salary with tax deducted is: " << taxed_income << endl;
+        cout << fixed << setprecision(2) << "\t||TOTAL: " << taxed_income << endl;
         cout << "\t==================================================" << endl;
 
         cout << "\n";
@@ -539,8 +539,8 @@ else if (annual<=800000){
         cout << "\t||Tax Bracket: 2%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << addon << endl;
-        cout << "\t||TOTAL: " << addon << endl;
+        cout << fixed << setprecision(2) << "\t||Your salary with tax deducted is: " << addon << endl;
+        cout << fixed << setprecision(2) << "\t||TOTAL: " << addon << endl;
         cout << "\t==================================================" << endl;
 
         cout << "\n";
@@ -567,8 +567,8 @@ else if (annual<=2000000){
         cout << "\t||Tax Bracket: 2%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << addon << endl;
-        cout << "\t||TOTAL: " << addon << endl;
+        cout << fixed << setprecision(2) << "\t||Your salary with tax deducted is: " << addon << endl;
+        cout << fixed << setprecision(2) << "\t||TOTAL: " << addon << endl;
         cout << "\t==================================================" << endl;
 
         cout << "\n";
@@ -595,8 +595,8 @@ else if (annual<=800000){
         cout << "\t||Tax Bracket: 2%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << addon << endl;
-        cout << "\t||TOTAL: " << addon << endl;
+        cout << fixed << setprecision(2) << "\t||Your salary with tax deducted is: " << addon << endl;
+        cout << fixed << setprecision(2) << "\t||TOTAL: " << addon << endl;
         cout << "\t==================================================" << endl;
 
         cout << "\n";
@@ -622,8 +622,8 @@ else{
         cout << "\t||Tax Bracket: 2%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||Tax Deduction: " << final << endl;
-        cout << "\t||Your salary with tax deducted is: " << addon << endl;
-        cout << "\t||TOTAL: " << addon << endl;
+        cout << fixed << setprecision(2) << "\t||Your salary with tax deducted is: " << addon << endl;
+        cout << fixed << setprecision(2) << "\t||TOTAL: " << addon << endl;
         cout << "\t==================================================" << endl;
 
         cout << "\n";
@@ -3062,8 +3062,8 @@ if(annual <= 250000){
     cout << "\tFor more information kindly visit this link " << endl;
     cout << "\thttps://www.gsis.gov.ph/active-members/contributions/ \n\n";
     cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
-}
-else if( annual<= 400000){
+    }
+    else if( annual<= 400000){
     total_gsis = monthly_income * gsis_contri;
     final_gsis = taxed_income - total_gsis;
     cout << "\t==================================================" << endl;
@@ -3081,8 +3081,8 @@ else if( annual<= 400000){
     cout << "\tFor more information kindly visit this link " << endl;
     cout << "\thttps://www.gsis.gov.ph/active-members/contributions/ \n\n";
     cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
-}
-else {
+    }
+    else {
     total_gsis = monthly_income * gsis_contri;
     final_gsis = addon - total_gsis;
     cout << "\t==================================================" << endl;
