@@ -1570,7 +1570,7 @@ else if (monthly_income <=5249.99){
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
         cout << "\t==================================================" << endl;
-
+//donotcopyright
         cout << "\n";
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
@@ -2373,7 +2373,7 @@ else if (monthly_income <=5249.99){
         cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
         cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
-         else if (monthly_income <=16749.99){
+         else if (monthly_income <=16749.99){//Ashio
             msc = 16500;
             ec = 30;
             tmc = (msc * cr)+ ec;
@@ -2870,7 +2870,7 @@ else if (monthly_income <=5249.99){
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
         cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
-        }
+        }//coshu
         else if (monthly_income <=27749.99){
             msc = 20000;
             ec = 30;
@@ -3084,7 +3084,7 @@ if(annual <= 250000){
     final_gsis = taxed_income - total_gsis;
     cout << "\t==================================================" << endl;
     cout << "\t||\t\tRECEIPT \t\t\t||"<< endl;
-    cout << "\t==================================================" << endl;
+    cout << "\t==================================================" << endl;///Tcker
     cout << "\t||\t\tGSIS \t\t\t\t||"<< endl; 
     cout << "\t==================================================" << endl;
     cout << "\t||GSIS Contribution Percentage: " << "9%" << endl;
