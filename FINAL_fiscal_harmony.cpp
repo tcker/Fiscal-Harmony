@@ -191,7 +191,7 @@ int main() {
             cout << "\tIncome and Expenses Allocation" << endl;
             cout << "**************************************************" << endl;
             cout << "Kindly choose one of the following: " << endl;
-            cout << "[1]. Income [2]. Expenses [3]. Exit" << endl;
+            cout << "[1]. Income [2]. Expenses [3]. Main Menu" << endl;
             cout << "> ";
             cin >> userAllocationChoice;
 
