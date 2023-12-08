@@ -260,7 +260,7 @@ int main() {
                 for (int i = 0; i < INCOME_CATEGORIES - 1; ++i) {
                     userIncomeSumPercentage = round(((income[i] / userIncomeSum) * 100));
                     cout << " " << userIncomeSumPercentage << "% "
-                         << "\t| " << incomeCategories[i] << " Income: PHP " << income[i] << endl;
+                         << "\t| " << incomeCategories[i] << " Income: PHP " << fixed << setprecision(2) << income[i] << endl;
                 }
 
                 userIncomeSum += income[INCOME_CATEGORIES - 1];
@@ -337,7 +337,7 @@ int main() {
 
                     userExpenseSumPercentage = round(((expense[i] / userExpenseSum) * 100));
                     cout << " " << userExpenseSumPercentage << "% "
-                         << "\t| " << expenseCategories[i] << " Expense: PHP " << expense[i] << endl;
+                         << "\t| " << expenseCategories[i] << " Expense: PHP " << fixed << setprecision(2) << expense[i] << endl;
                 }
 
                 userExpenseSum += expense[EXPENSE_CATEGORIES - 1];
