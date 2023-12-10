@@ -34,6 +34,7 @@ int main() {
 
     int signInAttempts = 0;
     bool goBackToSignUp = true;
+    bool goBackToFeature = true;
 
 // =================== LOGIN TERMINAL ================================
 
@@ -187,6 +188,7 @@ int main() {
 
         switch (userFeatureChoice) {
         case 1:
+        while (goBackToFeature) {
             cout << "**************************************************" << endl;
             cout << "\tIncome and Expenses Allocation" << endl;
             cout << "**************************************************" << endl;
@@ -279,7 +281,7 @@ int main() {
                 cout << "_________________________________" << endl;
                 cout << fixed << setprecision(2) << "Total Income: PHP " << userIncomeSum << endl;
                 cout << "_________________________________" << endl;
-                break;
+                continue;
 
             case 2:
 
@@ -366,15 +368,19 @@ int main() {
                 cout << fixed << setprecision(2) << "Total Expenses: PHP " << userExpenseSum << endl;
                 cout << fixed << setprecision(2) << "Total Funds: PHP " << userIncomeSum - userExpenseSum << endl;
                 cout << "_________________________________" << endl;
+                goBackToFeature = true;
                 break;
-
+                
             case 3:
-                cout << "_________________________________" << endl;
+                cout << "Going back to the Main....." << endl;
+                goBackToFeature = false;
                 break;
+                
             }
-        
+        }
+            goBackToFeature = true;
             break;
-            
+        
 // ============================= [2] EMERGENCY FUND CALCULATOR  ==============================
 
     case 2:
