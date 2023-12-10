@@ -128,7 +128,7 @@ int main() {
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "Invalid input. Please enter a valid number (1 or 2)." << endl;
-                cout << ">|";
+                cout << "> ";
             }
             cin >> userSignIn;
             cout << "_________________________________" << endl;
@@ -178,7 +178,7 @@ int main() {
 
           while (userFeatureChoice != 1 && userFeatureChoice != 2 && userFeatureChoice != 3 && userFeatureChoice != 4) {
             cout << "Invalid input. Please enter a valid number (1, 2, 3, or 4)." << endl;
-            cout << ">|";
+            cout << "> ";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin >> userFeatureChoice;
@@ -203,7 +203,7 @@ int main() {
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     cout << "Invalid input. Please enter a valid number: " << endl;
-                    cout << ">|";
+                    cout << "> ";
                 }
                 cin >> userAllocationChoice;
             }
@@ -3231,7 +3231,7 @@ case 4:
     cout << "*********************************" << endl;
     cout << "Do you want to log out?" << endl;
     cout << "[1]. Yes [2]. No" << endl;
-    cout << ">| ";
+    cout << "> ";
     cin >> userLogOut;
 
     while (userLogOut != 1 && userLogOut != 2) {
