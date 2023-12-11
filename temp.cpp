@@ -580,21 +580,19 @@ case 3:
     cout << "Do you want to compute your funds? " << endl;
     cout << "[1]. YES, [2]. MAIN MENU " << endl;
     cout << "> ";
-    cin >> userOption;
-    cout << "\n";
 
-    while (userOption != 1 && userOption != 2) {
-        cout << "_________________________________" << endl;
-        if (cin.fail() || (userOption != 1 && userOption != 2)) {
-            // Invalid input, clear the error state and discard the invalid input
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            // They need to input a valid number which is only 1 and 2, rather than 3 to ∞ or 0 to -∞, also invalid alphabetical letters
-            cout << "Invalid input. Please enter a valid number (1, 2)." << endl;
-            cout << "> ";
-        }
-        cin >> userOption;
+ while (true) {
+        cin >> userInput;
         cout << "\n";
+        stringstream ss(userInput);
+        if (ss >> userOption && ss.eof() && userOption >= 1 && userOption <= 2) {
+            break;  // Break out of the loop if the input is valid
+        }
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid input. Please enter a valid single digit (1 or 2)." << endl;
+        cout << "> ";
     }
         
 
@@ -602,19 +600,15 @@ case 3:
         case 2:
             break;
         case 1:
-    while (true) {
         cout << "===========================" << endl;
         cout << "Enter your salary: ";
 
-  
-        if (cin >> monthly_income) {
-            break;
-        } else {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter a numeric value." << endl;
-        }
+    while (!(cin >> monthly_income) || monthly_income < 0 || cin.peek() != '\n') {
+        cout << "Invalid input. Please enter a valid numerical value: PHP ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
+
     cout << "\nYou entered: " << monthly_income << endl;
     cout << "===========================\n" << endl;
 
@@ -797,35 +791,40 @@ double final_sss;
     cout << "> ";
 
     // Input validation loop for sss choice
-    do {
-        cin >> sss;
+ while (true) {
+        cin >> userInput;
         cout << "\n";
-        // Check if input is not an integer or is not 1 or 2
-        if (cin.fail() || (sss != 1 && sss != 2)) {
-            cin.clear();                                           // Clear error flag
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Discard invalid input
-            cout << "Invalid input. Please enter [1] for YES or [2] for NO: ";
+        stringstream ss(userInput);
+        if (ss >> sss && ss.eof() && sss >= 1 && sss <= 2) {
+            break;  // Break out of the loop if the input is valid
         }
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid input. Please enter a valid single digit (1 or 2)." << endl;
+        cout << "> ";
     } while (sss != 1 && sss != 2);
 
     cout << "_______________________________________________" << endl;
 
     if (sss == 1) {
-        cout << "What kind of member are you? [1] HOUSEHOLD, [2] EMPLOYEE " << endl;
+        cout << "What kind of member are you? [1] HOUSEHOLD, [2] EMPLOYEE" << endl;
         cout << "> ";
 
         // Input validation loop for member choice
-        do {
+        while (true) {
             cin >> member;
             cout << "\n";
 
             // Check if input is not an integer or is not 1 or 2
-            if (cin.fail() || (member != 1 && member != 2)) {
+            if (cin.fail() || (member != 1 && member != 2) || cin.peek() != '\n') {
                 cin.clear();                                           // Clear error flag
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Discard invalid input
                 cout << "Invalid input. Please enter [1] for HOUSEHOLD or [2] for EMPLOYEE: ";
+            } else {
+                break;  // Break out of the loop if the input is valid
             }
-        } while (member != 1 && member != 2);
+        }
 
 // ===============================   IF HOUSEHOLD SSS   =================================
 
@@ -3176,18 +3175,20 @@ cout << "> ";
 cin >> gsis;
 cout << "\n";
 
-   while (gsis != 1 && gsis != 2) {
-        cout << "_________________________________" << endl;
-        if (cin.fail() || (gsis != 1 && gsis != 2)) {
-            // Invalid input, clear the error state and discard the invalid input
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            // They need to input a valid number which is only 1 and 2, rather than 3 to ∞ or 0 to -∞, also invalid alphabetical letters
-            cout << "Invalid input. Please enter a valid number (1, 2)." << endl;
-            cout << "> ";
-        }
-        cin >> gsis;
+    while (true) {
+        string userInput;
+        cin >> userInput;
         cout << "\n";
+
+        stringstream ss(userInput);
+        if (ss >> gsis && ss.eof() && gsis >= 1 && gsis <= 2) {
+            break;  // Break out of the loop if the input is valid
+        }
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid input. Please enter a valid single digit (1 or 2)." << endl;
+        cout << "> ";
     }
 
 if (gsis == 1){
@@ -3268,18 +3269,20 @@ cout << "> ";
 cin >> ph;
 cout << "\n";
 
-   while (ph != 1 && ph != 2) {
-        cout << "_________________________________" << endl;
-        if (cin.fail() || (ph != 1 && ph != 2)) {
-            // Invalid input, clear the error state and discard the invalid input
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            // They need to input a valid number which is only 1 and 2, rather than 3 to ∞ or 0 to -∞, also invalid alphabetical letters
-            cout << "Invalid input. Please enter a valid number (1, 2)." << endl;
-            cout << "> ";
-        }
-        cin >> ph;
+    while (true) {
+        string userInput;
+        cin >> userInput;
         cout << "\n";
+
+        stringstream ss(userInput);
+        if (ss >> ph && ss.eof() && ph >= 1 && ph <= 2) {
+            break;  // Break out of the loop if the input is valid
+        }
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid input. Please enter a valid single digit (1 or 2)." << endl;
+        cout << "> ";
     }
 
 if(ph == 1){
@@ -3357,17 +3360,21 @@ case 4:
     cout << "Do you want to log out?" << endl;
     cout << "[1]. Yes [2]. No" << endl;
     cout << "> ";
-    cin >> userLogOut;
 
-    while (userLogOut != 1 && userLogOut != 2) {
-        cout << "*********************************" << endl;
-        if (cin.fail() || (userLogOut != 1 && userLogOut != 2)) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter a valid number: " << endl;
-            cout << "> ";
+    while (true) {
+        string userInput;
+        cin >> userInput;
+        cout << "\n";
+
+        stringstream ss(userInput);
+        if (ss >> userLogOut && ss.eof() && userLogOut >= 1 && userLogOut <= 2) {
+            break;  // Break out of the loop if the input is valid
         }
-        cin >> userLogOut;
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid input. Please enter a valid single digit (1 or 2)." << endl;
+        cout << "> ";
     }
 
     if (userLogOut == 1) {
