@@ -7,6 +7,7 @@
 
 using namespace std;
 
+// For Income and Expense Calculator Amount Checker
 bool isValidInput(double value) {
     return !cin.fail() && cin.peek() == '\n' && value >= 0;
 }
