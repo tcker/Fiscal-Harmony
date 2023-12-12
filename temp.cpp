@@ -3173,8 +3173,6 @@ cout << "=============================================================" << endl;
 cout << "Do you want to compute your GSIS contribution? " << endl;
 cout << "[1]. YES, [2]. NO " << endl;
 cout << "> ";
-cin >> gsis;
-cout << "\n";
 
     while (true) {
         string userInput;
@@ -3267,8 +3265,6 @@ double ph_final;
 cout << "Do you want to compute your Philhealth contribution? " << endl;
 cout << "[1]. YES, [2]. NO " << endl;
 cout << "> ";
-cin >> ph;
-cout << "\n";
 
     while (true) {
         string userInput;
