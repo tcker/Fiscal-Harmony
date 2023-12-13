@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <limits>
 #include <sstream>
-#include <conio.h>
+#include <conio.h> // For password to turn into asterisks
 
 using namespace std;
 
@@ -178,7 +178,7 @@ cout << "_________________________________" << endl;
 
         char ch;
         while (true) {
-            ch = _getch(); // Use _getch() from conio.h to read a character without echo
+            ch = _getch(); // Use _getch() from conio.h to read a character without output
 
             if (ch == '\r') { // Enter key
                 break;
