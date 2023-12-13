@@ -1,3 +1,9 @@
+// We only use loops such as:
+
+// Switch Case
+// If-else 
+// While do
+
 #include <iostream>
 #include <cmath>    // For computing values
 #include <iomanip>  // For precise input of high-value numbers
