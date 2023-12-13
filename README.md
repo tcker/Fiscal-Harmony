@@ -10,8 +10,8 @@
 
 <h3 align="left"> 👨‍💻 Developers:</h3>
 
-CoshuLy<br>
-https://github.com/CoshuLy
+rhyumiranda<br>
+https://github.com/rhyumiranda
 
 Ashio245<br>
 https://github.com/Ashio245
