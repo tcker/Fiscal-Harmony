@@ -1,8 +1,8 @@
 #include <iostream>
-#include <cmath>
-#include <iomanip>
-#include <limits>
-#include <sstream>
+#include <cmath>    // For computing values
+#include <iomanip>  // For precise input of high-value numbers
+#include <limits>   // To clear the input buffer and handle input validation
+#include <sstream>  // For scanning all inputs; all inputs must be valid
 #include <conio.h> // For password to turn into asterisks
 
 using namespace std;
