@@ -1,10 +1,10 @@
 //Fiscal 2.0 Version
 
 #include <iostream>
-#include <cmath>    // For computing values
-#include <iomanip>  // For precise input of high-value numbers
-#include <limits>   // To clear the input buffer and handle input validation
-#include <sstream>  // For scanning all inputs; all inputs must be valid
+#include <cmath>    // For mathematical operations
+#include <iomanip>  // For formatting input and output, including precision settings
+#include <limits>   // For clearing the input buffer and handling input validation
+#include <sstream>  // For working with string streams, converting and validating inputs
 
 using namespace std;
 
