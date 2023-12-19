@@ -1,4 +1,4 @@
-//fiscal ver 1.0
+//fiscal 1.0 version
 
 //arial 12
 //1.5 spacing
