@@ -618,7 +618,7 @@ else if (annual<=800000){
         cout << "\tYour monthly income did not exceed PHP800,000"<< endl; 
         cout << "\tand you are in the 20% tax bracket." << endl;
         cout << "\t==================================================" << endl;
-        cout << "\t||Tax Bracket: 2%" << endl;
+        cout << "\t||Tax Bracket: 20%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||Tax Deduction: " << final << endl;
         cout << fixed << setprecision(2) << "\t||Your salary with tax deducted is: " << addon << endl;
@@ -646,7 +646,7 @@ else if (annual<=2000000){
         cout << "\tYour monthly income did not exceed PHP800,000"<< endl; 
         cout << "\tand you are in the 25% tax bracket." << endl;
         cout << "\t==================================================" << endl;
-        cout << "\t||Tax Bracket: 2%" << endl;
+        cout << "\t||Tax Bracket: 25%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||Tax Deduction: " << final << endl;
         cout << fixed << setprecision(2) << "\t||Your salary with tax deducted is: " << addon << endl;
@@ -674,7 +674,7 @@ else if (annual<=800000){
         cout << "\tYour monthly income did not exceed PHP800,000"<< endl; 
         cout << "\tand you are in the 30% tax bracket." << endl;
         cout << "\t==================================================" << endl;
-        cout << "\t||Tax Bracket: 2%" << endl;
+        cout << "\t||Tax Bracket: 30%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||Tax Deduction: " << final << endl;
         cout << fixed << setprecision(2) << "\t||Your salary with tax deducted is: " << addon << endl;
@@ -701,7 +701,7 @@ else{
         cout << "\tYour monthly income did not exceed PHP800,000"<< endl; 
         cout << "\tand you are in the 35% tax bracket." << endl;
         cout << "\t==================================================" << endl;
-        cout << "\t||Tax Bracket: 2%" << endl;
+        cout << "\t||Tax Bracket: 35%" << endl;
         cout << fixed << setprecision(2) << "\t||Your annual income is; " << annual << endl;
         cout << "\t||Tax Deduction: " << final << endl;
         cout << fixed << setprecision(2) << "\t||Your salary with tax deducted is: " << addon << endl;
