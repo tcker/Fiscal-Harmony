@@ -1,3 +1,8 @@
+
+<p align="center">
+  <img src="https://github.com/tcker/fiscal/raw/main/fiscal_harmony_logo.png" alt="Logo" width="155" height="155">
+</p>
+
 # fiscal_harmony - FINALS ITC111 LEC LAB
 
 ### 📍 Programming Language:
