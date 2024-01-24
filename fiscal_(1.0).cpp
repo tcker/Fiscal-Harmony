@@ -398,3 +398,5 @@ int main(){
 //        cout << "Your salary with tax deducted is: " << addon << endl;
 //    }
 //}
+
+// ONLY DEVELOPERS WHO ARE THE RIGHTFUL OWNERS ARE PERMITTED TO ACCESS THIS PROGRAM
