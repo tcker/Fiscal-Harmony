@@ -1225,7 +1225,7 @@ else if (monthly_income <=5249.99){
         cout << "\t==================================================" << endl;
         cout << "\t||\t\tRECEIPT \t\t\t||"<< endl;
         cout << "\t==================================================" << endl;
-        cout << "\t||\t\t SSS \t\t\t\t||"<< endl; 
+        cout << "\t||\t\t SSS \t\t\t\t||"<< endl; //I got you
         cout << "\t==================================================" << endl;
         cout << fixed << setprecision(2) << "\t||Your total monthly contribution is: " << tmc << endl;
         cout << "\t||Your remaining balance with tax " << endl;
@@ -1421,7 +1421,7 @@ else if (monthly_income <=5249.99){
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
         cout << "\t==================================================" << endl;
-
+//I got you
         cout << "\n";
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
@@ -2213,7 +2213,7 @@ else if (monthly_income <=5249.99){
         cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
         }
          else if (monthly_income <=11249.99){
-            msc = 11000;
+            msc = 11000;//rhyu
             ec = 10;
             tmc = (msc * cr)+ ec;
             final_sss = final - tmc;
@@ -2658,7 +2658,7 @@ else if (monthly_income <=5249.99){
         cout << "\t<><> Fiscal Harmony Enterprises <><>\n" << endl;
           }
           else
-          {
+          {//rhyu
 
               final_sss = taxed_income - tmc;
         cout << "\t==================================================" << endl;
@@ -2892,7 +2892,7 @@ else if (monthly_income <=5249.99){
         cout << fixed << setprecision(2) << "\t||and SSS deduction is: " << final_sss << endl;
         cout << fixed << setprecision(2) << "\t||TOTAL: " << final_sss << endl;
         cout << "\t==================================================" << endl;
-
+//Emerson
         cout << "\n";
         cout << "\tFor more information kindly visit this link " << endl;
         cout << "\thttps://avenuegh.com/sss-contribution-table-2023/ \n\n";
