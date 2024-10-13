@@ -8,6 +8,8 @@ public class FiscalHarmony {
         String userRegisterEmail = "", userRegisterPassword = "";
         int signInAttempts = 0;
 
+//===================================================LOGIN AND REGISTRATION===================================================================
+
         while (goBackToSignUp) {
             System.out.println("=============================================================");
             System.out.println("\t\tWelcome to Fiscal Harmony");
@@ -117,6 +119,10 @@ public class FiscalHarmony {
         return option;
     }
 
+//===================================================LOGIN AND REGISTRATION===================================================================
+
+//===================================================MAIN MENU & FEATURES===================================================================
+
     private static void showFeaturesMenu(Scanner scanner, String userEmail) {
         boolean loggedIn = true;
 
@@ -136,15 +142,12 @@ public class FiscalHarmony {
             switch (featureOption) {
                 case 1:
                     System.out.println("Income and Expense Allocation.");
-
                     break;
                 case 2:
-                    System.out.println("Emergency Fund Calculator.");
-
+                    runEmergencyFundCalculator(scanner);
                     break;
                 case 3:
                     System.out.println("Salary Calculator.");
-
                     break;
                 case 4:
                     System.out.println("Logging out...");
@@ -153,4 +156,91 @@ public class FiscalHarmony {
             }
         }
     }
+
+//===================================================MAIN MENU & FEATURES===================================================================
+
+//===================================================EMERGENCY CALCULATOR===================================================================
+
+    private static void runEmergencyFundCalculator(Scanner scanner) {
+        System.out.println("+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+");
+        System.out.println("\tYour Trusty Emergency Fund Calculator");
+        System.out.println("\t\tNon negative Values only");
+        System.out.println("+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+");
+
+        double totalExpensesPerMonth;
+        int numberOfMonths;
+
+        totalExpensesPerMonth = getValidInput(scanner, "Enter your total monthly expenses: PHP ");
+        numberOfMonths = getValidInputInt(scanner, "Enter the number of months you want to cover: ");
+
+        System.out.println("You entered: " + numberOfMonths + " months \n");
+
+        double emergencyFund = totalExpensesPerMonth * numberOfMonths + 50;
+        System.out.printf("\nYour recommended emergency fund is: PHP %.2f%n", emergencyFund);
+
+        System.out.println("=============================================================");
+        System.out.println("[1]. Back to Main Menu [2]. Log out");
+        System.out.print("> ");
+
+        int backOrLogOut = getValidChoice(scanner);
+
+        if (backOrLogOut == 1) {
+            return; 
+        } else if (backOrLogOut == 2) {
+            System.out.println("Logging Out! Bye have a good time!");
+            System.exit(0);
+        }
+    }
+
+    private static double getValidInput(Scanner scanner, String prompt) {
+        while (true) {
+            try {
+                System.out.print(prompt);
+                double input = scanner.nextDouble();
+                if (input < 0) {
+                    System.out.println("Invalid input. Please enter a non-negative numerical value.");
+                } else {
+                    return input;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid numerical value.");
+                scanner.next();
+            }
+        }
+    }
+
+    private static int getValidInputInt(Scanner scanner, String prompt) {
+        while (true) {
+            try {
+                System.out.print(prompt);
+                int input = scanner.nextInt();
+                if (input < 0) {
+                    System.out.println("Invalid input. Please enter a non-negative numerical value.");
+                } else {
+                    return input;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid numerical value.");
+                scanner.next(); 
+            }
+        }
+    }
+
+    private static int getValidChoice(Scanner scanner) {
+        while (true) {
+            try {
+                int choice = scanner.nextInt();
+                if (choice == 1 || choice == 2) {
+                    return choice;
+                } else {
+                    System.out.println("Invalid input. Please enter a valid choice (1 or 2).");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid choice (1 or 2).");
+                scanner.next(); 
+            }
+        }
+    }
 }
+
+//===================================================EMERGENCY CALCULATOR===================================================================
