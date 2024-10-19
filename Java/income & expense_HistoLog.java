@@ -1,22 +1,23 @@
 import java.util.*;
 
 public class IncomeExpensesAllocation {
-    private static final int INCOME_CATEGORIES = 5;
-    private static final int EXPENSE_CATEGORIES = 5;
-    
-    private static String[] incomeCategories = {
-        "Personal", "Business", "Gifts", "Loan", "Others"
-    };
-    
-    private static String[] expenseCategories = {
-        "Food & Drink", "Shopping & Groceries", "Transport", "Home", "Bills/Fees & others"
-    };
-    
-    private static double[] income = new double[INCOME_CATEGORIES];
-    private static double[] expense = new double[EXPENSE_CATEGORIES];
-    private static ArrayList<String> historyLog = new ArrayList<>();
-    
-    public static void main(String[] args) {
+
+    private static void incomeExpensesAllocationModule() {
+        final int INCOME_CATEGORIES = 5;
+        final int EXPENSE_CATEGORIES = 5;
+        
+        String[] incomeCategories = {
+            "Personal", "Business", "Gifts", "Loan", "Others"
+        };
+        
+        String[] expenseCategories = {
+            "Food & Drink", "Shopping & Groceries", "Transport", "Home", "Bills/Fees & others"
+        };
+        
+        double[] income = new double[INCOME_CATEGORIES];
+        double[] expense = new double[EXPENSE_CATEGORIES];
+        ArrayList<String> historyLog = new ArrayList<>();
+        
         Scanner scanner = new Scanner(System.in);
         boolean goBackToFeature = true;
         
@@ -32,13 +33,13 @@ public class IncomeExpensesAllocation {
             
             switch (userFeatureChoice) {
                 case 1:
-                    handleIncome(scanner);
+                    handleIncome(scanner, income, incomeCategories, historyLog);
                     break;
                 case 2:
-                    handleExpenses(scanner);
+                    handleExpenses(scanner, expense, income, expenseCategories, historyLog);
                     break;
                 case 3:
-                    showHistoryLog();
+                    showHistoryLog(historyLog);
                     break;
                 case 4:
                     goBackToFeature = false;
@@ -49,7 +50,7 @@ public class IncomeExpensesAllocation {
         scanner.close();
     }
     
-    private static void handleIncome(Scanner scanner) {
+    private static void handleIncome(Scanner scanner, double[] income, String[] incomeCategories, ArrayList<String> historyLog) {
         double userIncomeSum = 0;
         String userInputIE;
 
@@ -58,12 +59,12 @@ public class IncomeExpensesAllocation {
             System.out.println("\t\t\tIncome");
             System.out.println("_______________________________");
             System.out.print("Categories: ");
-            for (int i = 0; i < INCOME_CATEGORIES; i++) {
+            for (int i = 0; i < incomeCategories.length; i++) {
                 System.out.print((i + 1) + ". " + incomeCategories[i] + "  ");
             }
             System.out.println();
-            System.out.print("Pick a category (1-" + INCOME_CATEGORIES + "): ");
-            int categoryChoice = getValidChoice(scanner, 1, INCOME_CATEGORIES);
+            System.out.print("Pick a category (1-" + incomeCategories.length + "): ");
+            int categoryChoice = getValidChoice(scanner, 1, incomeCategories.length);
 
             System.out.print("Enter amount for " + incomeCategories[categoryChoice - 1] + ": PHP ");
             double userIncome = getValidAmount(scanner);
@@ -76,10 +77,10 @@ public class IncomeExpensesAllocation {
 
         System.out.println("_________________________________");
         userIncomeSum = calculateTotal(income);
-        printIncomeSummary(userIncomeSum);
+        printIncomeSummary(userIncomeSum, income, incomeCategories);
     }
     
-    private static void handleExpenses(Scanner scanner) {
+    private static void handleExpenses(Scanner scanner, double[] expense, double[] income, String[] expenseCategories, ArrayList<String> historyLog) {
         double userExpenseSum = 0;
         String userInputIE;
 
@@ -88,12 +89,12 @@ public class IncomeExpensesAllocation {
             System.out.println("\t\t\tExpenses");
             System.out.println("_______________________________");
             System.out.print("Categories: ");
-            for (int i = 0; i < EXPENSE_CATEGORIES; i++) {
+            for (int i = 0; i < expenseCategories.length; i++) {
                 System.out.print((i + 1) + ". " + expenseCategories[i] + "  ");
             }
             System.out.println();
-            System.out.print("Pick a category (1-" + EXPENSE_CATEGORIES + "): ");
-            int categoryChoice = getValidChoice(scanner, 1, EXPENSE_CATEGORIES);
+            System.out.print("Pick a category (1-" + expenseCategories.length + "): ");
+            int categoryChoice = getValidChoice(scanner, 1, expenseCategories.length);
 
             System.out.print("Enter amount for " + expenseCategories[categoryChoice - 1] + ": PHP ");
             double userExpense = getValidAmount(scanner);
@@ -115,7 +116,7 @@ public class IncomeExpensesAllocation {
 
         System.out.println("_________________________________");
         userExpenseSum = calculateTotal(expense);
-        printExpenseSummary(userExpenseSum, calculateTotal(income));
+        printExpenseSummary(userExpenseSum, calculateTotal(income), expense, expenseCategories);
     }
 
     private static int getValidChoice(Scanner scanner, int min, int max) {
@@ -154,16 +155,16 @@ public class IncomeExpensesAllocation {
         return total;
     }
 
-    private static void printIncomeSummary(double totalIncome) {
-        for (int i = 0; i < INCOME_CATEGORIES; i++) {
+    private static void printIncomeSummary(double totalIncome, double[] income, String[] incomeCategories) {
+        for (int i = 0; i < incomeCategories.length; i++) {
             double percentage = (income[i] / totalIncome) * 100;
             System.out.printf(" %.2f%% \t| %s Income: PHP %.2f\n", percentage, incomeCategories[i], income[i]);
         }
         System.out.printf("_________________________________\nTotal Income: PHP %.2f\n", totalIncome);
     }
 
-    private static void printExpenseSummary(double totalExpenses, double totalIncome) {
-        for (int i = 0; i < EXPENSE_CATEGORIES; i++) {
+    private static void printExpenseSummary(double totalExpenses, double totalIncome, double[] expense, String[] expenseCategories) {
+        for (int i = 0; i < expenseCategories.length; i++) {
             double percentage = (expense[i] / totalExpenses) * 100;
             System.out.printf(" %.2f%% \t| %s Expense: PHP %.2f\n", percentage, expenseCategories[i], expense[i]);
         }
@@ -171,11 +172,15 @@ public class IncomeExpensesAllocation {
         System.out.printf("Total Funds: PHP %.2f\n", totalIncome - totalExpenses);
     }
 
-    private static void showHistoryLog() {
+    private static void showHistoryLog(ArrayList<String> historyLog) {
         System.out.println("History Log:");
         for (String entry : historyLog) {
             System.out.println(entry);
         }
         System.out.println("_________________________________");
+    }
+
+    public static void main(String[] args) {
+        incomeExpensesAllocationModule();
     }
 }
