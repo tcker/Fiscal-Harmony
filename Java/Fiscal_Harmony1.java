@@ -63,31 +63,41 @@ public class FiscalHarmony {
     }
 
     private static void askIfDone(Scanner scanner) {
-        System.out.println("Are you done reading the instructions? (Yes or No)");
-        System.out.print("> ");
-        String response = scanner.nextLine().toLowerCase();
+        while (true) {
+            System.out.println("Are you done reading the instructions? [1] Yes [2] No");
+            System.out.print("> ");
+            String response = scanner.nextLine();
 
-        if (response.equals("yes")) {
-            askPrivacyActQuestion(scanner);
-        } else if (response.equals("no")) {
-            System.out.println("Feel free to review the instructions again.");
-        } else {
-            System.out.println("Invalid response. Please answer 'Yes' or 'No'.");
+            if (response.equals("1")) {
+                askPrivacyActQuestion(scanner);
+                break; 
+            } else if (response.equals("2")) {
+                System.out.println("Feel free to review the instructions again.");
+                break; 
+            } else {
+                System.out.println("Invalid response. Please answer with [1] for Yes or [2] for No.");
+            }
         }
     }
 
     private static void askPrivacyActQuestion(Scanner scanner) {
-        System.out.println("Do you understand how your data will be used and the privacy policies in place? (Yes or No)");
-        System.out.print("> ");
-        String response = scanner.nextLine().toLowerCase();
+        while (true) {
+            System.out.println("Do you understand how your data will be used and the privacy policies in place? [1] Yes [2] No");
+            System.out.print("> ");
+            String response = scanner.nextLine();
 
-        if (response.equals("yes")) {
-            System.out.println("Thank you for your understanding!");
-        } else if (response.equals("no")) {
-            System.out.println("Please review our privacy policy for more information.");
-        } else {
-            System.out.println("Invalid response. Please answer 'Yes' or 'No'.");
+            if (response.equals("1")) {
+                System.out.println("Thank you for your understanding!");
+                break; 
+            } else if (response.equals("2")) {
+                System.out.println("Please review our privacy policy for more information.");
+                break; 
+            } else {
+                System.out.println("Invalid response. Please answer with [1] for Yes or [2] for No.");
+            }
         }
+    
+    
         
 //===================================================INSTRUCTIONS===================================================================
     
