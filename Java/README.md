@@ -1,3 +1,9 @@
-### New project with converting this project into Java Programming language
+# New project with converting this Fiscal-Harmony C++ into Java 
+
+---
+### Contributors:
+
+- Tcker (Ram) 
+- Alvin 
 
 ---
