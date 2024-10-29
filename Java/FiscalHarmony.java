@@ -287,7 +287,6 @@ public class FiscalHarmony {
         boolean goBackToFeature = true;
 
         while (goBackToFeature) {
-            // Recalculate total income and expenses
             double totalIncome = calculateTotal(income);
             double totalExpenses = calculateTotal(expense);
             double currentFunds = totalIncome - totalExpenses;
@@ -414,7 +413,7 @@ public class FiscalHarmony {
                     break;
                 }
             } else {
-                scanner.next(); // Clear invalid input
+                scanner.next(); 
             }
             System.out.print("Invalid input. Please enter a valid numerical value: PHP ");
         }
