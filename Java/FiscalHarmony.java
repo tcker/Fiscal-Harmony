@@ -1,9 +1,23 @@
 import java.util.*;
 
 public class FiscalHarmony {
+    private static final int INCOME_CATEGORIES = 5;
+    private static final int EXPENSE_CATEGORIES = 5;
+    
+    private static LinkedList<Double> income = new LinkedList<>();
+    private static LinkedList<Double> expense = new LinkedList<>();
     private static LinkedList<String> historyLog = new LinkedList<>();
+    private static double totalFunds = 0;
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        
+        for (int i = 0; i < INCOME_CATEGORIES; i++) {
+            income.add(0.0);
+        }
+        for (int i = 0; i < EXPENSE_CATEGORIES; i++) {
+            expense.add(0.0);
+        }   
+        
+    Scanner scanner = new Scanner(System.in);
 
 //===================================================INSTRUCTIONS===================================================================        
         
@@ -260,11 +274,7 @@ public class FiscalHarmony {
 
 //===================================================INCOME & EXPENSE ALLOCATION===================================================================
 
-     private static void incomeExpensesAllocationModule() {
-        final int INCOME_CATEGORIES = 5;
-        final int EXPENSE_CATEGORIES = 5;
-        
-
+    private static void incomeExpensesAllocationModule() {
         String[] incomeCategories = {
                 "Personal", "Business", "Gifts", "Loan", "Others"
         };
@@ -273,24 +283,25 @@ public class FiscalHarmony {
                 "Food & Drink", "Shopping & Groceries", "Transport", "Home", "Bills/Fees & others"
         };
 
-        double[] income = new double[INCOME_CATEGORIES];
-        double[] expense = new double[EXPENSE_CATEGORIES];
-
         Scanner scanner = new Scanner(System.in);
         boolean goBackToFeature = true;
 
         while (goBackToFeature) {
-        double totalIncome = calculateTotal(income);
-        double totalExpenses = calculateTotal(expense);
-        double totalFunds = totalIncome - totalExpenses; 
-        System.out.println("**************************************************");
-        System.out.println("\tIncome and Expenses Allocation");
-        System.out.println("**************************************************");
-        System.out.printf("Total funds left: PHP %.2f\n", totalFunds); // Display total funds
-        System.out.println("**************************************************");
-        System.out.println("Kindly choose one of the following: ");
-        System.out.println("[1]. Income [2]. Expenses [3]. History Log [4]. Main Menu");
-        System.out.print("> ");
+            // Recalculate total income and expenses
+            double totalIncome = calculateTotal(income);
+            double totalExpenses = calculateTotal(expense);
+            double currentFunds = totalIncome - totalExpenses;
+
+            totalFunds += currentFunds;
+
+            System.out.println("**************************************************");
+            System.out.println("\tIncome and Expenses Allocation");
+            System.out.println("**************************************************");
+            System.out.printf("Total funds left: PHP %.2f\n", currentFunds);
+            System.out.println("**************************************************");
+            System.out.println("Kindly choose one of the following: ");
+            System.out.println("[1]. Income [2]. Expenses [3]. History Log [4]. Main Menu");
+            System.out.print("> ");
 
             int userFeatureChoice = getValidChoice(scanner, 1, 4);
 
@@ -302,7 +313,7 @@ public class FiscalHarmony {
                     handleExpenses(scanner, expense, income, expenseCategories);
                     break;
                 case 3:
-                    showHistoryLog(); // Display history log to console
+                    showHistoryLog();
                     break;
                 case 4:
                     System.out.println("Exiting...");
@@ -313,7 +324,7 @@ public class FiscalHarmony {
         scanner.close();
     }
 
-    private static void handleIncome(Scanner scanner, double[] income, String[] incomeCategories) {
+    private static void handleIncome(Scanner scanner, LinkedList<Double> income, String[] incomeCategories) {
         double userIncomeSum = 0;
         String userInputIE;
 
@@ -331,7 +342,7 @@ public class FiscalHarmony {
 
             System.out.print("Enter amount for " + incomeCategories[categoryChoice - 1] + ": PHP ");
             double userIncome = getValidAmount(scanner);
-            income[categoryChoice - 1] += userIncome;
+            income.set(categoryChoice - 1, income.get(categoryChoice - 1) + userIncome);
 
             historyLog.add("Income: " + userIncome + " from " + incomeCategories[categoryChoice - 1]);
             System.out.print("Do you want to enter another income (y/n): ");
@@ -343,7 +354,7 @@ public class FiscalHarmony {
         printIncomeSummary(userIncomeSum, income, incomeCategories);
     }
 
-    private static void handleExpenses(Scanner scanner, double[] expense, double[] income, String[] expenseCategories) {
+    private static void handleExpenses(Scanner scanner, LinkedList<Double> expense, LinkedList<Double> income, String[] expenseCategories) {
         double userExpenseSum = 0;
         String userInputIE;
 
@@ -370,7 +381,7 @@ public class FiscalHarmony {
                 break;
             }
 
-            expense[categoryChoice - 1] += userExpense;
+            expense.set(categoryChoice - 1, expense.get(categoryChoice - 1) + userExpense);
             historyLog.add("Expense: " + userExpense + " for " + expenseCategories[categoryChoice - 1]);
 
             System.out.print("Do you want to enter another expense? (y/n): ");
@@ -410,26 +421,26 @@ public class FiscalHarmony {
         return amount;
     }
 
-    private static double calculateTotal(double[] array) {
+    private static double calculateTotal(LinkedList<Double> list) {
         double total = 0;
-        for (double value : array) {
+        for (double value : list) {
             total += value;
         }
         return total;
     }
 
-    private static void printIncomeSummary(double totalIncome, double[] income, String[] incomeCategories) {
+    private static void printIncomeSummary(double totalIncome, LinkedList<Double> income, String[] incomeCategories) {
         for (int i = 0; i < incomeCategories.length; i++) {
-            double percentage = (totalIncome == 0) ? 0 : (income[i] / totalIncome) * 100;
-            System.out.printf(" %.2f%% \t| %s Income: PHP %.2f\n", percentage, incomeCategories[i], income[i]);
+            double percentage = (totalIncome == 0) ? 0 : (income.get(i) / totalIncome) * 100;
+            System.out.printf(" %.2f%% \t| %s Income: PHP %.2f\n", percentage, incomeCategories[i], income.get(i));
         }
         System.out.printf("_________________________________\nTotal Income: PHP %.2f\n", totalIncome);
     }
 
-    private static void printExpenseSummary(double totalExpenses, double totalIncome, double[] expense, String[] expenseCategories) {
+    private static void printExpenseSummary(double totalExpenses, double totalIncome, LinkedList<Double> expense, String[] expenseCategories) {
         for (int i = 0; i < expenseCategories.length; i++) {
-            double percentage = (totalExpenses == 0) ? 0 : (expense[i] / totalExpenses) * 100;
-            System.out.printf(" %.2f%% \t| %s Expense: PHP %.2f\n", percentage, expenseCategories[i], expense[i]);
+            double percentage = (totalExpenses == 0) ? 0 : (expense.get(i) / totalExpenses) * 100;
+            System.out.printf(" %.2f%% \t| %s Expense: PHP %.2f\n", percentage, expenseCategories[i], expense.get(i));
         }
         System.out.printf("_________________________________\nTotal Expenses: PHP %.2f\n", totalExpenses);
         System.out.printf("Total Funds: PHP %.2f\n", totalIncome - totalExpenses);
@@ -442,7 +453,6 @@ public class FiscalHarmony {
         }
         System.out.println("_________________________________");
     }
-
 
 //===================================================INCOME & EXPENSE ALLOCATION===================================================================
 
