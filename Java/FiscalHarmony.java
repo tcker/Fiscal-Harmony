@@ -242,6 +242,11 @@ public class FiscalHarmony {
         while (loggedIn) {
             System.out.println("================================================================");
             System.out.println("Welcome, " + userEmail + "! I hope you have a great time!");
+            // System.out.println("================================================================");
+            // System.out.printf("Your Total funds left: PHP %.2f\n", totalFunds);
+            // Needed to make the Current funds calculations as global variable to 
+            // ensure displayin the current funds without bugs
+            // System.out.println("================================================================");
             System.out.println("Here are our current available features, check them out!:");
             System.out.println("[1]. Income and Expense Allocation");
             System.out.println("[2]. Emergency Fund Calculator");
