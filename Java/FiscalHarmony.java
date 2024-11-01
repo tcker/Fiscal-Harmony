@@ -7,7 +7,12 @@ public class FiscalHarmony {
     private static LinkedList<Double> income = new LinkedList<>();
     private static LinkedList<Double> expense = new LinkedList<>();
     private static LinkedList<String> historyLog = new LinkedList<>();
+
+    private static double totalIncome = 0;
+    private static double totalExpenses = 0;
+    private static double currentFunds = 0;
     private static double totalFunds = 0;
+    
     public static void main(String[] args) {
         
         for (int i = 0; i < INCOME_CATEGORIES; i++) {
@@ -234,7 +239,7 @@ public class FiscalHarmony {
 
 //===================================================LOGIN AND REGISTRATION===================================================================
 
-//===================================================MAIN MENU & FEATURES===================================================================
+//===================================================HOME & FEATURES===================================================================
 
     private static void showFeaturesMenu(Scanner scanner, String userEmail) {
         boolean loggedIn = true;
@@ -242,11 +247,8 @@ public class FiscalHarmony {
         while (loggedIn) {
             System.out.println("================================================================");
             System.out.println("Welcome, " + userEmail + "! I hope you have a great time!");
-            // System.out.println("================================================================");
-            // System.out.printf("Your Total funds left: PHP %.2f\n", totalFunds);
-            // Needed to make the Current funds calculations as global variable to 
-            // ensure displayin the current funds without bugs
-            // System.out.println("================================================================");
+            System.out.printf("Your Total funds left: PHP %.2f\n", currentFunds);
+            System.out.println("================================================================");
             System.out.println("Here are our current available features, check them out!:");
             System.out.println("[1]. Income and Expense Allocation");
             System.out.println("[2]. Emergency Fund Calculator");
@@ -275,7 +277,7 @@ public class FiscalHarmony {
         }
     }
 
-//===================================================MAIN MENU & FEATURES===================================================================
+//===================================================HOME & FEATURES===================================================================
 
 //===================================================INCOME & EXPENSE ALLOCATION===================================================================
 
@@ -292,10 +294,10 @@ public class FiscalHarmony {
         boolean goBackToFeature = true;
 
         while (goBackToFeature) {
-            double totalIncome = calculateTotal(income);
-            double totalExpenses = calculateTotal(expense);
-            double currentFunds = totalIncome - totalExpenses;
-
+            // Use global variables here
+            totalIncome = calculateTotal(income);
+            totalExpenses = calculateTotal(expense);
+            currentFunds = totalIncome - totalExpenses;
             totalFunds += currentFunds;
 
             System.out.println("**************************************************");
@@ -304,7 +306,7 @@ public class FiscalHarmony {
             System.out.printf("Total funds left: PHP %.2f\n", currentFunds);
             System.out.println("**************************************************");
             System.out.println("Kindly choose one of the following: ");
-            System.out.println("[1]. Income [2]. Expenses [3]. History Log [4]. Main Menu");
+            System.out.println("[1]. Income [2]. Expenses [3]. History Log [4]. Home");
             System.out.print("> ");
 
             int userFeatureChoice = getValidChoice(scanner, 1, 4);
@@ -480,7 +482,7 @@ public class FiscalHarmony {
         System.out.printf("\nYour recommended emergency fund is: PHP %.2f%n", emergencyFund);
 
         System.out.println("=============================================================");
-        System.out.println("[1]. Back to Main Menu [2]. Log out");
+        System.out.println("[1]. Back to Home [2]. Log out");
         System.out.print("> ");
 
         int backOrLogOut = getValidChoice(scanner);
