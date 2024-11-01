@@ -26,28 +26,37 @@ public class FiscalHarmony {
 
 //===================================================INSTRUCTIONS===================================================================        
         
-        System.out.println("==============================================");
-        System.out.println("         Welcome to Fiscal Harmony!");
-        System.out.println("==============================================");
-        System.out.println("             select an option:");
-        System.out.println("[1]. Read Instructions for Income and Expenses Allocation,\nEmergency Fund Calculator, Tax Calculator, and Privacy Act");
-        System.out.println("[2]. Exit");
+System.out.println("==============================================");
+System.out.println("         Welcome to Fiscal Harmony!");
+System.out.println("==============================================");
+int choice;
+
+do {
+    System.out.println("Select an option:");
+    System.out.println("[1]. Read Instructions for Income and Expenses Allocation,\nEmergency Fund Calculator, Tax Calculator, and Privacy Act");
+    System.out.println("[2]. Exit");
+    System.out.print("> ");
+
+    while (!scanner.hasNextInt()) {
+        System.out.println("Invalid input. Please enter a number (1 or 2):");
         System.out.print("> ");
-
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-
-        if (choice == 1) {
-            showCombinedInstructions();
-            askIfDone(scanner);
-        } else if (choice == 2) {
-            System.out.println("Exiting the program. Thank you!");
-        } else {
-            System.out.println("Invalid choice. Please select a valid option.");
-        }
-
-        scanner.close();
+        scanner.next(); 
     }
+
+    choice = scanner.nextInt();
+    scanner.nextLine(); 
+
+    if (choice == 1) {
+        showCombinedInstructions();
+        askIfDone(scanner);
+    } else if (choice == 2) {
+        System.out.println("Exiting the program. Thank you!");
+    } else {
+        System.out.println("Invalid choice. Please select a valid option.");
+    }
+} while (choice != 2);
+    }
+
     private static void showCombinedInstructions() {
         System.out.println("====================================================================================");
         System.out.println("                   INSTRUCTIONS PLEASE READ BEFORE PROCEEDING                 ");
@@ -75,6 +84,7 @@ public class FiscalHarmony {
         System.out.println("                               DATA PRIVACY NOTICE                                ");
         System.out.println("                             REPUBLIC ACT NO. 10173                               ");
         System.out.println("                           REPUBLIC OF THE PHILIPPINES                            ");
+        System.out.println("");
         System.out.println("   The Republic Act 10173, officially known as the Data Privacy Act of 2012 (DPA).");
         System.out.println("   We request your consent to use this program for managing your finances. " +
                 "\n   Your permission allows us to assist you with budgeting and tracking expenses.\n");
@@ -129,38 +139,56 @@ public class FiscalHarmony {
 
 
         while (goBackToSignUp) {
-            System.out.println("\n\n=============================================================");
-            System.out.println("                 Welcome to Fiscal Harmony");
-            System.out.println("=============================================================");
-            System.out.println("Planning your future for a financially free life.");
-            System.out.println("[1]. Sign In [2]. Sign Up");
-            System.out.print("> ");
+            System.out.println("\n");
+            System.out.println("                                ███████╗██╗███████╗ ██████╗ █████╗ ██╗             ");
+            System.out.println("                                ██╔════╝██║██╔════╝██╔════╝██╔══██╗██║             ");
+            System.out.println("                                █████╗  ██║███████╗██║     ███████║██║             ");
+            System.out.println("                                ██╔══╝  ██║╚════██║██║     ██╔══██║██║             ");
+            System.out.println("                                ██║     ██║███████║╚██████╗██║  ██║███████╗        ");
+            System.out.println("                                ╚═╝     ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝        ");
+            System.out.println("                                                                                   ");
+            System.out.println("                    ██╗  ██╗ █████╗ ██████╗ ███╗   ███╗ ██████╗ ███╗   ██╗██╗   ██╗");
+            System.out.println("                    ██║  ██║██╔══██╗██╔══██╗████╗ ████║██╔═══██╗████╗  ██║╚██╗ ██╔╝");
+            System.out.println("                    ███████║███████║██████╔╝██╔████╔██║██║   ██║██╔██╗ ██║ ╚████╔╝ ");
+            System.out.println("                    ██╔══██║██╔══██║██╔══██╗██║╚██╔╝██║██║   ██║██║╚██╗██║  ╚██╔╝  ");
+            System.out.println("                    ██║  ██║██║  ██║██║  ██║██║ ╚═╝ ██║╚██████╔╝██║ ╚████║   ██║   ");
+            System.out.println("                    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ");
+            System.out.println("                                                               ");
+            System.out.println("                        Planning your future for a financially free life.\n");
+            System.out.println("╔═[1]. Sign In [2]. Sign Up");
+            System.out.println("║");
+            System.out.print("╚═══> ");
 
             int userOption = getValidOption(scanner, 1, 2);
 
             switch (userOption) {
                 case 1: 
-                    System.out.println("_________________________________");
-                    System.out.println("You are now signing in...");
+                System.out.println("                    ═════════════════════════════════════════════════════════════════");
+                    System.out.println("                    You are now signing in...");
 
                     do {
-                        System.out.print("Username: ");
+                        System.out.print("                    Username: ");
                         userEmail = scanner.next();
-                        System.out.print("Password: ");
+                        System.out.print("                    Password: ");
                         userPassword = scanner.next();
-                        System.out.println("_________________________________");
+                        System.out.println("                    ═════════════════════════════════════════════════════════════════");
 
                         if (!userEmail.equals("admin") || !userPassword.equals("password")) {
                             signInAttempts++;
-                            System.out.println("Invalid password or username, please try again!");
+                            System.out.println("                    ***********************************************");
+                            System.out.println("                    Invalid password or username, please try again!");
+                            System.out.println("                    ***********************************************");
                         }
                     } while ((!userEmail.equals("admin") || !userPassword.equals("password")) && signInAttempts < 2);
 
                     if (signInAttempts == 2) {
-                        System.out.println("You have reached the maximum number of sign-in attempts.");
-                        System.out.println("=======================================================");
-                        System.out.println("[1]. Go back to Sign-up Terminal [2]. Exit");
-                        System.out.print("> ");
+                        System.out.println("                    ********************************************************");
+                        System.out.println("                    You have reached the maximum number of sign-in attempts.");
+                        System.out.println("                    ********************************************************");
+                        System.out.println("                    ═════════════════════════════════════════════════════════════════");
+                        System.out.println("╔═[1]. Go back to Sign-up Terminal [2]. Exit");
+                        System.out.println("║");
+                        System.out.print("╚═══> ");
 
                         int finalOption = getValidOption(scanner, 1, 2);
 
@@ -179,18 +207,20 @@ public class FiscalHarmony {
                     break;
 
                 case 2: 
-                    System.out.println("_________________________________");
-                    System.out.println("You are now creating an account");
-                    System.out.print("Username: ");
+                System.out.println("                    ═════════════════════════════════════════════════════════════════");
+                    System.out.println("                    You are now creating an account");
+                    System.out.print("                    Username: ");
                     userRegisterEmail = scanner.next();
-                    System.out.print("Password: ");
+                    System.out.print("                    Password: ");
                     userRegisterPassword = scanner.next();
-                    System.out.println("You have successfully created an account, would you like to sign in?");
-                    System.out.println("[1]. Yes [2]. Exit");
-                    System.out.print("> ");
+                    System.out.println("                    You have successfully created an account, would you like to sign in?");
+                    System.out.println("");
+                    System.out.println("╔═[1]. Yes [2]. Exit");
+                    System.out.println("║");
+                    System.out.print("╚═══> ");
 
                     int userSignIn = getValidOption(scanner, 1, 2);
-                    System.out.println("_________________________________");
+                    System.out.println("                    ═════════════════════════════════════════════════════════════════");
 
                     if (userSignIn == 1) {
                         do {
@@ -198,16 +228,16 @@ public class FiscalHarmony {
                             userEmail = scanner.next();
                             System.out.print("Password: ");
                             userPassword = scanner.next();
-                            System.out.println("_________________________________");
+                            System.out.println("                    ═════════════════════════════════════════════════════════════════");
 
                             if (!userEmail.equals(userRegisterEmail) || !userPassword.equals(userRegisterPassword)) {
-                                System.out.println("You have entered the wrong username or password, please try again!");
+                                System.out.println("                    You have entered the wrong username or password, please try again!");
                             }
                         } while (!userEmail.equals(userRegisterEmail) || !userPassword.equals(userRegisterPassword));
 
                         showFeaturesMenu(scanner, userEmail); 
                     } else {
-                        System.out.println("Have a great day ahead!");
+                        System.out.println("                    Have a great day ahead!");
                         System.exit(0);
                     }
                     break;
@@ -245,18 +275,17 @@ public class FiscalHarmony {
         boolean loggedIn = true;
 
         while (loggedIn) {
-            System.out.println("================================================================");
-            System.out.println("Welcome, " + userEmail + "! I hope you have a great time!");
-            System.out.printf("Your Total funds left: PHP %.2f\n", currentFunds);
-            System.out.println("================================================================");
-            System.out.println("Here are our current available features, check them out!:");
-            System.out.println("[1]. Income and Expense Allocation");
-            System.out.println("[2]. Emergency Fund Calculator");
-            System.out.println("[3]. Salary Calculator");
-            System.out.println("[4]. Log out");
-            System.out.println("================================================================");
-            System.out.print("> ");
-
+            System.out.println("\n\n                    ╔════════════════════════════════════════════════════════════════╗");
+            System.out.println("                    ║           Welcome, " + userEmail + "! I hope you have a great time!        ║");
+            System.out.printf("                               Your Total funds left: PHP %.2f                      \n", currentFunds);
+            System.out.println("                    ╚════════════════════════════════════════════════════════════════╝");
+            System.out.println("                         Here are our current available features, check them out!:\n");
+            System.out.println("             ╔════[1]. Income and Expense Allocation");
+            System.out.println("          ╔══╩══[2]. Emergency Fund Calculator");
+            System.out.println("       ╔══╩═══[3]. Salary Calculator");
+            System.out.println("      ╔╩════[4]. Log out");
+            System.out.println("      ║");
+            System.out.print("      ╚═══> ");
             int featureOption = getValidOption(scanner, 1, 4);
 
             switch (featureOption) {
@@ -300,14 +329,19 @@ public class FiscalHarmony {
             currentFunds = totalIncome - totalExpenses;
             totalFunds += currentFunds;
 
-            System.out.println("**************************************************");
-            System.out.println("\tIncome and Expenses Allocation");
-            System.out.println("**************************************************");
-            System.out.printf("Total funds left: PHP %.2f\n", currentFunds);
-            System.out.println("**************************************************");
-            System.out.println("Kindly choose one of the following: ");
-            System.out.println("[1]. Income [2]. Expenses [3]. History Log [4]. Home");
-            System.out.print("> ");
+            System.out.println("                        **************************************************");
+            System.out.println("                            \tIncome and Expenses Allocation");
+            System.out.println("                        **************************************************");
+            System.out.printf("                                Total funds left: PHP %.2f\n", currentFunds);
+            System.out.println("                        **************************************************");
+            System.out.println("                              Kindly choose one of the following: ");
+            System.out.println("");
+            System.out.println("             ╔════[1]. Income");
+            System.out.println("          ╔══╩══[2]. Expenses");
+            System.out.println("       ╔══╩═══[3]. History Log");
+            System.out.println("      ╔╩════[4]. Home");
+            System.out.println("      ║");
+            System.out.print("      ╚═══> ");
 
             int userFeatureChoice = getValidChoice(scanner, 1, 4);
 
@@ -453,11 +487,12 @@ public class FiscalHarmony {
     }
 
     private static void showHistoryLog() {
-        System.out.println("History Log:");
-        for (String entry : historyLog) {
-            System.out.println(entry);
-        }
+        System.out.println("\nHistory Log:");
         System.out.println("_________________________________");
+        for (String entry : historyLog) {
+            System.out.println("                        " + entry);
+        }
+        System.out.println("_________________________________\n\n");
     }
 
 //===================================================INCOME & EXPENSE ALLOCATION===================================================================
