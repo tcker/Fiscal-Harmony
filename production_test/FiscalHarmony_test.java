@@ -551,42 +551,7 @@ do {
             System.out.println("                        " + entry);
         }
         System.out.println("_________________________________\n\n");
-        saveToFile(); 
     }
-
-    private static void saveToFile() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("user_data.txt", true))) {
-            // Save the current funds and totals to the file
-            writer.write("Current Funds: PHP " + currentFunds + "\n");
-            writer.write("Total Income: PHP " + totalIncome + "\n");
-            writer.write("Total Expenses: PHP " + totalExpenses + "\n");
-            writer.write("Total Funds: PHP " + totalFunds + "\n");
-    
-            // Save the income data
-            writer.write("Income Breakdown:\n");
-            for (int i = 0; i < INCOME_CATEGORIES; i++) {
-                writer.write("  " + income.get(i) + " from " + (i + 1) + " category\n");
-            }
-    
-            // Save the expense data
-            writer.write("Expense Breakdown:\n");
-            for (int i = 0; i < EXPENSE_CATEGORIES; i++) {
-                writer.write("  " + expense.get(i) + " for " + (i + 1) + " category\n");
-            }
-    
-            // Save the history log
-            writer.write("History Log:\n");
-            for (String logEntry : historyLog) {
-                writer.write("  " + logEntry + "\n");
-            }
-    
-            writer.write("----------------------------------------------------\n");
-        } catch (IOException e) {
-            System.out.println("An error occurred while saving data.");
-            e.printStackTrace();
-        }
-    }
-
 
 
 //===================================================INCOME & EXPENSE ALLOCATION===================================================================
