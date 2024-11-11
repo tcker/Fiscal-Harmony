@@ -553,43 +553,34 @@ do {
     
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
-    
-            // Read the CSV file and check for the existing email
+
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-    
-                // Check if this is the line with the correct email (preserving email and password as strings)
+
                 if (data[0].equals(email)) {
                     userFound = true;
-                    // Keep the email and password intact, then append the updated data
-                    newData.append(data[0]).append(",").append(data[1]).append(","); // email, password
-    
-                    // Append the updated income data (overwrite, not add)
+                    newData.append(data[0]).append(",").append(data[1]).append(","); 
+
                     for (double incomeVal : income) {
                         newData.append(incomeVal).append(",");
                     }
-    
-                    // Append the updated expense data (overwrite, not add)
+
                     for (double expenseVal : expense) {
                         newData.append(expenseVal).append(",");
                     }
-    
-                    // Append the updated history log entries (overwrite, not add)
+
                     for (String log : historyLog) {
                         newData.append(log).append(",");
                     }
-    
-                    // **Important Fix**: Ensure currentFunds is updated correctly and not added
+ 
                     newData.append(String.valueOf(totalFunds)).append(",").append(String.valueOf(currentFunds)).append("\n");
                 } else {
-                    // For other users, append the original line unchanged
                     newData.append(line).append("\n");
                 }
             }
-    
-            // If user is not found, add a new record for the user (ensure you append the password as well)
+
             if (!userFound) {
-                newData.append(email).append(",password,");  // Ensure to include the password placeholder
+                newData.append(email).append(",password,");  
                 for (double incomeVal : income) {
                     newData.append(incomeVal).append(",");
                 }
@@ -599,11 +590,9 @@ do {
                 for (String log : historyLog) {
                     newData.append(log).append(",");
                 }
-                // Save the current total and current funds as new values for the user
                 newData.append(String.valueOf(totalFunds)).append(",").append(String.valueOf(currentFunds)).append("\n");
             }
-    
-            // Write the updated data back to the CSV file
+
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
                 writer.write(newData.toString());
             }
@@ -619,58 +608,54 @@ do {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-    
-                // Check if the first field matches the provided email
+
                 if (data[0].equals(email)) {
                     int index = 1;
-    
-                    // Load income categories (assume INCOME_CATEGORIES is defined correctly)
+
                     for (int i = 0; i < INCOME_CATEGORIES; i++) {
-                        if (index < data.length) { // Check if there is enough data
+                        if (index < data.length) { 
                             try {
                                 income.add(Double.parseDouble(data[index++]));
                             } catch (NumberFormatException e) {
-                                income.add(0.0); // Default to 0 if the value can't be parsed
+                                income.add(0.0); 
                             }
                         } else {
-                            income.add(0.0); // Default to 0 if not enough data
+                            income.add(0.0); 
                         }
                     }
-    
-                    // Load expense categories (assume EXPENSE_CATEGORIES is defined correctly)
+   
                     for (int i = 0; i < EXPENSE_CATEGORIES; i++) {
-                        if (index < data.length) { // Check if there is enough data
+                        if (index < data.length) { 
                             try {
                                 expense.add(Double.parseDouble(data[index++]));
                             } catch (NumberFormatException e) {
                                 System.out.println("Invalid expense data at index " + (index - 1) + ": " + data[index - 1]);
-                                expense.add(0.0); // Default to 0 if the value can't be parsed
+                                expense.add(0.0); 
                             }
                         } else {
-                            expense.add(0.0); // Default to 0 if not enough data
+                            expense.add(0.0); 
                         }
                     }
-    
-                    // Load history log entries (starting from the correct index based on income and expense)
+
                     for (int i = index; i < data.length - 2; i++) {
                         historyLog.add(data[i]);
                     }
     
-                    if (data.length > 2) { // Check if total funds and current funds exist
+                    if (data.length > 2) { 
                         try {
                             totalFunds = Double.parseDouble(data[data.length - 2]);
-                            currentFunds = Double.parseDouble(data[data.length - 1]); // Load current funds separately
+                            currentFunds = Double.parseDouble(data[data.length - 1]); 
                         } catch (NumberFormatException e) {
                             System.out.println("Invalid total or current funds data: " + data[data.length - 2] + ", " + data[data.length - 1]);
                             totalFunds = 0.0;
-                            currentFunds = 0.0; // Default to 0 if the values can't be parsed
+                            currentFunds = 0.0; 
                         }
                     } else {
-                        totalFunds = 0.0; // Default to 0 if total funds and current funds are missing
+                        totalFunds = 0.0; 
                         currentFunds = 0.0;
                     }   
     
-                    break; // Exit the loop once the matching email is found
+                    break; 
                 }
             }
         } catch (IOException e) {
