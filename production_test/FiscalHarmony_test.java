@@ -12,7 +12,7 @@ public class FiscalHarmony_test {
 
     private static double totalIncome = 0;
     private static double totalExpenses = 0;
-    private static double currentFunds = 0;
+    private static double currentFunds = 0; 
     private static double totalFunds = 0;
     
     public static void main(String[] args) {
@@ -297,19 +297,22 @@ do {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] credentials = line.split(",");
+                // Check if the email matches
                 if (credentials[0].equals(email)) {
-                    return true;
+                    return true; // Email is already registered
                 }
             }
         } catch (IOException e) {
             System.out.println("Error reading user file: " + e.getMessage());
         }
-        return false;
+        return false; // Email not found
     }
-
+    
+    
     private static void saveUserCredentials(String email, String password) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
-            writer.write(email + "," + password);
+            // Write email, password, and funds as 0
+            writer.write(email + "," + password + ",0"); // Save funds as 0
             writer.newLine();
         } catch (IOException e) {
             System.out.println("Error saving user credentials: " + e.getMessage());
@@ -553,115 +556,135 @@ do {
     
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
-
+    
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-
-                if (data[0].equals(email)) {
+    
+                if (data.length >= 2 && data[0].equals(email)) {
                     userFound = true;
-                    newData.append(data[0]).append(",").append(data[1]).append(","); 
-
-                    for (double incomeVal : income) {
-                        newData.append(incomeVal).append(",");
-                    }
-
-                    for (double expenseVal : expense) {
-                        newData.append(expenseVal).append(",");
-                    }
-
-                    for (String log : historyLog) {
-                        newData.append(log).append(",");
-                    }
- 
-                    newData.append(String.valueOf(totalFunds)).append(",").append(String.valueOf(currentFunds)).append("\n");
+                    newData.append(email).append(",").append(data[1]).append(",");  // Retain the password
+    
+                    // Append income, expense, history, funds data to the CSV
+                    appendDataToCSV(newData);
+    
+                    newData.append("\n");
                 } else {
                     newData.append(line).append("\n");
                 }
             }
-
+    
             if (!userFound) {
-                newData.append(email).append(",password,");  
-                for (double incomeVal : income) {
-                    newData.append(incomeVal).append(",");
-                }
-                for (double expenseVal : expense) {
-                    newData.append(expenseVal).append(",");
-                }
-                for (String log : historyLog) {
-                    newData.append(log).append(",");
-                }
-                newData.append(String.valueOf(totalFunds)).append(",").append(String.valueOf(currentFunds)).append("\n");
+                newData.append(email).append(",<password>,");
+                appendDataToCSV(newData);
+                newData.append("\n");
             }
-
+    
+            // Print the new data before saving to check the format
+            System.out.println("Data being saved to CSV:\n" + newData.toString());
+    
+            // Save updated data to CSV
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
                 writer.write(newData.toString());
             }
     
         } catch (IOException e) {
-            System.out.println("Error saving user data: " + e.getMessage());
+            System.out.println("Error saving data to CSV: " + e.getMessage());
         }
     }
+    private static void appendDataToCSV(StringBuilder newData) {
+        // Append income data
+        StringBuilder incomeData = new StringBuilder();
+        for (Double i : income) {
+            incomeData.append(i).append(",");
+        }
     
+        // Append expense data
+        StringBuilder expenseData = new StringBuilder();
+        for (Double e : expense) {
+            expenseData.append(e).append(",");
+        }
     
-    private static void loadDataFromCSV(String email) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",");
-
-                if (data[0].equals(email)) {
-                    int index = 1;
-
-                    for (int i = 0; i < INCOME_CATEGORIES; i++) {
-                        if (index < data.length) { 
-                            try {
-                                income.add(Double.parseDouble(data[index++]));
-                            } catch (NumberFormatException e) {
-                                income.add(0.0); 
-                            }
-                        } else {
-                            income.add(0.0); 
-                        }
-                    }
-   
-                    for (int i = 0; i < EXPENSE_CATEGORIES; i++) {
-                        if (index < data.length) { 
-                            try {
-                                expense.add(Double.parseDouble(data[index++]));
-                            } catch (NumberFormatException e) {
-                                System.out.println("Invalid expense data at index " + (index - 1) + ": " + data[index - 1]);
-                                expense.add(0.0); 
-                            }
-                        } else {
-                            expense.add(0.0); 
-                        }
-                    }
-
-                    for (int i = index; i < data.length - 2; i++) {
-                        historyLog.add(data[i]);
-                    }
+        // Append history log data
+        StringBuilder historyData = new StringBuilder();
+        for (String h : historyLog) {
+            historyData.append(h).append(",");
+        }
     
-                    if (data.length > 2) { 
+        // Append all data to newData StringBuilder
+        newData.append(incomeData.toString())
+                .append(expenseData.toString())
+                .append(historyData.toString())
+                .append(totalFunds).append(",")  // Make sure it's a double value
+                .append(currentFunds);  // Make sure it's a double value
+    
+        // Print the appended data for debugging
+        System.out.println("Appending data to CSV: " + newData.toString());
+    }
+
+    
+private static void loadDataFromCSV(String email) {
+    try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] data = line.split(",");
+
+            // Check if email matches
+            if (data[0].equals(email)) {
+                int index = 1;  // Skip over the email field
+                System.out.println("Parsing data for email: " + email);
+                
+                // Load income data
+                for (int i = 0; i < INCOME_CATEGORIES; i++) {
+                    if (index < data.length) {
                         try {
-                            totalFunds = Double.parseDouble(data[data.length - 2]);
-                            currentFunds = Double.parseDouble(data[data.length - 1]); 
+                            income.add(Double.parseDouble(data[index++]));
                         } catch (NumberFormatException e) {
-                            System.out.println("Invalid total or current funds data: " + data[data.length - 2] + ", " + data[data.length - 1]);
-                            totalFunds = 0.0;
-                            currentFunds = 0.0; 
+                            income.add(0.0);
                         }
                     } else {
-                        totalFunds = 0.0; 
-                        currentFunds = 0.0;
-                    }   
-    
-                    break; 
+                        income.add(0.0);
+                    }
                 }
+
+                // Load expense data
+                for (int i = 0; i < EXPENSE_CATEGORIES; i++) {
+                    if (index < data.length) {
+                        try {
+                            expense.add(Double.parseDouble(data[index++]));
+                        } catch (NumberFormatException e) {
+                            expense.add(0.0);
+                        }
+                    } else {
+                        expense.add(0.0);
+                    }
+                }
+
+                // Load history log data
+                for (int i = index; i < data.length - 2; i++) {
+                    historyLog.add(data[i]);
+                }
+
+                // Parse the last two values as totalFunds and currentFunds
+                try {
+                    totalFunds = Double.parseDouble(data[data.length - 2]);
+                    currentFunds = Double.parseDouble(data[data.length - 1]);
+                } catch (NumberFormatException e) {
+                    totalFunds = 0.0;
+                    currentFunds = 0.0;
+                    System.out.println("Error parsing funds: " + e.getMessage());
+                }
+
+                // Print the funds for debugging
+                System.out.println("Parsed funds - Total Funds: " + totalFunds + ", Current Funds: " + currentFunds);
+                break;  // Exit after finding the user
             }
-        } catch (IOException e) {
-            System.out.println("Error loading user data: " + e.getMessage());
         }
+    } catch (IOException e) {
+        System.out.println("Error loading user data: " + e.getMessage());
     }
+}
+
+    
 
     private static void clearUserData() {
         income.clear();
