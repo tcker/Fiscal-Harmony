@@ -239,9 +239,9 @@ do {
 
                     if (userSignIn == 1) {
                         do {
-                            System.out.print("Username: ");
+                            System.out.print("                    Username: ");
                             userEmail = scanner.next();
-                            System.out.print("Password: ");
+                            System.out.print("                    Password: ");
                             userPassword = scanner.next();
                             System.out.println("                    ═════════════════════════════════════════════════════════════════");
 
@@ -287,37 +287,57 @@ do {
         }
         return option;
     }
-
+    
     private static boolean isValidUser(String email, String password) {
-        try (BufferedReader br = new BufferedReader(new FileReader("production_test/user_data.txt"))) {
+        String directoryPath = "user_data/";  
+        String userFileName = directoryPath + email.split("@")[0] + ".txt";  
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(userFileName))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] userDetails = line.split(",");
-                if (userDetails[0].equals(email) && userDetails[1].equals(password)) {
-                    return true;
+                String[] userDetails = line.split(":");
+                if (userDetails[0].equals("Email") && userDetails[1].trim().equals(email)) {
+                    line = br.readLine();  
+                    if (line != null && line.startsWith("Password:") && line.split(":")[1].trim().equals(password)) {
+                        return true; 
+                    }
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error reading user data file.");
+            System.out.println("                    Error reading user data file.");
         }
-        return false;
+        return false;  
     }
 
     private static void saveUserDetails(String email, String password) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("user_data.txt", true))) {
-            bw.write(email + "," + password);
-            bw.newLine();
-            System.out.println("Account successfully created for " + email);
+        String directoryPath = "user_data/";  
+        String userFileName = directoryPath + email.split("@")[0] + ".txt";  
+        
+        try {
+            File directory = new File(directoryPath);
+            if (!directory.exists()) {
+                directory.mkdirs(); 
+            }
+    
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(userFileName))) {
+                bw.write("Email: " + email);
+                bw.newLine();
+                bw.write("Password: " + password);
+                bw.newLine();
+                System.out.println("                    Account successfully created for " + email);
+            }
         } catch (IOException e) {
-            System.out.println("Error saving user data.");
+            System.out.println("                    Error saving user data.");
         }
     }
+    
     
 
 
 //===================================================LOGIN AND REGISTRATION===================================================================
 
 //===================================================HOME & FEATURES===================================================================
+
 
     private static void showFeaturesMenu(Scanner scanner, String userEmail) {
         boolean loggedIn = true;
@@ -369,190 +389,189 @@ do {
 
 //===================================================INCOME & EXPENSE ALLOCATION===================================================================
 
-    private static void incomeExpensesAllocationModule() {
-        String[] incomeCategories = {
-                "Personal", "Business", "Gifts", "Loan", "Others"
-        };
+        private static void incomeExpensesAllocationModule() {
+            String[] incomeCategories = {
+                    "Personal", "Business", "Gifts", "Loan", "Others"
+            };
 
-        String[] expenseCategories = {
-                "Food & Drink", "Shopping & Groceries", "Transport", "Home", "Bills/Fees & others"
-        };
+            String[] expenseCategories = {
+                    "Food & Drink", "Shopping & Groceries", "Transport", "Home", "Bills/Fees & others"
+            };
 
-        Scanner scanner = new Scanner(System.in);
-        boolean goBackToFeature = true;
+            Scanner scanner = new Scanner(System.in);
+            boolean goBackToFeature = true;
 
-        while (goBackToFeature) {
-            totalIncome = calculateTotal(income);
-            totalExpenses = calculateTotal(expense);
-            currentFunds = totalIncome - totalExpenses;
-            totalFunds += currentFunds;
+            while (goBackToFeature) {
+                totalIncome = calculateTotal(income);
+                totalExpenses = calculateTotal(expense);
+                currentFunds = totalIncome - totalExpenses;
+                totalFunds += currentFunds;
 
-            System.out.println("                        **************************************************");
-            System.out.println("                            \tIncome and Expenses Allocation");
-            System.out.println("                        **************************************************");
-            System.out.printf("                                Total funds left: PHP %.2f\n", currentFunds);
-            System.out.println("                        **************************************************");
-            System.out.println("                              Kindly choose one of the following: ");
-            System.out.println("");
-            System.out.println("             ╔════[1]. Income");
-            System.out.println("          ╔══╩══[2]. Expenses");
-            System.out.println("       ╔══╩═══[3]. History Log");
-            System.out.println("      ╔╩════[4]. Home");
-            System.out.println("      ║");  
-            System.out.print("      ╚═══> ");
+                System.out.println("                        **************************************************");
+                System.out.println("                            \tIncome and Expenses Allocation");
+                System.out.println("                        **************************************************");
+                System.out.printf("                                Total funds left: PHP %.2f\n", currentFunds);
+                System.out.println("                        **************************************************");
+                System.out.println("                              Kindly choose one of the following: ");
+                System.out.println("");
+                System.out.println("             ╔════[1]. Income");
+                System.out.println("          ╔══╩══[2]. Expenses");
+                System.out.println("       ╔══╩═══[3]. History Log");
+                System.out.println("      ╔╩════[4]. Home");
+                System.out.println("      ║");  
+                System.out.print("      ╚═══> ");
 
-            int userFeatureChoice = getValidChoice(scanner, 1, 4);
+                int userFeatureChoice = getValidChoice(scanner, 1, 4);
 
-            switch (userFeatureChoice) {
-                case 1:
-                    handleIncome(scanner, income, incomeCategories);
-                    break;
-                case 2:
-                    handleExpenses(scanner, expense, income, expenseCategories);
-                    break;
-                case 3:
-                    showHistoryLog();
-                    break;
-                case 4:
-                    System.out.println("Exiting...");
-                    return;
+                switch (userFeatureChoice) {
+                    case 1:
+                        handleIncome(scanner, income, incomeCategories);
+                        break;
+                    case 2:
+                        handleExpenses(scanner, expense, income, expenseCategories);
+                        break;
+                    case 3:
+                        showHistoryLog();
+                        break;
+                    case 4:
+                        System.out.println("Exiting...");
+                        return;
+                }
             }
+
+            scanner.close();
         }
 
-        scanner.close();
-    }
+        private static void handleIncome(Scanner scanner, LinkedList<Double> income, String[] incomeCategories) {
+            double userIncomeSum = 0;
+            String userInputIE;
 
-    private static void handleIncome(Scanner scanner, LinkedList<Double> income, String[] incomeCategories) {
-        double userIncomeSum = 0;
-        String userInputIE;
+            do {
+                System.out.println("_________________________________");
+                System.out.println("\t\t\tIncome");
+                System.out.println("_______________________________");
+                System.out.print("Categories: ");
+                for (int i = 0; i < incomeCategories.length; i++) {
+                    System.out.print((i + 1) + ". " + incomeCategories[i] + "  ");
+                }
+                System.out.println();
+                System.out.print("Pick a category (1-" + incomeCategories.length + "): ");
+                int categoryChoice = getValidChoice(scanner, 1, incomeCategories.length);
 
-        do {
+                System.out.print("Enter amount for " + incomeCategories[categoryChoice - 1] + ": PHP ");
+                double userIncome = getValidAmount(scanner);
+                income.set(categoryChoice - 1, income.get(categoryChoice - 1) + userIncome);
+
+                historyLog.add("Income: " + userIncome + " from " + incomeCategories[categoryChoice - 1]);
+                System.out.print("Do you want to enter another income (y/n): ");
+                userInputIE = scanner.next();
+            } while (userInputIE.equalsIgnoreCase("y"));
+
             System.out.println("_________________________________");
-            System.out.println("\t\t\tIncome");
-            System.out.println("_______________________________");
-            System.out.print("Categories: ");
-            for (int i = 0; i < incomeCategories.length; i++) {
-                System.out.print((i + 1) + ". " + incomeCategories[i] + "  ");
-            }
-            System.out.println();
-            System.out.print("Pick a category (1-" + incomeCategories.length + "): ");
-            int categoryChoice = getValidChoice(scanner, 1, incomeCategories.length);
-
-            System.out.print("Enter amount for " + incomeCategories[categoryChoice - 1] + ": PHP ");
-            double userIncome = getValidAmount(scanner);
-            income.set(categoryChoice - 1, income.get(categoryChoice - 1) + userIncome);
-
-            historyLog.add("Income: " + userIncome + " from " + incomeCategories[categoryChoice - 1]);
-            System.out.print("Do you want to enter another income (y/n): ");
-            userInputIE = scanner.next();
-        } while (userInputIE.equalsIgnoreCase("y"));
-
-        System.out.println("_________________________________");
-        userIncomeSum = calculateTotal(income);
-        printIncomeSummary(userIncomeSum, income, incomeCategories);
-    }
-
-    private static void handleExpenses(Scanner scanner, LinkedList<Double> expense, LinkedList<Double> income, String[] expenseCategories) {
-        double userExpenseSum = 0;
-        String userInputIE;
-
-        do {
-            System.out.println("_________________________________");
-            System.out.println("\t\t\tExpenses");
-            System.out.println("_______________________________");
-            System.out.print("Categories: ");
-            for (int i = 0; i < expenseCategories.length; i++) {
-                System.out.print((i + 1) + ". " + expenseCategories[i] + "  ");
-            }
-            System.out.println();
-            System.out.print("Pick a category (1-" + expenseCategories.length + "): ");
-            int categoryChoice = getValidChoice(scanner, 1, expenseCategories.length);
-
-            System.out.print("Enter amount for " + expenseCategories[categoryChoice - 1] + ": PHP ");
-            double userExpense = getValidAmount(scanner);
-            double totalIncome = calculateTotal(income);
-
-            if (userExpense > totalIncome) {
-                System.out.println("*********************************");
-                System.out.println("Insufficient funds! Please add more income.");
-                System.out.println("*********************************");
-                break;
-            }
-
-            expense.set(categoryChoice - 1, expense.get(categoryChoice - 1) + userExpense);
-            historyLog.add("Expense: " + userExpense + " for " + expenseCategories[categoryChoice - 1]);
-
-            System.out.print("Do you want to enter another expense? (y/n): ");
-            userInputIE = scanner.next();
-        } while (userInputIE.equalsIgnoreCase("y"));
-
-        System.out.println("_________________________________");
-        userExpenseSum = calculateTotal(expense);
-        printExpenseSummary(userExpenseSum, calculateTotal(income), expense, expenseCategories);
-    }
-
-    private static int getValidChoice(Scanner scanner, int min, int max) {
-        int choice;
-        while (true) {
-            choice = scanner.nextInt();
-            if (choice >= min && choice <= max) {
-                break;
-            }
-            System.out.println("Invalid input. Please enter a valid number (" + min + "-" + max + "): ");
+            userIncomeSum = calculateTotal(income);
+            printIncomeSummary(userIncomeSum, income, incomeCategories);
         }
-        return choice;
-    }
 
-    private static double getValidAmount(Scanner scanner) {
-        double amount;
-        while (true) {
-            if (scanner.hasNextDouble()) {
-                amount = scanner.nextDouble();
-                if (amount >= 0) {
+        private static void handleExpenses(Scanner scanner, LinkedList<Double> expense, LinkedList<Double> income, String[] expenseCategories) {
+            double userExpenseSum = 0;
+            String userInputIE;
+
+            do {
+                System.out.println("_________________________________");
+                System.out.println("\t\t\tExpenses");
+                System.out.println("_______________________________");
+                System.out.print("Categories: ");
+                for (int i = 0; i < expenseCategories.length; i++) {
+                    System.out.print((i + 1) + ". " + expenseCategories[i] + "  ");
+                }
+                System.out.println();
+                System.out.print("Pick a category (1-" + expenseCategories.length + "): ");
+                int categoryChoice = getValidChoice(scanner, 1, expenseCategories.length);
+
+                System.out.print("Enter amount for " + expenseCategories[categoryChoice - 1] + ": PHP ");
+                double userExpense = getValidAmount(scanner);
+                double totalIncome = calculateTotal(income);
+
+                if (userExpense > totalIncome) {
+                    System.out.println("*********************************");
+                    System.out.println("Insufficient funds! Please add more income.");
+                    System.out.println("*********************************");
                     break;
                 }
-            } else {
-                scanner.next(); 
+
+                expense.set(categoryChoice - 1, expense.get(categoryChoice - 1) + userExpense);
+                historyLog.add("Expense: " + userExpense + " for " + expenseCategories[categoryChoice - 1]);
+
+                System.out.print("Do you want to enter another expense? (y/n): ");
+                userInputIE = scanner.next();
+            } while (userInputIE.equalsIgnoreCase("y"));
+
+            System.out.println("_________________________________");
+            userExpenseSum = calculateTotal(expense);
+            printExpenseSummary(userExpenseSum, calculateTotal(income), expense, expenseCategories);
+        }
+
+        private static int getValidChoice(Scanner scanner, int min, int max) {
+            int choice;
+            while (true) {
+                choice = scanner.nextInt();
+                if (choice >= min && choice <= max) {
+                    break;
+                }
+                System.out.println("Invalid input. Please enter a valid number (" + min + "-" + max + "): ");
             }
-            System.out.print("Invalid input. Please enter a valid numerical value: PHP ");
+            return choice;
         }
-        return amount;
-    }
 
-    private static double calculateTotal(LinkedList<Double> list) {
-        double total = 0;
-        for (double value : list) {
-            total += value;
+        private static double getValidAmount(Scanner scanner) {
+            double amount;
+            while (true) {
+                if (scanner.hasNextDouble()) {
+                    amount = scanner.nextDouble();
+                    if (amount >= 0) {
+                        break;
+                    }
+                } else {
+                    scanner.next(); 
+                }
+                System.out.print("Invalid input. Please enter a valid numerical value: PHP ");
+            }
+            return amount;
         }
-        return total;
-    }
 
-    private static void printIncomeSummary(double totalIncome, LinkedList<Double> income, String[] incomeCategories) {
-        for (int i = 0; i < incomeCategories.length; i++) {
-            double percentage = (totalIncome == 0) ? 0 : (income.get(i) / totalIncome) * 100;
-            System.out.printf(" %.2f%% \t| %s Income: PHP %.2f\n", percentage, incomeCategories[i], income.get(i));
+        private static double calculateTotal(LinkedList<Double> list) {
+            double total = 0;
+            for (double value : list) {
+                total += value;
+            }
+            return total;
         }
-        System.out.printf("_________________________________\nTotal Income: PHP %.2f\n", totalIncome);
-    }
 
-    private static void printExpenseSummary(double totalExpenses, double totalIncome, LinkedList<Double> expense, String[] expenseCategories) {
-        for (int i = 0; i < expenseCategories.length; i++) {
-            double percentage = (totalExpenses == 0) ? 0 : (expense.get(i) / totalExpenses) * 100;
-            System.out.printf(" %.2f%% \t| %s Expense: PHP %.2f\n", percentage, expenseCategories[i], expense.get(i));
+        private static void printIncomeSummary(double totalIncome, LinkedList<Double> income, String[] incomeCategories) {
+            for (int i = 0; i < incomeCategories.length; i++) {
+                double percentage = (totalIncome == 0) ? 0 : (income.get(i) / totalIncome) * 100;
+                System.out.printf(" %.2f%% \t| %s Income: PHP %.2f\n", percentage, incomeCategories[i], income.get(i));
+            }
+            System.out.printf("_________________________________\nTotal Income: PHP %.2f\n", totalIncome);
         }
-        System.out.printf("_________________________________\nTotal Expenses: PHP %.2f\n", totalExpenses);
-        System.out.printf("Total Funds: PHP %.2f\n", totalIncome - totalExpenses);
-    }
 
-    private static void showHistoryLog() {
-        System.out.println("\nHistory Log:");
-        System.out.println("_________________________________");
-        for (String entry : historyLog) {
-            System.out.println("                        " + entry);
+        private static void printExpenseSummary(double totalExpenses, double totalIncome, LinkedList<Double> expense, String[] expenseCategories) {
+            for (int i = 0; i < expenseCategories.length; i++) {
+                double percentage = (totalExpenses == 0) ? 0 : (expense.get(i) / totalExpenses) * 100;
+                System.out.printf(" %.2f%% \t| %s Expense: PHP %.2f\n", percentage, expenseCategories[i], expense.get(i));
+            }
+            System.out.printf("_________________________________\nTotal Expenses: PHP %.2f\n", totalExpenses);
+            System.out.printf("Total Funds: PHP %.2f\n", totalIncome - totalExpenses);
         }
-        System.out.println("_________________________________\n\n");
-    }
 
+        private static void showHistoryLog() {
+            System.out.println("\nHistory Log:");
+            System.out.println("_________________________________");
+            for (String entry : historyLog) {
+                System.out.println("                        " + entry);
+            }
+            System.out.println("_________________________________\n\n");
+        }
 
 //===================================================INCOME & EXPENSE ALLOCATION===================================================================
 
