@@ -1,29 +1,17 @@
 import java.util.*;
 import java.io.*;
 
-public class FiscalHarmony_test {
+public class FiscalHarmony_test2 {
     private static final String FILE_NAME = "user_data/user_data.csv";
-    private static final int INCOME_CATEGORIES = 5;
-    private static final int EXPENSE_CATEGORIES = 5;
     
     private static LinkedList<Double> income = new LinkedList<>();
     private static LinkedList<Double> expense = new LinkedList<>();
     private static LinkedList<String> historyLog = new LinkedList<>();
-
+    private static double currentFunds = 0; 
     private static double totalIncome = 0;
     private static double totalExpenses = 0;
-    private static double currentFunds = 0; 
-    private static double totalFunds = 0;
     
-    public static void main(String[] args) {
-        
-        for (int i = 0; i < INCOME_CATEGORIES; i++) {
-            income.add(0.0);
-        }
-        for (int i = 0; i < EXPENSE_CATEGORIES; i++) {
-            expense.add(0.0);
-        }   
-        
+    public static void main(String[] args) {   
     Scanner scanner = new Scanner(System.in);
 
 //===================================================INSTRUCTIONS===================================================================        
@@ -312,7 +300,7 @@ do {
     private static void saveUserCredentials(String email, String password) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
             // Write email, password, and funds as 0
-            writer.write(email + "," + password + ",0"); // Save funds as 0
+            writer.write(email + "," + password); // Save funds as 0
             writer.newLine();
         } catch (IOException e) {
             System.out.println("Error saving user credentials: " + e.getMessage());
@@ -322,6 +310,7 @@ do {
 //===================================================LOGIN AND REGISTRATION===================================================================
 
 //===================================================HOME & FEATURES===================================================================
+
 
     private static void showFeaturesMenu(Scanner scanner, String userEmail) { 
         loadDataFromCSV(userEmail);
@@ -361,19 +350,13 @@ do {
         }
     }
 
+    
+
 //===================================================HOME & FEATURES===================================================================
 
 //===================================================INCOME & EXPENSE ALLOCATION===================================================================
 
     private static void incomeExpensesAllocationModule() {
-        String[] incomeCategories = {
-                "Personal", "Business", "Gifts", "Loan", "Others"
-        };
-
-        String[] expenseCategories = {
-                "Food & Drink", "Shopping & Groceries", "Transport", "Home", "Bills/Fees & others"
-        };
-
         Scanner scanner = new Scanner(System.in);
         boolean goBackToFeature = true;
 
@@ -382,7 +365,6 @@ do {
             totalIncome = calculateTotal(income);
             totalExpenses = calculateTotal(expense);
             currentFunds = totalIncome - totalExpenses;
-            totalFunds += currentFunds;
 
             System.out.println("                        **************************************************");
             System.out.println("                            \tIncome and Expenses Allocation");
@@ -402,10 +384,10 @@ do {
 
             switch (userFeatureChoice) {
                 case 1:
-                    handleIncome(scanner, income, incomeCategories);
+                    handleIncome(scanner);
                     break;
                 case 2:
-                    handleExpenses(scanner, expense, income, expenseCategories);
+                    handleExpenses(scanner);
                     break;
                 case 3:
                     showHistoryLog();
@@ -419,81 +401,98 @@ do {
         scanner.close();
     }
 
-    private static void handleIncome(Scanner scanner, LinkedList<Double> income, String[] incomeCategories) {
-        double userIncomeSum = 0;
-        String userInputIE;
-
+    private static void handleIncome(Scanner scanner) {
+        String userInput;
+        // List to store categories
+        List<String> incomeCategories = new ArrayList<>();
         do {
-            System.out.println("_________________________________");
-            System.out.println("\t\t\tIncome");
-            System.out.println("_______________________________");
-            System.out.print("Categories: ");
-            for (int i = 0; i < incomeCategories.length; i++) {
-                System.out.print((i + 1) + ". " + incomeCategories[i] + "  ");
-            }
-            System.out.println();
-            System.out.print("Pick a category (1-" + incomeCategories.length + "): ");
-            int categoryChoice = getValidChoice(scanner, 1, incomeCategories.length);
+            System.out.print("Enter income category: ");
+            String category = scanner.nextLine();
 
-            System.out.print("Enter amount for " + incomeCategories[categoryChoice - 1] + ": PHP ");
-            double userIncome = getValidAmount(scanner);
-            income.set(categoryChoice - 1, income.get(categoryChoice - 1) + userIncome);
+            System.out.print("Enter amount for " + category + ": PHP ");
+            double amount = getValidAmount(scanner);
+            income.add(amount); // Add income amount to the list
+            incomeCategories.add(category); // Add category to the list
 
-            historyLog.add("Income: " + userIncome + " from " + incomeCategories[categoryChoice - 1]);
-            System.out.print("Do you want to enter another income (y/n): ");
-            userInputIE = scanner.next();
-        } while (userInputIE.equalsIgnoreCase("y"));
+            historyLog.add("Income: PHP " + amount + " from " + category); // Add to history log
+            System.out.print("Do you want to enter another income? (y/n): ");
+            userInput = scanner.next();
+            scanner.nextLine();  // consume newline
+        } while (userInput.equalsIgnoreCase("y"));
 
+        // Recalculate total income and display it
+        double totalIncome = calculateTotal(income);
         System.out.println("_________________________________");
-        userIncomeSum = calculateTotal(income);
-        printIncomeSummary(userIncomeSum, income, incomeCategories);
+        System.out.printf("Total Income: PHP %.2f\n", totalIncome);
+
+        // Print income summary
+        printIncomeSummary(totalIncome, income, incomeCategories);
     }
 
-    private static void handleExpenses(Scanner scanner, LinkedList<Double> expense, LinkedList<Double> income, String[] expenseCategories) {
-        double userExpenseSum = 0;
-        String userInputIE;
+    private static void printIncomeSummary(double totalIncome, List<Double> income, List<String> incomeCategories) {
+        for (int i = 0; i < incomeCategories.size(); i++) {
+            double percentage = (totalIncome == 0) ? 0 : (income.get(i) / totalIncome) * 100;
+            System.out.printf(" %.2f%% \t| %s Income: PHP %.2f\n", percentage, incomeCategories.get(i), income.get(i));
+        }
+        System.out.printf("_________________________________\nTotal Income: PHP %.2f\n", totalIncome);
+    }
 
+    private static void handleExpenses(Scanner scanner) {
+        String userInput;
+        // List to store categories
+        List<String> expenseCategories = new ArrayList<>();
         do {
-            System.out.println("_________________________________");
-            System.out.println("\t\t\tExpenses");
-            System.out.println("_______________________________");
-            System.out.print("Categories: ");
-            for (int i = 0; i < expenseCategories.length; i++) {
-                System.out.print((i + 1) + ". " + expenseCategories[i] + "  ");
-            }
-            System.out.println();
-            System.out.print("Pick a category (1-" + expenseCategories.length + "): ");
-            int categoryChoice = getValidChoice(scanner, 1, expenseCategories.length);
+            System.out.print("Enter expense category: ");
+            String category = scanner.nextLine();
 
-            System.out.print("Enter amount for " + expenseCategories[categoryChoice - 1] + ": PHP ");
-            double userExpense = getValidAmount(scanner);
+            System.out.print("Enter amount for " + category + ": PHP ");
+            double amount = getValidAmount(scanner);
+
             double totalIncome = calculateTotal(income);
-
-            if (userExpense > totalIncome) {
-                System.out.println("*********************************");
+            if (amount > totalIncome) {
                 System.out.println("Insufficient funds! Please add more income.");
-                System.out.println("*********************************");
                 break;
             }
 
-            expense.set(categoryChoice - 1, expense.get(categoryChoice - 1) + userExpense);
-            historyLog.add("Expense: " + userExpense + " for " + expenseCategories[categoryChoice - 1]);
+            expense.add(amount); // Add expense amount to the list
+            expenseCategories.add(category); // Add category to the list
+            historyLog.add("Expense: PHP " + amount + " for " + category); // Add to history log
 
             System.out.print("Do you want to enter another expense? (y/n): ");
-            userInputIE = scanner.next();
-        } while (userInputIE.equalsIgnoreCase("y"));
+            userInput = scanner.next();
+            scanner.nextLine();  // consume newline
+        } while (userInput.equalsIgnoreCase("y"));
 
+        // Recalculate total expenses and display it
+        double totalExpenses = calculateTotal(expense);
+        double totalIncome = calculateTotal(income); // Recalculate total income
         System.out.println("_________________________________");
-        userExpenseSum = calculateTotal(expense);
-        printExpenseSummary(userExpenseSum, calculateTotal(income), expense, expenseCategories);
+        System.out.printf("Total Expenses: PHP %.2f\n", totalExpenses);
+
+        // Print expense summary
+        printExpenseSummary(totalExpenses, totalIncome, expense, expenseCategories);
+    }
+
+    private static void printExpenseSummary(double totalExpenses, double totalIncome, List<Double> expense, List<String> expenseCategories) {
+        for (int i = 0; i < expenseCategories.size(); i++) {
+            double percentage = (totalExpenses == 0) ? 0 : (expense.get(i) / totalExpenses) * 100;
+            System.out.printf(" %.2f%% \t| %s Expense: PHP %.2f\n", percentage, expenseCategories.get(i), expense.get(i));
+        }
+        System.out.printf("_________________________________\nTotal Expenses: PHP %.2f\n", totalExpenses);
+        System.out.printf("Total Funds: PHP %.2f\n", totalIncome - totalExpenses);
     }
 
     private static int getValidChoice(Scanner scanner, int min, int max) {
         int choice;
         while (true) {
-            choice = scanner.nextInt();
-            if (choice >= min && choice <= max) {
-                break;
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                scanner.nextLine();  // consume newline
+                if (choice >= min && choice <= max) {
+                    break;
+                }
+            } else {
+                scanner.nextLine();  // consume invalid input
             }
             System.out.println("Invalid input. Please enter a valid number (" + min + "-" + max + "): ");
         }
@@ -505,13 +504,14 @@ do {
         while (true) {
             if (scanner.hasNextDouble()) {
                 amount = scanner.nextDouble();
+                scanner.nextLine();  // consume newline
                 if (amount >= 0) {
                     break;
                 }
             } else {
-                scanner.next(); 
+                scanner.nextLine();  // consume invalid input
             }
-            System.out.print("Invalid input. Please enter a valid numerical value: PHP ");
+            System.out.print("Invalid input. Please enter a valid amount: PHP ");
         }
         return amount;
     }
@@ -524,34 +524,17 @@ do {
         return total;
     }
 
-    private static void printIncomeSummary(double totalIncome, LinkedList<Double> income, String[] incomeCategories) {
-        for (int i = 0; i < incomeCategories.length; i++) {
-            double percentage = (totalIncome == 0) ? 0 : (income.get(i) / totalIncome) * 100;
-            System.out.printf(" %.2f%% \t| %s Income: PHP %.2f\n", percentage, incomeCategories[i], income.get(i));
-        }
-        System.out.printf("_________________________________\nTotal Income: PHP %.2f\n", totalIncome);
-    }
-
-    private static void printExpenseSummary(double totalExpenses, double totalIncome, LinkedList<Double> expense, String[] expenseCategories) {
-        for (int i = 0; i < expenseCategories.length; i++) {
-            double percentage = (totalExpenses == 0) ? 0 : (expense.get(i) / totalExpenses) * 100;
-            System.out.printf(" %.2f%% \t| %s Expense: PHP %.2f\n", percentage, expenseCategories[i], expense.get(i));
-        }
-        System.out.printf("_________________________________\nTotal Expenses: PHP %.2f\n", totalExpenses);
-        System.out.printf("Total Funds: PHP %.2f\n", totalIncome - totalExpenses);
-    }
-
     private static void showHistoryLog() {
-        System.out.println("\nHistory Log:");
-        System.out.println("_________________________________");
+        System.out.println("History Log:");
         for (String entry : historyLog) {
-            System.out.println("                        " + entry);
+            System.out.println(entry);
         }
-        System.out.println("_________________________________\n\n");
     }
+
+
 
     private static void saveDataToCSV(String email) {
-        StringBuilder newData = new StringBuilder();
+        StringBuilder updatedData = new StringBuilder();
         boolean userFound = false;
     
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
@@ -560,35 +543,43 @@ do {
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
     
+                // Check if the current line is for the logged-in user
                 if (data.length >= 2 && data[0].equals(email)) {
                     userFound = true;
-                    // Retain the password and other data
-                    newData.append(email).append(",").append(data[1]).append(",");
+                    updatedData.append(email).append(",").append(data[1]).append(","); // Preserve email and password
     
-                    // Append the income and expense data
-                    appendDataToCSV(newData);
+                    // Save income and expense values with labels as comma-separated in CSV
+                    for (Double inc : income) {
+                        updatedData.append("Income: PHP ").append(inc).append(";");
+                    }
+                    for (Double exp : expense) {
+                        updatedData.append("Expense: PHP ").append(exp).append(";");
+                    }
     
-                    // Calculate and append total funds and current funds
-                    totalIncome = calculateTotal(income);
-                    totalExpenses = calculateTotal(expense);
-                    currentFunds = totalIncome - totalExpenses;
-                    totalFunds = currentFunds;  // Set totalFunds correctly
-    
-                    newData.append(totalFunds).append(",").append(currentFunds).append("\n");
+                    // Save history log as a joined string
+                    updatedData.append("\"").append(String.join(";", historyLog)).append("\"\n");
                 } else {
-                    newData.append(line).append("\n");
+                    updatedData.append(line).append("\n");
                 }
             }
     
+            // If the user was not found, append as a new entry (optional based on your requirement)
             if (!userFound) {
-                newData.append(email).append(",<password>,");
-                appendDataToCSV(newData);
-                newData.append("\n");
+                updatedData.append(email).append(",<password>,"); // Placeholder for password
+    
+                for (Double inc : income) {
+                    updatedData.append("Income: PHP ").append(inc).append(";");
+                }
+                for (Double exp : expense) {
+                    updatedData.append("Expense: PHP ").append(exp).append(";");
+                }
+    
+                updatedData.append("\"").append(String.join(";", historyLog)).append("\"\n");
             }
     
-            // Save updated data to CSV
+            // Overwrite the CSV file with updated data
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
-                writer.write(newData.toString());
+                writer.write(updatedData.toString());
             }
     
         } catch (IOException e) {
@@ -596,113 +587,114 @@ do {
         }
     }
     
-
-    private static void appendDataToCSV(StringBuilder newData) {
-        // Append income data
-        StringBuilder incomeData = new StringBuilder();
-        for (Double i : income) {
-            incomeData.append(i).append(",");
-        }
     
-        // Append expense data
-        StringBuilder expenseData = new StringBuilder();
-        for (Double e : expense) {
-            expenseData.append(e).append(",");
-        }
+    private static void loadDataFromCSV(String email) {
+        totalIncome = 0.0;
+        totalExpenses = 0.0;
+        currentFunds = 0.0; // Reinitialize currentFunds
     
-        // Append history log data
-        StringBuilder historyData = new StringBuilder();
-        for (String h : historyLog) {
-            historyData.append(h).append(",");
-        }
+        // Clear income and expense lists before loading data
+        income.clear();
+        expense.clear();
     
-        // Append all data to newData StringBuilder
-        newData.append(incomeData.toString())
-                .append(expenseData.toString())
-                .append(historyData.toString())
-                .append(totalFunds).append(",")  // Make sure it's a double value
-                .append(currentFunds);  // Make sure it's a double value
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+            String line;
+            boolean userFound = false;
     
-        // Print the appended data for debugging
-        System.out.println("Appending data to CSV: " + newData.toString());
-    }
-
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(",");
     
-private static void loadDataFromCSV(String email) {
-    try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
-        String line;
-        while ((line = reader.readLine()) != null) {
-            String[] data = line.split(",");
-
-            // Check if email matches
-            if (data[0].equals(email)) {
-                int index = 1;  // Skip over the email field
-                System.out.println("Parsing data for email: " + email);
-                
-                // Load income data
-                for (int i = 0; i < INCOME_CATEGORIES; i++) {
-                    if (index < data.length) {
-                        try {
-                            income.add(Double.parseDouble(data[index++]));
-                        } catch (NumberFormatException e) {
-                            income.add(0.0);
+                if (data.length >= 3 && data[0].equals(email)) {  // Ensure the line has at least 3 parts
+                    userFound = true;
+    
+                    // Load income and expenses from the CSV, assuming they are tagged
+                    String[] transactions = data[2].split(";");
+                    double totalIncomeForUser = 0.0;
+                    double totalExpensesForUser = 0.0;
+    
+                    for (String transaction : transactions) {
+                        // If it's an income, we will add it up
+                        if (transaction.startsWith("Income")) {
+                            // Extract and parse the numeric part of the income string
+                            String incomeStr = transaction.split(": PHP ")[1];
+                            incomeStr = incomeStr.split(" ")[0]; // Remove any additional description
+                            double incomeValue = Double.parseDouble(incomeStr);
+    
+                            // Only add non-zero income values
+                            if (incomeValue > 0.0) {
+                                totalIncomeForUser += incomeValue;  // Add income to the total income for the user
+                            }
+                        }
+                        // If it's an expense, we will add it up
+                        else if (transaction.startsWith("Expense")) {
+                            // Extract and parse the numeric part of the expense string
+                            String expenseStr = transaction.split(": PHP ")[1];
+                            expenseStr = expenseStr.split(" ")[0]; // Remove any additional description
+                            double expenseValue = Double.parseDouble(expenseStr);
+    
+                            // Only add non-zero expense values
+                            if (expenseValue > 0.0) {
+                                totalExpensesForUser += expenseValue;  // Add expense to the total expense for the user
+                            }
+                        }
+                    }
+    
+                    // Add totals to global income and expense lists
+                    income.add(totalIncomeForUser);
+                    expense.add(totalExpensesForUser);
+                    totalIncome += totalIncomeForUser;
+                    totalExpenses += totalExpensesForUser;
+    
+                    // Calculate current funds
+                    currentFunds = totalIncome - totalExpenses;
+    
+                    // Initialize historyLog as a LinkedList and add entries to it
+                    if (data.length > 3) {  // Check if history log exists
+                        historyLog = new LinkedList<>();
+                        String[] historyEntries = data[3].replace("\"", "").split(";");  // Remove quotes and split by semicolon
+                        for (String entry : historyEntries) {
+                            historyLog.add(entry);
                         }
                     } else {
-                        income.add(0.0);
+                        historyLog = new LinkedList<>();  // Initialize an empty historyLog if not present
                     }
+    
+                    break; // Exit loop once the user is found
                 }
-
-                // Load expense data
-                for (int i = 0; i < EXPENSE_CATEGORIES; i++) {
-                    if (index < data.length) {
-                        try {
-                            expense.add(Double.parseDouble(data[index++]));
-                        } catch (NumberFormatException e) {
-                            expense.add(0.0);
-                        }
-                    } else {
-                        expense.add(0.0);
-                    }
-                }
-
-                // Load history log data
-                for (int i = index; i < data.length - 2; i++) {
-                    historyLog.add(data[i]);
-                }
-
-                // Parse the last two values as totalFunds and currentFunds
-                try {
-                    totalFunds = Double.parseDouble(data[data.length - 2]);
-                    currentFunds = Double.parseDouble(data[data.length - 1]);
-                } catch (NumberFormatException e) {
-                    totalFunds = 0.0;
-                    currentFunds = 0.0;
-                    System.out.println("Error parsing funds: " + e.getMessage());
-                }
-
-                // Print the funds for debugging
-                System.out.println("Parsed funds - Total Funds: " + totalFunds + ", Current Funds: " + currentFunds);
-                break;  // Exit after finding the user
             }
+    
+            // Handle the case when the user is not found (initialize with default values)
+            if (!userFound) {
+                System.out.println("User not found. Initializing new data.");
+            }
+    
+        } catch (IOException e) {
+            System.out.println("Error loading data from CSV: " + e.getMessage());
         }
-    } catch (IOException e) {
-        System.out.println("Error loading user data: " + e.getMessage());
+    
+        // Output loaded data
+        System.out.println("Income List: " + income); // Should show all incomes loaded
+        System.out.println("Expense List: " + expense); // Should show all expenses loaded
+        System.out.println("Total Income: PHP " + totalIncome); // Should show the sum of all incomes
+        System.out.println("Total Expenses: PHP " + totalExpenses); // Should show the sum of all expenses
+        System.out.println("Current Funds: PHP " + currentFunds); // Should show current funds balance
+        System.out.println("History Log: " + historyLog); // Should show the loaded history log
     }
-}
-
+    
     
 
     private static void clearUserData() {
-        income.clear();
-        expense.clear();
-        historyLog.clear();
+        if (!income.isEmpty()) income.clear();
+        if (!expense.isEmpty()) expense.clear();
+        if (!historyLog.isEmpty()) historyLog.clear();
+        currentFunds = 0;
         totalIncome = 0;
         totalExpenses = 0;
-        currentFunds = 0;
-        totalFunds = 0;
     
-        System.out.println("All user data has been cleared.");
+        System.out.println("All user data has been cleared and reset to default values.");
     }
+    
+
 
 //===================================================INCOME & EXPENSE ALLOCATION===================================================================
 
