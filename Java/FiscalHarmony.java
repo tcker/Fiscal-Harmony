@@ -16,6 +16,7 @@ public class FiscalHarmony {
     private static double totalExpenses = 0;
     
     public static void main(String[] args) {   
+    System.setProperty("file.encoding", "UTF-8");
     Scanner scanner = new Scanner(System.in);
 
 //===================================================INSTRUCTIONS===================================================================        
@@ -53,38 +54,50 @@ do {
     }
 
     private static void showCombinedInstructions() {
-        System.out.println("====================================================================================");
-        System.out.println("                   INSTRUCTIONS PLEASE READ BEFORE PROCEEDING                 ");
-        System.out.println("====================================================================================");
-
-        System.out.println("   INCOME AND EXPENSES ALLOCATION");
-        System.out.println("   - Access the Feature: Navigate to the 'Income and Expenses Allocation' section.");
-        System.out.println("   - Input Income: Enter your total income for the month.");
-        System.out.println("   - Enter Expenses: List all your monthly expenses.");
-        System.out.println("   - Review Allocation: Click 'Calculate' to see how your income is allocated.");
-
-        System.out.println("   EMERGENCY FUND CALCULATOR");
-        System.out.println("   - Access the Feature: Select 'Emergency Fund Calculator' from the menu.");
-        System.out.println("   - Set Savings Goal: Enter your desired savings goal.");
-        System.out.println("   - Determine Monthly Contribution: Specify how much you can contribute monthly.");
-        System.out.println("   - Calculate Timeframe: Press 'Calculate' to see how long it will take to reach your goal.");
-
-        System.out.println("   TAX CALCULATOR");
-        System.out.println("   - Access the Feature: Go to the 'Tax Calculator' section.");
-        System.out.println("   - Input Income: Enter your total Annual Salary income.");
-        System.out.println("   - Enter Deductions: List any deductions you qualify for.");
-        System.out.println("   - Calculate Tax: Click 'Calculate' to see the estimated tax you need to pay.");
-        System.out.println("====================================================================================\n");
-        
-        System.out.println("                               DATA PRIVACY NOTICE                                ");
-        System.out.println("                             REPUBLIC ACT NO. 10173                               ");
-        System.out.println("                           REPUBLIC OF THE PHILIPPINES                            ");
-        System.out.println("");
-        System.out.println("   The Republic Act 10173, officially known as the Data Privacy Act of 2012 (DPA).");
-        System.out.println("   We request your consent to use this program for managing your finances. " +
-                "\n   Your permission allows us to assist you with budgeting and tracking expenses.\n");
-        System.out.println("====================================================================================");
+        String instructions = 
+            "====================================================================================\n" +
+            "                   INSTRUCTIONS PLEASE READ BEFORE PROCEEDING                 \n" +
+            "====================================================================================\n" +
+            "\n" +
+            "   INCOME AND EXPENSES ALLOCATION\n" +
+            "   - Access the Feature: Navigate to the 'Income and Expenses Allocation' section.\n" +
+            "   - Input Income: Enter your total income for the month.\n" +
+            "   - Enter Expenses: List all your monthly expenses.\n" +
+            "   - Review Allocation: Click 'Calculate' to see how your income is allocated.\n" +
+            "\n" +
+            "   EMERGENCY FUND CALCULATOR\n" +
+            "   - Access the Feature: Select 'Emergency Fund Calculator' from the menu.\n" +
+            "   - Set Savings Goal: Enter your desired savings goal.\n" +
+            "   - Determine Monthly Contribution: Specify how much you can contribute monthly.\n" +
+            "   - Calculate Timeframe: Press 'Calculate' to see how long it will take to reach your goal.\n" +
+            "\n" +
+            "   TAX CALCULATOR\n" +
+            "   - Access the Feature: Go to the 'Tax Calculator' section.\n" +
+            "   - Input Income: Enter your total Annual Salary income.\n" +
+            "   - Enter Deductions: List any deductions you qualify for.\n" +
+            "   - Calculate Tax: Click 'Calculate' to see the estimated tax you need to pay.\n" +
+            "====================================================================================\n" +
+            "\n" +
+            "                               DATA PRIVACY NOTICE                                \n" +
+            "                             REPUBLIC ACT NO. 10173                               \n" +
+            "                           REPUBLIC OF THE PHILIPPINES                            \n" +
+            "\n" +
+            "   The Republic Act 10173, officially known as the Data Privacy Act of 2012 (DPA).\n" +
+            "   We request your consent to use this program for managing your finances. " +
+            "\n   Your permission allows us to assist you with budgeting and tracking expenses.\n" +
+            "====================================================================================";
+    
+        try {
+            for (int i = 0; i < instructions.length(); i++) {
+                System.out.print(instructions.charAt(i)); 
+                Thread.sleep(5000); 
+                // BRUH DOESNT WORK
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace(); 
+        }
     }
+    
 
     private static void askIfDone(Scanner scanner) {
         while (true) {

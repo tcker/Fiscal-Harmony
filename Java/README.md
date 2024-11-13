@@ -63,3 +63,16 @@ FISCAL-HARMONY (Root Directory)
 
 - Run **FiscalHarmony.java**
 - Enjoy
+
+##### ! MIGHT NOT WORK STILL ON MAINTENANCE WHEN RUNNING ON WIN TERMINAL !
+## To run in windows terminal do this
+
+- paste this into your win terminal
+```
+chcp 65001
+```
+- next use **Javac** to run a java file
+```
+javac FiscalHarmony.java
+```
+##### ! MIGHT NOT WORK STILL ON MAINTENANCE WHEN RUNNING ON WIN TERMINAL !
