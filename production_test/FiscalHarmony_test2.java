@@ -623,39 +623,39 @@ do {
             }
     
             // Now, read the user_history.csv and update the user's history if they exist
-            File historyFile = new File(FILE_NAME2);
-            StringBuilder historyFileData = new StringBuilder();
-            boolean userHistoryFound = false;
-    
-            try (BufferedReader historyReader = new BufferedReader(new FileReader(FILE_NAME2))) {
-                String historyLine;
-                while ((historyLine = historyReader.readLine()) != null) {
-                    String[] historyData = historyLine.split(",", 2);
-                    if (historyData.length >= 2 && historyData[0].equals(email)) {
-                        userHistoryFound = true;
-                        historyFileData.append(email).append(",\"").append(combinedHistoryLog.toString()).append("\"\n");
-                    } else {
-                        historyFileData.append(historyLine).append("\n");
-                    }
+        // Now, read the user_history.csv and update the user's history if they exist
+        File historyFile = new File(FILE_NAME2);
+        StringBuilder historyFileData = new StringBuilder();
+        boolean userHistoryFound = false;
+
+        try (BufferedReader historyReader = new BufferedReader(new FileReader(FILE_NAME2))) {
+            String historyLine;
+            while ((historyLine = historyReader.readLine()) != null) {
+                String[] historyData = historyLine.split(",", 2);
+                if (historyData.length >= 2 && historyData[0].equals(email)) {
+                    userHistoryFound = true;
+                    historyFileData.append(email).append(",").append(combinedHistoryLog.toString()).append("\n");
+                } else {
+                    historyFileData.append(historyLine).append("\n");
                 }
-    
-                // If the user was not found, append a new entry for them
-                if (!userHistoryFound) {
-                    historyFileData.append(email).append(",\"").append(combinedHistoryLog.toString()).append("\"\n");
-                }
-    
-                // Write the updated history data back to user_history.csv
-                try (BufferedWriter historyWriter = new BufferedWriter(new FileWriter(FILE_NAME2))) {
-                    historyWriter.write(historyFileData.toString());
-                }
-    
             }
-    
-        } catch (IOException e) {
-            System.out.println("Error saving data to CSV: " + e.getMessage());
+
+            // If the user was not found, append a new entry for them
+            if (!userHistoryFound) {
+                historyFileData.append(email).append(",").append(combinedHistoryLog.toString()).append("\n");
+            }
+
+            // Write the updated history data back to user_history.csv
+            try (BufferedWriter historyWriter = new BufferedWriter(new FileWriter(FILE_NAME2))) {
+                historyWriter.write(historyFileData.toString());
+            }
+
         }
+
+    } catch (IOException e) {
+        System.out.println("Error saving data to CSV: " + e.getMessage());
     }
-    
+}
     
 
     private static void loadDataFromCSV(String email) {
