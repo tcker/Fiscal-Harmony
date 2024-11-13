@@ -402,13 +402,24 @@ do {
     }
 
     private static void handleIncome(Scanner scanner) {
-        String userInput;
+        String userInput = "";
         // List to store categories
         List<String> incomeCategories = new ArrayList<>();
         do {
             System.out.print("Enter income category: ");
             String category = scanner.nextLine();
 
+            if (category.trim().isEmpty()) {
+                System.out.println("Invalid input. Category cannot be empty. Please try again.");
+                return; // Restart the loop if input is invalid
+            }
+    
+            // Check if the category contains any digits (numbers)
+            if (category.matches(".*\\d.*")) {
+                System.out.println("Invalid input. Category cannot contain numbers. Please try again.");
+                return; // Restart the loop if input contains numbers
+            }
+            
             System.out.print("Enter amount for " + category + ": PHP ");
             double amount = getValidAmount(scanner);
             income.add(amount); // Add income amount to the list
@@ -438,12 +449,24 @@ do {
     }
 
     private static void handleExpenses(Scanner scanner) {
-        String userInput;
+        String userInput = "";
         // List to store categories
         List<String> expenseCategories = new ArrayList<>();
         do {
             System.out.print("Enter expense category: ");
             String category = scanner.nextLine();
+
+                    // Ensure category is a valid string (non-empty and no numbers)
+        if (category.trim().isEmpty()) {
+            System.out.println("Invalid input. Category cannot be empty. Please try again.");
+            return; // Restart the loop if input is invalid
+        }
+
+        // Check if the category contains any digits (numbers)
+        if (category.matches(".*\\d.*")) {
+            System.out.println("Invalid input. Category cannot contain numbers. Please try again.");
+            return; // Restart the loop if input contains numbers
+        }
 
             System.out.print("Enter amount for " + category + ": PHP ");
             double amount = getValidAmount(scanner);
@@ -532,7 +555,6 @@ do {
     }
 
 
-
     private static void saveDataToCSV(String email) {
         StringBuilder updatedData = new StringBuilder();
         boolean userFound = false;
@@ -587,16 +609,8 @@ do {
         }
     }
     
-    
+
     private static void loadDataFromCSV(String email) {
-        totalIncome = 0.0;
-        totalExpenses = 0.0;
-        currentFunds = 0.0; // Reinitialize currentFunds
-    
-        // Clear income and expense lists before loading data
-        income.clear();
-        expense.clear();
-    
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
             boolean userFound = false;
@@ -608,7 +622,7 @@ do {
                     userFound = true;
     
                     // Load income and expenses from the CSV, assuming they are tagged
-                    String[] transactions = data[2].split(";");
+                    String[] transactions = data[2].split(";");  // Split income and expense entries
                     double totalIncomeForUser = 0.0;
                     double totalExpensesForUser = 0.0;
     
@@ -682,11 +696,12 @@ do {
     }
     
     
+    
 
     private static void clearUserData() {
-        if (!income.isEmpty()) income.clear();
-        if (!expense.isEmpty()) expense.clear();
-        if (!historyLog.isEmpty()) historyLog.clear();
+        income.clear();
+        expense.clear();
+        historyLog.clear();
         currentFunds = 0;
         totalIncome = 0;
         totalExpenses = 0;
