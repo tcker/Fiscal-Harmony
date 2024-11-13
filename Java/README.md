@@ -28,12 +28,13 @@ FISCAL-HARMONY (Root Directory)
 ├── Java
 │   └── production_test
 │   │    ├── FiscaHarmony_experimental.java
-│   │    ├── FiscalHarmony_test.java
+│   │    └── FiscalHarmony_test.java
 │   ├──────────────────────────── 👉 FiscalHarmony.java (MAIN FILE) 👈
 │   ├──────────────────────────── income & expense_HistoLog.java
+│   ├──────────────────────────── LICENSE
 │   ├──────────────────────────── README.md
 │   └──────────────────────────── testbanner.java
-└── user_data
+└── user_data [THIS IS ONLY ADDED WHEN USING OUR PROGRAM]
     ├── user_data.csv
     └── user_history.csv
 ```
