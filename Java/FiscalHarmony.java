@@ -70,12 +70,12 @@ do {
             "   - Set Savings Goal: Enter your desired savings goal.\n" +
             "   - Determine Monthly Contribution: Specify how much you can contribute monthly.\n" +
             "   - Calculate Timeframe: Press 'Calculate' to see how long it will take to reach your goal.\n" +
-            "\n" +
-            "   TAX CALCULATOR\n" +
-            "   - Access the Feature: Go to the 'Tax Calculator' section.\n" +
-            "   - Input Income: Enter your total Annual Salary income.\n" +
-            "   - Enter Deductions: List any deductions you qualify for.\n" +
-            "   - Calculate Tax: Click 'Calculate' to see the estimated tax you need to pay.\n" +
+            // "\n" +
+            // "   TAX CALCULATOR\n" +
+            // "   - Access the Feature: Go to the 'Tax Calculator' section.\n" +
+            // "   - Input Income: Enter your total Annual Salary income.\n" +
+            // "   - Enter Deductions: List any deductions you qualify for.\n" +
+            // "   - Calculate Tax: Click 'Calculate' to see the estimated tax you need to pay.\n" +
             "====================================================================================\n" +
             "\n" +
             "                               DATA PRIVACY NOTICE                                \n" +
@@ -90,7 +90,7 @@ do {
         try {
             for (int i = 0; i < instructions.length(); i++) {
                 System.out.print(instructions.charAt(i)); 
-                Thread.sleep(5000); 
+                Thread.sleep(1); 
                 // BRUH DOESNT WORK
             }
         } catch (InterruptedException e) {
@@ -101,7 +101,7 @@ do {
 
     private static void askIfDone(Scanner scanner) {
         while (true) {
-            System.out.println("Are you done reading the instructions? [1] Yes [2] No");
+            System.out.println("\nAre you done reading the instructions? [1] Yes [2] No");
             System.out.print("> ");
             String response = scanner.nextLine();
 
@@ -147,25 +147,59 @@ do {
 
 
         while (goBackToSignUp) {
-            System.out.println("\n");
-            System.out.println("                                ███████╗██╗███████╗ ██████╗ █████╗ ██╗             ");
-            System.out.println("                                ██╔════╝██║██╔════╝██╔════╝██╔══██╗██║             ");
-            System.out.println("                                █████╗  ██║███████╗██║     ███████║██║             ");
-            System.out.println("                                ██╔══╝  ██║╚════██║██║     ██╔══██║██║             ");
-            System.out.println("                                ██║     ██║███████║╚██████╗██║  ██║███████╗        ");
-            System.out.println("                                ╚═╝     ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝        ");
-            System.out.println("                                                                                   ");
-            System.out.println("                    ██╗  ██╗ █████╗ ██████╗ ███╗   ███╗ ██████╗ ███╗   ██╗██╗   ██╗");
-            System.out.println("                    ██║  ██║██╔══██╗██╔══██╗████╗ ████║██╔═══██╗████╗  ██║╚██╗ ██╔╝");
-            System.out.println("                    ███████║███████║██████╔╝██╔████╔██║██║   ██║██╔██╗ ██║ ╚████╔╝ ");
-            System.out.println("                    ██╔══██║██╔══██║██╔══██╗██║╚██╔╝██║██║   ██║██║╚██╗██║  ╚██╔╝  ");
-            System.out.println("                    ██║  ██║██║  ██║██║  ██║██║ ╚═╝ ██║╚██████╔╝██║ ╚████║   ██║   ");
-            System.out.println("                    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ");
-            System.out.println("                                                               ");
-            System.out.println("                        Planning your future for a financially free life.\n");
-            System.out.println("╔═[1]. Sign In [2]. Sign Up");
-            System.out.println("║");
-            System.out.print("╚═══> ");
+            // PROGRESS BAR | SCRAP
+            //
+            // for (int i = 0; i <= 100; i++) {
+            //     System.out.print("\rLoading: [" + "#".repeat(i / 2) + " ".repeat(50 - i / 2) + "] " + i + "%");
+            //     try {
+            //         Thread.sleep(50);  
+            //     } catch (InterruptedException e) {
+            //         e.printStackTrace();
+            //     }
+            // }
+            // PROGRESS BAR | SCRAP
+    
+            try {
+                System.out.println("\n");
+                Thread.sleep(10); 
+                System.out.println("                                ███████╗██╗███████╗ ██████╗ █████╗ ██╗             ");
+                Thread.sleep(10);
+                System.out.println("                                ██╔════╝██║██╔════╝██╔════╝██╔══██╗██║             ");
+                Thread.sleep(10);
+                System.out.println("                                █████╗  ██║███████╗██║     ███████║██║             ");
+                Thread.sleep(10);
+                System.out.println("                                ██╔══╝  ██║╚════██║██║     ██╔══██║██║             ");
+                Thread.sleep(10);
+                System.out.println("                                ██║     ██║███████║╚██████╗██║  ██║███████╗        ");
+                Thread.sleep(10);
+                System.out.println("                                ╚═╝     ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝        ");
+                Thread.sleep(20); 
+                System.out.println("                                                                                   ");
+                Thread.sleep(10);
+                System.out.println("                    ██╗  ██╗ █████╗ ██████╗ ███╗   ███╗ ██████╗ ███╗   ██╗██╗   ██╗");
+                Thread.sleep(10);
+                System.out.println("                    ██║  ██║██╔══██╗██╔══██╗████╗ ████║██╔═══██╗████╗  ██║╚██╗ ██╔╝");
+                Thread.sleep(10);
+                System.out.println("                    ███████║███████║██████╔╝██╔████╔██║██║   ██║██╔██╗ ██║ ╚████╔╝ ");
+                Thread.sleep(10);
+                System.out.println("                    ██╔══██║██╔══██║██╔══██╗██║╚██╔╝██║██║   ██║██║╚██╗██║  ╚██╔╝  ");
+                Thread.sleep(10);
+                System.out.println("                    ██║  ██║██║  ██║██║  ██║██║ ╚═╝ ██║╚██████╔╝██║ ╚████║   ██║   ");
+                Thread.sleep(10);
+                System.out.println("                    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ");
+                Thread.sleep(20); 
+                System.out.println("                                                               ");
+                Thread.sleep(10);
+                System.out.println("                        Planning your future for a financially free life.\n");
+                Thread.sleep(10); 
+                System.out.println("╔═[1]. Sign In [2]. Sign Up");
+                Thread.sleep(100);
+                System.out.println("║");
+                Thread.sleep(100);
+                System.out.print("╚═══> ");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
             int userOption = getValidOption(scanner, 1, 2);
 
@@ -766,7 +800,12 @@ do {
         totalIncome = 0;
         totalExpenses = 0;
     
-        System.out.println("All user data has been cleared and reset to default values.");
+        // USE ONLY FOR DEBUG | INCLUDE THIS TO DEBUG
+        //
+        // System.out.println("All user data has been cleared and reset to default values.");
+        //
+        // USE ONLY FOR DEBUG | INCLUDE THIS TO DEBUG
+        
     }
     
     //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& - LOADER-SAVER CSV - &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
