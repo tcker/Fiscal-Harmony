@@ -841,7 +841,7 @@ do {
             return; 
         } else if (backOrLogOut == 2) {
             System.out.println("Logging Out! Bye have a good time!");
-            System.exit(0);
+            return;
         }
     }
 
