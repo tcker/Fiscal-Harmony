@@ -3,6 +3,7 @@ import java.io.*;
 
 public class FiscalHarmony_test2 {
     private static final String FILE_NAME = "user_data/user_data.csv";
+    private static final String FILE_NAME2 = "user_data/user_history.csv";
     
     private static LinkedList<Double> income = new LinkedList<>();
     private static LinkedList<Double> expense = new LinkedList<>();
@@ -578,8 +579,7 @@ do {
                         updatedData.append("Expense: PHP ").append(exp).append(";");
                     }
     
-                    // Save history log as a joined string
-                    updatedData.append("\"").append(String.join(";", historyLog)).append("\"\n");
+                    updatedData.append("\n");
                 } else {
                     updatedData.append(line).append("\n");
                 }
@@ -596,7 +596,7 @@ do {
                     updatedData.append("Expense: PHP ").append(exp).append(";");
                 }
     
-                updatedData.append("\"").append(String.join(";", historyLog)).append("\"\n");
+                updatedData.append("\n");
             }
     
             // Overwrite the CSV file with updated data
@@ -630,8 +630,7 @@ do {
                         // If it's an income, we will add it up
                         if (transaction.startsWith("Income")) {
                             // Extract and parse the numeric part of the income string
-                            String incomeStr = transaction.split(": PHP ")[1];
-                            incomeStr = incomeStr.split(" ")[0]; // Remove any additional description
+                            String incomeStr = transaction.split(": PHP ")[1].split(" ")[0]; // Remove any additional description
                             double incomeValue = Double.parseDouble(incomeStr);
     
                             // Only add non-zero income values
@@ -642,8 +641,7 @@ do {
                         // If it's an expense, we will add it up
                         else if (transaction.startsWith("Expense")) {
                             // Extract and parse the numeric part of the expense string
-                            String expenseStr = transaction.split(": PHP ")[1];
-                            expenseStr = expenseStr.split(" ")[0]; // Remove any additional description
+                            String expenseStr = transaction.split(": PHP ")[1].split(" ")[0]; // Remove any additional description
                             double expenseValue = Double.parseDouble(expenseStr);
     
                             // Only add non-zero expense values
@@ -661,17 +659,6 @@ do {
     
                     // Calculate current funds
                     currentFunds = totalIncome - totalExpenses;
-    
-                    // Initialize historyLog as a LinkedList and add entries to it
-                    if (data.length > 3) {  // Check if history log exists
-                        historyLog = new LinkedList<>();
-                        String[] historyEntries = data[3].replace("\"", "").split(";");  // Remove quotes and split by semicolon
-                        for (String entry : historyEntries) {
-                            historyLog.add(entry);
-                        }
-                    } else {
-                        historyLog = new LinkedList<>();  // Initialize an empty historyLog if not present
-                    }
     
                     break; // Exit loop once the user is found
                 }
@@ -692,8 +679,8 @@ do {
         System.out.println("Total Income: PHP " + totalIncome); // Should show the sum of all incomes
         System.out.println("Total Expenses: PHP " + totalExpenses); // Should show the sum of all expenses
         System.out.println("Current Funds: PHP " + currentFunds); // Should show current funds balance
-        System.out.println("History Log: " + historyLog); // Should show the loaded history log
     }
+    
     
     
     
