@@ -299,10 +299,17 @@ do {
     
     
     private static void saveUserCredentials(String email, String password) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
-            // Write email, password, and funds as 0
-            writer.write(email + "," + password); // Save funds as 0
-            writer.newLine();
+        try (BufferedWriter writer1 = new BufferedWriter(new FileWriter(FILE_NAME, true));
+             BufferedWriter writer2 = new BufferedWriter(new FileWriter(FILE_NAME2, true))) {
+            
+            // Write email and password to user_data.csv
+            writer1.write(email + "," + password); // Save funds as 0 (default)
+            writer1.newLine();
+    
+            // Write email, password, and empty history log to user_history.csv
+            writer2.write(email + "," + password + ",\"\""); // Empty history log for now
+            writer2.newLine();
+            
         } catch (IOException e) {
             System.out.println("Error saving user credentials: " + e.getMessage());
         }
@@ -563,15 +570,16 @@ do {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
     
+            // Read each line to find the user and append their new data
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
     
-                // Check if the current line is for the logged-in user
+                // Check if the current line corresponds to the logged-in user
                 if (data.length >= 2 && data[0].equals(email)) {
                     userFound = true;
                     updatedData.append(email).append(",").append(data[1]).append(","); // Preserve email and password
     
-                    // Save income and expense values with labels as comma-separated in CSV
+                    // Append income and expense data
                     for (Double inc : income) {
                         updatedData.append("Income: PHP ").append(inc).append(";");
                     }
@@ -585,7 +593,7 @@ do {
                 }
             }
     
-            // If the user was not found, append as a new entry (optional based on your requirement)
+            // If the user was not found, add a new entry for them
             if (!userFound) {
                 updatedData.append(email).append(",<password>,"); // Placeholder for password
     
@@ -599,9 +607,48 @@ do {
                 updatedData.append("\n");
             }
     
-            // Overwrite the CSV file with updated data
+            // Overwrite the user_data.csv file with updated data
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
                 writer.write(updatedData.toString());
+            }
+    
+            // Combine all history log entries into one string and save to user_history.csv
+            StringBuilder combinedHistoryLog = new StringBuilder();
+            for (String history : historyLog) {
+                combinedHistoryLog.append(history).append("; ");
+            }
+            // Remove the last " ;" from the string
+            if (combinedHistoryLog.length() > 2) {
+                combinedHistoryLog.setLength(combinedHistoryLog.length() - 2);
+            }
+    
+            // Now, read the user_history.csv and update the user's history if they exist
+            File historyFile = new File(FILE_NAME2);
+            StringBuilder historyFileData = new StringBuilder();
+            boolean userHistoryFound = false;
+    
+            try (BufferedReader historyReader = new BufferedReader(new FileReader(FILE_NAME2))) {
+                String historyLine;
+                while ((historyLine = historyReader.readLine()) != null) {
+                    String[] historyData = historyLine.split(",", 2);
+                    if (historyData.length >= 2 && historyData[0].equals(email)) {
+                        userHistoryFound = true;
+                        historyFileData.append(email).append(",\"").append(combinedHistoryLog.toString()).append("\"\n");
+                    } else {
+                        historyFileData.append(historyLine).append("\n");
+                    }
+                }
+    
+                // If the user was not found, append a new entry for them
+                if (!userHistoryFound) {
+                    historyFileData.append(email).append(",\"").append(combinedHistoryLog.toString()).append("\"\n");
+                }
+    
+                // Write the updated history data back to user_history.csv
+                try (BufferedWriter historyWriter = new BufferedWriter(new FileWriter(FILE_NAME2))) {
+                    historyWriter.write(historyFileData.toString());
+                }
+    
             }
     
         } catch (IOException e) {
@@ -609,78 +656,114 @@ do {
         }
     }
     
+    
 
     private static void loadDataFromCSV(String email) {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
             boolean userFound = false;
     
+            // Read the user data from user_data.csv to load income and expenses
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
     
-                if (data.length >= 3 && data[0].equals(email)) {  // Ensure the line has at least 3 parts
+                // Ensure the line has at least 3 parts (email, password, transactions) and matches the email
+                if (data.length >= 3 && data[0].equals(email)) {
                     userFound = true;
     
-                    // Load income and expenses from the CSV, assuming they are tagged
-                    String[] transactions = data[2].split(";");  // Split income and expense entries
+                    // Load income and expenses from the CSV (data[2] contains income and expenses)
+                    String[] transactions = data[2].split(";"); // Split income and expense entries
                     double totalIncomeForUser = 0.0;
                     double totalExpensesForUser = 0.0;
     
                     for (String transaction : transactions) {
-                        // If it's an income, we will add it up
+                        // If it's an income, add it to the total income
                         if (transaction.startsWith("Income")) {
-                            // Extract and parse the numeric part of the income string
-                            String incomeStr = transaction.split(": PHP ")[1].split(" ")[0]; // Remove any additional description
+                            String incomeStr = transaction.split(": PHP ")[1].split(" ")[0]; // Extract the numeric value
                             double incomeValue = Double.parseDouble(incomeStr);
     
-                            // Only add non-zero income values
                             if (incomeValue > 0.0) {
-                                totalIncomeForUser += incomeValue;  // Add income to the total income for the user
+                                totalIncomeForUser += incomeValue;
                             }
                         }
-                        // If it's an expense, we will add it up
+                        // If it's an expense, add it to the total expenses
                         else if (transaction.startsWith("Expense")) {
-                            // Extract and parse the numeric part of the expense string
-                            String expenseStr = transaction.split(": PHP ")[1].split(" ")[0]; // Remove any additional description
+                            String expenseStr = transaction.split(": PHP ")[1].split(" ")[0]; // Extract the numeric value
                             double expenseValue = Double.parseDouble(expenseStr);
     
-                            // Only add non-zero expense values
                             if (expenseValue > 0.0) {
-                                totalExpensesForUser += expenseValue;  // Add expense to the total expense for the user
+                                totalExpensesForUser += expenseValue;
                             }
                         }
                     }
     
-                    // Add totals to global income and expense lists
                     income.add(totalIncomeForUser);
                     expense.add(totalExpensesForUser);
                     totalIncome += totalIncomeForUser;
                     totalExpenses += totalExpensesForUser;
     
-                    // Calculate current funds
                     currentFunds = totalIncome - totalExpenses;
     
                     break; // Exit loop once the user is found
                 }
             }
     
-            // Handle the case when the user is not found (initialize with default values)
             if (!userFound) {
-                System.out.println("User not found. Initializing new data.");
+                System.out.println("User not found in user_data.csv. Initializing new data.");
             }
     
         } catch (IOException e) {
-            System.out.println("Error loading data from CSV: " + e.getMessage());
+            System.out.println("Error loading income and expense data from user_data.csv: " + e.getMessage());
         }
     
-        // Output loaded data
-        System.out.println("Income List: " + income); // Should show all incomes loaded
-        System.out.println("Expense List: " + expense); // Should show all expenses loaded
-        System.out.println("Total Income: PHP " + totalIncome); // Should show the sum of all incomes
-        System.out.println("Total Expenses: PHP " + totalExpenses); // Should show the sum of all expenses
-        System.out.println("Current Funds: PHP " + currentFunds); // Should show current funds balance
+        // Load user history from user_history.csv
+        loadUserHistory(email);
+    
+        // Output loaded data for verification
+        System.out.println("Income List: " + income);
+        System.out.println("Expense List: " + expense);
+        System.out.println("Total Income: PHP " + totalIncome);
+        System.out.println("Total Expenses: PHP " + totalExpenses);
+        System.out.println("Current Funds: PHP " + currentFunds);
+        System.out.println("User History: " + historyLog); // Loaded history logs
     }
     
+    private static void loadUserHistory(String email) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME2))) {
+            String line;
+            boolean userFound = false;
+    
+            // Read the user history from user_history.csv
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(",");
+    
+                // Ensure the line has at least 2 parts (email and history log) and matches the email
+                if (data.length >= 2 && data[0].equals(email)) {
+                    userFound = true;
+    
+                    // Load history log from the CSV (data[1] contains the history log)
+                    String historyLogData = data[1].replace("History Log: ", "");
+                    String[] historyEntries = historyLogData.split(";");
+    
+                    // Add each history entry to the historyLog LinkedList
+                    for (String history : historyEntries) {
+                        if (!history.isEmpty()) {
+                            historyLog.add(history); // Add to the LinkedList 'historyLog'
+                        }
+                    }
+    
+                    break; // Exit loop once the user is found
+                }
+            }
+    
+            if (!userFound) {
+                System.out.println("User not found in user_history.csv. No history log available.");
+            }
+    
+        } catch (IOException e) {
+            System.out.println("Error loading history log from user_history.csv: " + e.getMessage());
+        }
+    }
     
     
     
