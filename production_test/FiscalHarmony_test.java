@@ -1,3 +1,6 @@
+// FISCAL_HARMONY JAVA
+// VERSION FI$CAL 1.0
+
 import java.util.*;
 import java.io.*;
 
@@ -297,22 +300,20 @@ do {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] credentials = line.split(",");
-                // Check if the email matches
                 if (credentials[0].equals(email)) {
-                    return true; // Email is already registered
+                    return true; 
                 }
             }
         } catch (IOException e) {
             System.out.println("Error reading user file: " + e.getMessage());
         }
-        return false; // Email not found
+        return false; 
     }
     
     
     private static void saveUserCredentials(String email, String password) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
-            // Write email, password, and funds as 0
-            writer.write(email + "," + password + ",0"); // Save funds as 0
+            writer.write(email + "," + password + ",0");
             writer.newLine();
         } catch (IOException e) {
             System.out.println("Error saving user credentials: " + e.getMessage());
@@ -378,7 +379,6 @@ do {
         boolean goBackToFeature = true;
 
         while (goBackToFeature) {
-            // Use global variables here
             totalIncome = calculateTotal(income);
             totalExpenses = calculateTotal(expense);
             currentFunds = totalIncome - totalExpenses;
@@ -562,17 +562,13 @@ do {
     
                 if (data.length >= 2 && data[0].equals(email)) {
                     userFound = true;
-                    // Retain the password and other data
                     newData.append(email).append(",").append(data[1]).append(",");
     
-                    // Append the income and expense data
                     appendDataToCSV(newData);
-    
-                    // Calculate and append total funds and current funds
                     totalIncome = calculateTotal(income);
                     totalExpenses = calculateTotal(expense);
                     currentFunds = totalIncome - totalExpenses;
-                    totalFunds = currentFunds;  // Set totalFunds correctly
+                    totalFunds = currentFunds;  
     
                     newData.append(totalFunds).append(",").append(currentFunds).append("\n");
                 } else {
@@ -586,7 +582,6 @@ do {
                 newData.append("\n");
             }
     
-            // Save updated data to CSV
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
                 writer.write(newData.toString());
             }
@@ -598,32 +593,27 @@ do {
     
 
     private static void appendDataToCSV(StringBuilder newData) {
-        // Append income data
         StringBuilder incomeData = new StringBuilder();
         for (Double i : income) {
             incomeData.append(i).append(",");
         }
     
-        // Append expense data
         StringBuilder expenseData = new StringBuilder();
         for (Double e : expense) {
             expenseData.append(e).append(",");
         }
     
-        // Append history log data
         StringBuilder historyData = new StringBuilder();
         for (String h : historyLog) {
             historyData.append(h).append(",");
         }
-    
-        // Append all data to newData StringBuilder
+
         newData.append(incomeData.toString())
                 .append(expenseData.toString())
                 .append(historyData.toString())
-                .append(totalFunds).append(",")  // Make sure it's a double value
-                .append(currentFunds);  // Make sure it's a double value
-    
-        // Print the appended data for debugging
+                .append(totalFunds).append(",")  
+                .append(currentFunds);  
+
         System.out.println("Appending data to CSV: " + newData.toString());
     }
 
@@ -634,12 +624,10 @@ private static void loadDataFromCSV(String email) {
         while ((line = reader.readLine()) != null) {
             String[] data = line.split(",");
 
-            // Check if email matches
             if (data[0].equals(email)) {
-                int index = 1;  // Skip over the email field
+                int index = 1; 
                 System.out.println("Parsing data for email: " + email);
                 
-                // Load income data
                 for (int i = 0; i < INCOME_CATEGORIES; i++) {
                     if (index < data.length) {
                         try {
@@ -652,7 +640,6 @@ private static void loadDataFromCSV(String email) {
                     }
                 }
 
-                // Load expense data
                 for (int i = 0; i < EXPENSE_CATEGORIES; i++) {
                     if (index < data.length) {
                         try {
@@ -665,12 +652,10 @@ private static void loadDataFromCSV(String email) {
                     }
                 }
 
-                // Load history log data
                 for (int i = index; i < data.length - 2; i++) {
                     historyLog.add(data[i]);
                 }
 
-                // Parse the last two values as totalFunds and currentFunds
                 try {
                     totalFunds = Double.parseDouble(data[data.length - 2]);
                     currentFunds = Double.parseDouble(data[data.length - 1]);
@@ -680,9 +665,8 @@ private static void loadDataFromCSV(String email) {
                     System.out.println("Error parsing funds: " + e.getMessage());
                 }
 
-                // Print the funds for debugging
                 System.out.println("Parsed funds - Total Funds: " + totalFunds + ", Current Funds: " + currentFunds);
-                break;  // Exit after finding the user
+                break;  
             }
         }
     } catch (IOException e) {

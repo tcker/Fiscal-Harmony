@@ -1,7 +1,25 @@
+// FISCAL_HARMONY JAVA
+// VERSION FI$CAL.EXP
+
+
+
+
+//                  PURPOSE
+
+// THIS EXPERIMENTATION AS TO ADD PASSWORD HASHING
+// TO COLLECT IN THE CSV FILES TO ENSURE SECURITY
+// AND TRUST
+
+
+
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.*;
 import java.io.*;
 
-public class FiscalHarmony_test2 {
+public class FiscalHarmony_experimental {
     private static final String FILE_NAME = "user_data/user_data.csv";
     private static final String FILE_NAME2 = "user_data/user_history.csv";
     
@@ -271,50 +289,86 @@ do {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] credentials = line.split(",");
-                if (credentials[0].equals(email) && credentials[1].equals(password)) {
-                    return true;
+                if (credentials[0].equals(email)) {
+                    // Extract the stored hash (salt + hash)
+                    String storedHash = credentials[1];
+    
+                    // Decode the stored hash from Base64
+                    byte[] decoded = Base64.getDecoder().decode(storedHash);
+    
+                    // Extract the salt from the decoded data (first 16 bytes)
+                    byte[] salt = new byte[16];
+                    System.arraycopy(decoded, 0, salt, 0, 16);
+    
+                    // Hash the entered password with the same salt
+                    MessageDigest digest = MessageDigest.getInstance("SHA-256");
+                    digest.update(salt);
+                    byte[] hashedInput = digest.digest(password.getBytes());
+    
+                    // Extract the stored hash part (the part after the salt)
+                    byte[] storedHashBytes = new byte[decoded.length - salt.length];
+                    System.arraycopy(decoded, salt.length, storedHashBytes, 0, storedHashBytes.length);
+    
+                    // Compare the re-hashed input with the stored hash
+                    if (MessageDigest.isEqual(hashedInput, storedHashBytes)) {
+                        return true; // Password match
+                    }
                 }
             }
-        } catch (IOException e) {
+        } catch (IOException | NoSuchAlgorithmException e) {
             System.out.println("Error reading user file: " + e.getMessage());
         }
-        return false;
+        return false;  // Invalid user
     }
-
+    
+    
     private static boolean isEmailRegistered(String email) {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] credentials = line.split(",");
-                // Check if the email matches
                 if (credentials[0].equals(email)) {
-                    return true; // Email is already registered
+                    return true; 
                 }
             }
         } catch (IOException e) {
             System.out.println("Error reading user file: " + e.getMessage());
         }
-        return false; // Email not found
+        return false; 
     }
-    
     
     private static void saveUserCredentials(String email, String password) {
         try (BufferedWriter writer1 = new BufferedWriter(new FileWriter(FILE_NAME, true));
              BufferedWriter writer2 = new BufferedWriter(new FileWriter(FILE_NAME2, true))) {
-            
-            // Write email and password to user_data.csv
-            writer1.write(email + "," + password); // Save funds as 0 (default)
-            writer1.newLine();
     
-            // Write email, password, and empty history log to user_history.csv
-            writer2.write(email + "," + password + ",\"\""); // Empty history log for now
-            writer2.newLine();
-            
+            // Hash the password with salt before saving
+            String hashedPassword = hashPasswordWithSalt(password);
+    
+            if (hashedPassword != null) {
+                // Debugging print statement to confirm what is being saved
+                System.out.println("Saving to file: " + email + "," + hashedPassword);
+    
+                // Store email and the combined salt + hash password in the user file
+                writer1.write(email + "," + hashedPassword);
+                writer1.newLine();
+    
+                // Store an empty history log for the user in user_history.csv
+                writer2.write(email + ",\"\""); 
+                writer2.newLine();
+    
+                System.out.println("User credentials saved successfully with hashed password.");
+            } else {
+                System.out.println("Error: Password hashing failed.");
+            }
+    
         } catch (IOException e) {
             System.out.println("Error saving user credentials: " + e.getMessage());
         }
     }
-
+    
+    
+    
+    
 //===================================================LOGIN AND REGISTRATION===================================================================
 
 //===================================================HOME & FEATURES===================================================================
@@ -369,7 +423,6 @@ do {
         boolean goBackToFeature = true;
 
         while (goBackToFeature) {
-            // Use global variables here
             totalIncome = calculateTotal(income);
             totalExpenses = calculateTotal(expense);
             currentFunds = totalIncome - totalExpenses;
@@ -411,7 +464,6 @@ do {
 
     private static void handleIncome(Scanner scanner) {
         String userInput = "";
-        // List to store categories
         List<String> incomeCategories = new ArrayList<>();
         do {
             System.out.print("Enter income category: ");
@@ -419,32 +471,29 @@ do {
 
             if (category.trim().isEmpty()) {
                 System.out.println("Invalid input. Category cannot be empty. Please try again.");
-                return; // Restart the loop if input is invalid
+                return; 
             }
-    
-            // Check if the category contains any digits (numbers)
+
             if (category.matches(".*\\d.*")) {
                 System.out.println("Invalid input. Category cannot contain numbers. Please try again.");
-                return; // Restart the loop if input contains numbers
+                return; 
             }
             
             System.out.print("Enter amount for " + category + ": PHP ");
             double amount = getValidAmount(scanner);
-            income.add(amount); // Add income amount to the list
-            incomeCategories.add(category); // Add category to the list
+            income.add(amount);
+            incomeCategories.add(category);
 
-            historyLog.add("Income: PHP " + amount + " from " + category); // Add to history log
+            historyLog.add("Income: PHP " + amount + " from " + category); 
             System.out.print("Do you want to enter another income? (y/n): ");
             userInput = scanner.next();
-            scanner.nextLine();  // consume newline
+            scanner.nextLine(); 
         } while (userInput.equalsIgnoreCase("y"));
 
-        // Recalculate total income and display it
         double totalIncome = calculateTotal(income);
         System.out.println("_________________________________");
         System.out.printf("Total Income: PHP %.2f\n", totalIncome);
 
-        // Print income summary
         printIncomeSummary(totalIncome, income, incomeCategories);
     }
 
@@ -458,22 +507,19 @@ do {
 
     private static void handleExpenses(Scanner scanner) {
         String userInput = "";
-        // List to store categories
         List<String> expenseCategories = new ArrayList<>();
         do {
             System.out.print("Enter expense category: ");
             String category = scanner.nextLine();
 
-                    // Ensure category is a valid string (non-empty and no numbers)
         if (category.trim().isEmpty()) {
             System.out.println("Invalid input. Category cannot be empty. Please try again.");
-            return; // Restart the loop if input is invalid
+            return; 
         }
 
-        // Check if the category contains any digits (numbers)
         if (category.matches(".*\\d.*")) {
             System.out.println("Invalid input. Category cannot contain numbers. Please try again.");
-            return; // Restart the loop if input contains numbers
+            return; 
         }
 
             System.out.print("Enter amount for " + category + ": PHP ");
@@ -485,22 +531,20 @@ do {
                 break;
             }
 
-            expense.add(amount); // Add expense amount to the list
-            expenseCategories.add(category); // Add category to the list
-            historyLog.add("Expense: PHP " + amount + " for " + category); // Add to history log
+            expense.add(amount); 
+            expenseCategories.add(category); 
+            historyLog.add("Expense: PHP " + amount + " for " + category); 
 
             System.out.print("Do you want to enter another expense? (y/n): ");
             userInput = scanner.next();
-            scanner.nextLine();  // consume newline
+            scanner.nextLine();  
         } while (userInput.equalsIgnoreCase("y"));
 
-        // Recalculate total expenses and display it
         double totalExpenses = calculateTotal(expense);
-        double totalIncome = calculateTotal(income); // Recalculate total income
+        double totalIncome = calculateTotal(income); 
         System.out.println("_________________________________");
         System.out.printf("Total Expenses: PHP %.2f\n", totalExpenses);
 
-        // Print expense summary
         printExpenseSummary(totalExpenses, totalIncome, expense, expenseCategories);
     }
 
@@ -518,12 +562,12 @@ do {
         while (true) {
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
-                scanner.nextLine();  // consume newline
+                scanner.nextLine();  
                 if (choice >= min && choice <= max) {
                     break;
                 }
             } else {
-                scanner.nextLine();  // consume invalid input
+                scanner.nextLine();  
             }
             System.out.println("Invalid input. Please enter a valid number (" + min + "-" + max + "): ");
         }
@@ -535,12 +579,12 @@ do {
         while (true) {
             if (scanner.hasNextDouble()) {
                 amount = scanner.nextDouble();
-                scanner.nextLine();  // consume newline
+                scanner.nextLine();  
                 if (amount >= 0) {
                     break;
                 }
             } else {
-                scanner.nextLine();  // consume invalid input
+                scanner.nextLine();  
             }
             System.out.print("Invalid input. Please enter a valid amount: PHP ");
         }
@@ -563,23 +607,55 @@ do {
     }
 
 
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& - LOADER-SAVER CSV - &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+
+private static String hashPasswordWithSalt(String password) {
+    try {
+        // Generate a random salt
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[16];  // 16 bytes for the salt
+        random.nextBytes(salt);
+
+        // Hash the password with the salt using SHA-256
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        digest.update(salt);  // Add salt to the password
+        byte[] hashBytes = digest.digest(password.getBytes());
+
+        // Combine the salt and hash
+        byte[] combined = new byte[salt.length + hashBytes.length];
+        System.arraycopy(salt, 0, combined, 0, salt.length);
+        System.arraycopy(hashBytes, 0, combined, salt.length, hashBytes.length);
+
+        // Encode the combined result to Base64 (so we can store it as a string)
+        String base64Result = Base64.getEncoder().encodeToString(combined);
+
+        // Debugging output to verify the result
+        System.out.println("Salt: " + Base64.getEncoder().encodeToString(salt));
+        System.out.println("Hashed Password (with salt): " + base64Result);
+
+        return base64Result;
+    } catch (Exception e) {
+        System.out.println("Error hashing password with salt: " + e.getMessage());
+    }
+    return null;
+}
+
     private static void saveDataToCSV(String email) {
         StringBuilder updatedData = new StringBuilder();
         boolean userFound = false;
     
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
-    
-            // Read each line to find the user and append their new data
+
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-    
-                // Check if the current line corresponds to the logged-in user
+
                 if (data.length >= 2 && data[0].equals(email)) {
                     userFound = true;
-                    updatedData.append(email).append(",").append(data[1]).append(","); // Preserve email and password
-    
-                    // Append income and expense data
+                    updatedData.append(email).append(",").append(data[1]).append(","); 
+
                     for (Double inc : income) {
                         updatedData.append("Income: PHP ").append(inc).append(";");
                     }
@@ -592,10 +668,9 @@ do {
                     updatedData.append(line).append("\n");
                 }
             }
-    
-            // If the user was not found, add a new entry for them
+
             if (!userFound) {
-                updatedData.append(email).append(",<password>,"); // Placeholder for password
+                updatedData.append(email).append(",<password>,"); 
     
                 for (Double inc : income) {
                     updatedData.append("Income: PHP ").append(inc).append(";");
@@ -606,24 +681,20 @@ do {
     
                 updatedData.append("\n");
             }
-    
-            // Overwrite the user_data.csv file with updated data
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
-                writer.write(updatedData.toString());
-            }
-    
-            // Combine all history log entries into one string and save to user_history.csv
-            StringBuilder combinedHistoryLog = new StringBuilder();
-            for (String history : historyLog) {
-                combinedHistoryLog.append(history).append("; ");
-            }
-            // Remove the last " ;" from the string
-            if (combinedHistoryLog.length() > 2) {
-                combinedHistoryLog.setLength(combinedHistoryLog.length() - 2);
-            }
-    
-            // Now, read the user_history.csv and update the user's history if they exist
-        // Now, read the user_history.csv and update the user's history if they exist
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
+            writer.write(updatedData.toString());
+        }
+
+        StringBuilder combinedHistoryLog = new StringBuilder();
+        for (String history : historyLog) {
+            combinedHistoryLog.append(history).append("; ");
+        }
+
+        if (combinedHistoryLog.length() > 2) {
+            combinedHistoryLog.setLength(combinedHistoryLog.length() - 2);
+        }
+
         File historyFile = new File(FILE_NAME2);
         StringBuilder historyFileData = new StringBuilder();
         boolean userHistoryFound = false;
@@ -640,12 +711,10 @@ do {
                 }
             }
 
-            // If the user was not found, append a new entry for them
             if (!userHistoryFound) {
                 historyFileData.append(email).append(",").append(combinedHistoryLog.toString()).append("\n");
             }
 
-            // Write the updated history data back to user_history.csv
             try (BufferedWriter historyWriter = new BufferedWriter(new FileWriter(FILE_NAME2))) {
                 historyWriter.write(historyFileData.toString());
             }
@@ -656,39 +725,33 @@ do {
         System.out.println("Error saving data to CSV: " + e.getMessage());
     }
 }
-    
 
     private static void loadDataFromCSV(String email) {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
             boolean userFound = false;
-    
-            // Read the user data from user_data.csv to load income and expenses
+
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-    
-                // Ensure the line has at least 3 parts (email, password, transactions) and matches the email
+
                 if (data.length >= 3 && data[0].equals(email)) {
                     userFound = true;
     
-                    // Load income and expenses from the CSV (data[2] contains income and expenses)
-                    String[] transactions = data[2].split(";"); // Split income and expense entries
+                    String[] transactions = data[2].split(";"); 
                     double totalIncomeForUser = 0.0;
                     double totalExpensesForUser = 0.0;
     
                     for (String transaction : transactions) {
-                        // If it's an income, add it to the total income
                         if (transaction.startsWith("Income")) {
-                            String incomeStr = transaction.split(": PHP ")[1].split(" ")[0]; // Extract the numeric value
+                            String incomeStr = transaction.split(": PHP ")[1].split(" ")[0]; 
                             double incomeValue = Double.parseDouble(incomeStr);
     
                             if (incomeValue > 0.0) {
                                 totalIncomeForUser += incomeValue;
                             }
                         }
-                        // If it's an expense, add it to the total expenses
                         else if (transaction.startsWith("Expense")) {
-                            String expenseStr = transaction.split(": PHP ")[1].split(" ")[0]; // Extract the numeric value
+                            String expenseStr = transaction.split(": PHP ")[1].split(" ")[0]; 
                             double expenseValue = Double.parseDouble(expenseStr);
     
                             if (expenseValue > 0.0) {
@@ -704,7 +767,7 @@ do {
     
                     currentFunds = totalIncome - totalExpenses;
     
-                    break; // Exit loop once the user is found
+                    break; 
                 }
             }
     
@@ -715,17 +778,20 @@ do {
         } catch (IOException e) {
             System.out.println("Error loading income and expense data from user_data.csv: " + e.getMessage());
         }
-    
-        // Load user history from user_history.csv
+
         loadUserHistory(email);
-    
-        // Output loaded data for verification
-        System.out.println("Income List: " + income);
-        System.out.println("Expense List: " + expense);
-        System.out.println("Total Income: PHP " + totalIncome);
-        System.out.println("Total Expenses: PHP " + totalExpenses);
-        System.out.println("Current Funds: PHP " + currentFunds);
-        System.out.println("User History: " + historyLog); // Loaded history logs
+
+        // FOR DEBUGGING | CHECKING ERRORS
+        // ONLY INCLUDE THIS CODE FOR DEBUG/ERRORS
+        //
+        // System.out.println("Income List: " + income);
+        // System.out.println("Expense List: " + expense);
+        // System.out.println("Total Income: PHP " + totalIncome);
+        // System.out.println("Total Expenses: PHP " + totalExpenses);
+        // System.out.println("Current Funds: PHP " + currentFunds);
+        // System.out.println("User History: " + historyLog); 
+        //
+        // FOR DEBUGGING | CHECKING ERRORS
     }
     
     private static void loadUserHistory(String email) {
@@ -733,26 +799,25 @@ do {
             String line;
             boolean userFound = false;
     
-            // Read the user history from user_history.csv
             while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",");
+                String[] data = line.split(",", 2); 
     
-                // Ensure the line has at least 2 parts (email and history log) and matches the email
                 if (data.length >= 2 && data[0].equals(email)) {
                     userFound = true;
-    
-                    // Load history log from the CSV (data[1] contains the history log)
-                    String historyLogData = data[1].replace("History Log: ", "");
-                    String[] historyEntries = historyLogData.split(";");
-    
-                    // Add each history entry to the historyLog LinkedList
-                    for (String history : historyEntries) {
-                        if (!history.isEmpty()) {
-                            historyLog.add(history); // Add to the LinkedList 'historyLog'
+
+                    String historyLogData = data[1].trim();
+
+                    if (!historyLogData.isEmpty() && !historyLogData.equals("\"\"")) {
+                        String[] historyEntries = historyLogData.split(";");
+
+                        for (String history : historyEntries) {
+                            if (!history.isEmpty()) {
+                                historyLog.add(history.trim());
+                            }
                         }
                     }
     
-                    break; // Exit loop once the user is found
+                    break; 
                 }
             }
     
@@ -764,8 +829,7 @@ do {
             System.out.println("Error loading history log from user_history.csv: " + e.getMessage());
         }
     }
-    
-    
+
     
 
     private static void clearUserData() {
@@ -779,6 +843,9 @@ do {
         System.out.println("All user data has been cleared and reset to default values.");
     }
     
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& - LOADER-SAVER CSV - &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
 
 
 //===================================================INCOME & EXPENSE ALLOCATION===================================================================
