@@ -24,20 +24,22 @@ public class FiscalHarmony {
 //===================================================INSTRUCTIONS===================================================================        
         
 clearUserData(); 
-System.out.println("==============================================");
-System.out.println("         Welcome to Fiscal Harmony!");
-System.out.println("==============================================");
 int choice;
 
 do {
-    System.out.println("Select an option:");
-    System.out.println("[1]. Read Instructions for Income and Expenses Allocation,\nEmergency Fund Calculator, Tax Calculator, and Privacy Act");
-    System.out.println("[2]. Exit");
-    System.out.print("> ");
+    System.out.println("\n");
+    System.out.println("                        ======================================================");
+    System.out.println("                                        Welcome to Fiscal Harmony!");
+    System.out.println("                        ======================================================");
+
+    System.out.println("\t\t\t\t\tSelect an option:");
+    System.out.println("\t\t\t[1]. Read Instructions for Income and Expenses Allocation,\n\t\t\tEmergency Fund Calculator, Tax Calculator, and Privacy Act");
+    System.out.println("\t\t\t[2]. Exit");
+    System.out.print("\t\t\t> ");
 
     while (!scanner.hasNextInt()) {
-        System.out.println("Invalid input. Please enter a number (1 or 2):");
-        System.out.print("> ");
+        System.out.println("\t\t\tInvalid input. Please enter a number (1 or 2):");
+        System.out.print("\t\t\t> ");
         scanner.next(); 
     }
 
@@ -48,46 +50,46 @@ do {
         showCombinedInstructions();
         askIfDone(scanner);
     } else if (choice == 2) {
-        System.out.println("Exiting the program. Thank you!");
+        System.out.println("\t\t\tExiting the program. Thank you!");
     } else {
-        System.out.println("Invalid choice. Please select a valid option.");
+        System.out.println("\t\t\tInvalid choice. Please select a valid option.");
     }
 } while (choice != 2);
     }
 
     private static void showCombinedInstructions() {
         String instructions = 
-            "====================================================================================\n" +
-            "                   INSTRUCTIONS PLEASE READ BEFORE PROCEEDING                 \n" +
-            "====================================================================================\n" +
-            "\n" +
-            "   INCOME AND EXPENSES ALLOCATION\n" +
-            "   - Access the Feature: Navigate to the 'Income and Expenses Allocation' section.\n" +
-            "   - Input Income: Enter your total income for the month.\n" +
-            "   - Enter Expenses: List all your monthly expenses.\n" +
-            "   - Review Allocation: Click 'Calculate' to see how your income is allocated.\n" +
-            "\n" +
-            "   EMERGENCY FUND CALCULATOR\n" +
-            "   - Access the Feature: Select 'Emergency Fund Calculator' from the menu.\n" +
-            "   - Set Savings Goal: Enter your desired savings goal.\n" +
-            "   - Determine Monthly Contribution: Specify how much you can contribute monthly.\n" +
-            "   - Calculate Timeframe: Press 'Calculate' to see how long it will take to reach your goal.\n" +
+            "\t\t\t====================================================================================\n" +
+            "\t\t\t\t\t\tINSTRUCTIONS PLEASE READ BEFORE PROCEEDING                 \n" +
+            "\t\t\t====================================================================================\n" +
+            "\t\t\t\n" +
+            "\t\t\tINCOME AND EXPENSES ALLOCATION\n" +
+            "\t\t\t- Access the Feature: Navigate to the 'Income and Expenses Allocation' section.\n" +
+            "\t\t\t- Input Income: Enter your income category, then input how many pesos\n" +
+            "\t\t\t- Enter Expenses: Enter your expense category, then input how many pesos\n" +
+            "\t\t\t- Review Allocation: Click [4] to check your history log\n" +
+            "\t\t\t\n" +
+            "\t\t\tEMERGENCY FUND CALCULATOR\n" +
+            "\t\t\t- Access the Feature: Select [2] 'Emergency Fund Calculator' from the menu.\n" +
+            "\t\t\t- Set Savings Goal: Enter your total funds\n" +
+            "\t\t\t- Determine Monthly Enter how many months you want to cover\n" +
+            "\t\t\t- Calculate Timeframe: After Inputting all the details it should be shown your emergency fund\n" +
             // "\n" +
             // "   TAX CALCULATOR\n" +
             // "   - Access the Feature: Go to the 'Tax Calculator' section.\n" +
             // "   - Input Income: Enter your total Annual Salary income.\n" +
             // "   - Enter Deductions: List any deductions you qualify for.\n" +
             // "   - Calculate Tax: Click 'Calculate' to see the estimated tax you need to pay.\n" +
-            "====================================================================================\n" +
-            "\n" +
-            "                               DATA PRIVACY NOTICE                                \n" +
-            "                             REPUBLIC ACT NO. 10173                               \n" +
-            "                           REPUBLIC OF THE PHILIPPINES                            \n" +
-            "\n" +
-            "   The Republic Act 10173, officially known as the Data Privacy Act of 2012 (DPA).\n" +
-            "   We request your consent to use this program for managing your finances. " +
-            "\n   Your permission allows us to assist you with budgeting and tracking expenses.\n" +
-            "====================================================================================";
+            "\t\t\t====================================================================================\n" +
+            "\t\t\t\n" +
+            "                                                   DATA PRIVACY NOTICE                                \n" +
+            "                                                 REPUBLIC ACT NO. 10173                               \n" +
+            "                                               REPUBLIC OF THE PHILIPPINES                            \n" +
+            "\t\t\t\n" +
+            "\t\t\tThe Republic Act 10173, officially known as the Data Privacy Act of 2012 (DPA).\n" +
+            "\t\t\t    We request your consent to use this program for managing your finances. " +
+            "\n\t\t\tYour permission allows us to assist you with budgeting and tracking expenses.\n" +
+            "\t\t\t====================================================================================";
     
         try {
             for (int i = 0; i < instructions.length(); i++) {
@@ -103,36 +105,36 @@ do {
 
     private static void askIfDone(Scanner scanner) {
         while (true) {
-            System.out.println("\nAre you done reading the instructions? [1] Yes [2] No");
-            System.out.print("> ");
+            System.out.println("\n\t\t\tAre you done reading the instructions? [1] Yes [2] No");
+            System.out.print("\t\t\t> ");
             String response = scanner.nextLine();
 
             if (response.equals("1")) {
                 askPrivacyActQuestion(scanner);
                 break; 
             } else if (response.equals("2")) {
-                System.out.println("Feel free to review the instructions again.");
+                System.out.println("\t\t\tFeel free to review the instructions again.");
                 break; 
             } else {
-                System.out.println("Invalid response. Please answer with [1] for Yes or [2] for No.");
+                System.out.println("\t\t\tInvalid response. Please answer with [1] for Yes or [2] for No.");
             }
         }
     }
 
     private static void askPrivacyActQuestion(Scanner scanner) {
         while (true) {
-            System.out.println("Do you understand how your data will be used and the privacy policies in place? [1] Yes [2] No");
-            System.out.print("> ");
+            System.out.println("\t\t\tDo you understand how your data will be used and the privacy policies in place? [1] Yes [2] No");
+            System.out.print("\t\t\t> ");
             String response = scanner.nextLine();
 
             if (response.equals("1")) {
-                System.out.println("Thank you for your understanding!");
+                System.out.println("\t\t\tThank you for your understanding!");
                 break; 
             } else if (response.equals("2")) {
-                System.out.println("Please review our privacy policy for more information.");
+                System.out.println("\t\t\tPlease review our privacy policy for more information.");
                 break; 
             } else {
-                System.out.println("Invalid response. Please answer with [1] for Yes or [2] for No.");
+                System.out.println("\t\t\tInvalid response. Please answer with [1] for Yes or [2] for No.");
             }
         }
     
@@ -194,53 +196,53 @@ do {
                 Thread.sleep(10);
                 System.out.println("                        Planning your future for a financially free life.\n");
                 Thread.sleep(10); 
-                System.out.println("╔═[1]. Sign In [2]. Sign Up");
+                System.out.println("\t╔═[1]. Sign In [2]. Sign Up [3] Go Back to Instructions");
                 Thread.sleep(100);
-                System.out.println("║");
+                System.out.println("\t║");
                 Thread.sleep(100);
-                System.out.print("╚═══> ");
+                System.out.print("\t╚═══> ");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
-            int userOption = getValidOption(scanner, 1, 2);
+            int userOption = getValidOption(scanner);
 
             switch (userOption) {
                 case 1:
-                    System.out.println("                    ═════════════════════════════════════════════════════════════════");
-                    System.out.println("                    You are now signing in...");
+                    System.out.println("\t\t\t═════════════════════════════════════════════════════════════════");
+                    System.out.println("\t\t\tYou are now signing in...");
 
                     do {
-                        System.out.print("                    Username: ");
+                        System.out.print("\t\t\tUsername: ");
                         userEmail = scanner.next();
-                        System.out.print("                    Password: ");
+                        System.out.print("\t\t\tPassword: ");
                         userPassword = scanner.next();
-                        System.out.println("                    ═════════════════════════════════════════════════════════════════");
+                        System.out.println("\t\t\t═════════════════════════════════════════════════════════════════");
 
                         if (!isValidUser(userEmail, userPassword)) {
                             signInAttempts++;
-                            System.out.println("                    ***********************************************");
-                            System.out.println("                    Invalid password or username, please try again!");
-                            System.out.println("                    ***********************************************");
+                            System.out.println("\t\t\t***********************************************");
+                            System.out.println("\t\t\tInvalid password or username, please try again!");
+                            System.out.println("\t\t\t***********************************************");
                         }
                     } while (!isValidUser(userEmail, userPassword) && signInAttempts < 2);
 
                     if (signInAttempts == 2) {
-                        System.out.println("                    ********************************************************");
-                        System.out.println("                    You have reached the maximum number of sign-in attempts.");
-                        System.out.println("                    ********************************************************");
-                        System.out.println("                    ═════════════════════════════════════════════════════════════════");
-                        System.out.println("╔═[1]. Go back to Sign-up Terminal [2]. Exit");
-                        System.out.print("╚═══> ");
+                        System.out.println("\t\t\t********************************************************");
+                        System.out.println("\t\t\tYou have reached the maximum number of sign-in attempts.");
+                        System.out.println("\t\t\t********************************************************");
+                        System.out.println("\t\t\t═════════════════════════════════════════════════════════════════");
+                        System.out.println("\t\t\t╔═[1]. Go back to Sign-up Terminal [2]. Exit");
+                        System.out.print("\t\t\t╚═══> ");
 
-                        int finalOption = getValidOption(scanner, 1, 2);
+                        int finalOption = getValidOption(scanner);
 
                         if (finalOption == 1) {
                             signInAttempts = 0;
                             goBackToSignUp = true;
                             continue;
                         } else {
-                            System.out.println("Have a great day ahead!");
+                            System.out.println("\t\t\tHave a great day ahead!");
                             System.exit(0);
                         }
                     } else {
@@ -250,69 +252,72 @@ do {
                     break;
 
                 case 2:
-                    System.out.println("                    ═════════════════════════════════════════════════════════════════");
-                    System.out.println("                    You are now creating an account");
+                    System.out.println("\t\t\t═════════════════════════════════════════════════════════════════");
+                    System.out.println("\t\t\tYou are now creating an account");
 
                     do {
                         System.out.print("                    Username: ");
                         userRegisterEmail = scanner.next();
 
                         if (isEmailRegistered(userRegisterEmail)) {
-                            System.out.println("                    ***********************************************");
-                            System.out.println("                    Email is already in use, please create another.");
-                            System.out.println("                    ***********************************************");
+                            System.out.println("\t\t\t***********************************************");
+                            System.out.println("\t\t\tEmail is already in use, please create another.");
+                            System.out.println("\t\t\t***********************************************");
                         }
                     } while (isEmailRegistered(userRegisterEmail));
 
-                    System.out.print("                    Password: ");
+                    System.out.print("\t\t\tPassword: ");
                     userRegisterPassword = scanner.next();
                     saveUserCredentials(userRegisterEmail, userRegisterPassword);
 
-                    System.out.println("                    You have successfully created an account, would you like to sign in?");
-                    System.out.println("╔═[1]. Yes [2]. Exit");
-                    System.out.print("╚═══> ");
+                    System.out.println("\t\t\tYou have successfully created an account, would you like to sign in?");
+                    System.out.println("\t\t\t╔═[1]. Yes [2]. Exit");
+                    System.out.print("\t\t\t╚═══> ");
 
-                    int userSignIn = getValidOption(scanner, 1, 2);
-                    System.out.println("                    ═════════════════════════════════════════════════════════════════");
+                    int userSignIn = getValidOption(scanner);
+                    System.out.println("\t\t\t ═════════════════════════════════════════════════════════════════");
 
                     if (userSignIn == 1) {
                         do {
-                            System.out.print("Username: ");
+                            System.out.print("\t\t\tUsername: ");
                             userEmail = scanner.next();
-                            System.out.print("Password: ");
+                            System.out.print("\t\t\tPassword: ");
                             userPassword = scanner.next();
-                            System.out.println("                    ═════════════════════════════════════════════════════════════════");
+                            System.out.println("\t\t\t═════════════════════════════════════════════════════════════════");
 
                             if (!isValidUser(userEmail, userPassword)) {
-                                System.out.println("                    You have entered the wrong username or password, please try again!");
+                                System.out.println("\t\t\tYou have entered the wrong username or password, please try again!");
                             }
                         } while (!isValidUser(userEmail, userPassword));
 
                         showFeaturesMenu(scanner, userEmail);
                     } else {
-                        System.out.println("                    Have a great day ahead!");
+                        System.out.println("\t\t\tHave a great day ahead!");
                         System.exit(0);
                     }
                     break;
+                    case 3:
+                        return;
+                    
             }
         }
     }
 
-    private static int getValidOption(Scanner scanner, int min, int max) {
+    private static int getValidOption(Scanner scanner) {
         int option = -1;
         while (true) {
             try {
                 option = scanner.nextInt();
-                if (option >= min && option <= max) {
+                if (option == 1 || option == 2 || option == 3) {
                     break;
                 } else {
-                    System.out.println("Invalid input. Please enter a valid number (" + min + " or " + max + ").");
-                    System.out.print("> ");
+                    System.out.println("\t\t\tInvalid input. Please enter a valid number (1, 2, or 3).");
+                    System.out.print("\t\t\t> ");
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a valid number (" + min + " or " + max + ").");
-                System.out.print("> ");
-                scanner.next();
+                System.out.println("\t\t\tInvalid input. Please enter a valid number (1, 2, or 3).");
+                System.out.print("\t\t\t> ");
+                scanner.next(); // Clear the invalid input
             }
         }
         return option;
@@ -381,11 +386,11 @@ do {
             System.out.println("                         Here are our current available features, check them out!:\n");
             System.out.println("             ╔════[1]. Income and Expense Allocation");
             System.out.println("          ╔══╩══[2]. Emergency Fund Calculator");
-            System.out.println("       ╔══╩═══[3]. Salary Calculator");
-            System.out.println("      ╔╩════[4]. Log out");
+            // System.out.println("       ╔══╩═══[3]. Salary Calculator");
+            System.out.println("      ╔═══╩═[3]. Log out");
             System.out.println("      ║");
             System.out.print("      ╚═══> ");
-            int featureOption = getValidOption(scanner, 1, 4);
+            int featureOption = getValidOption(scanner);
 
             switch (featureOption) {
                 case 1:
@@ -394,9 +399,9 @@ do {
                 case 2:
                     runEmergencyFundCalculator(scanner);
                     break;
-                case 3:
-                    System.out.println("Salary Calculator.");
-                    break;
+                // case 3:
+                //     System.out.println("Salary Calculator.");
+                //     break;
                 case 4:
                     System.out.println("Logging out...");
                     loggedIn = false;

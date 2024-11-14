@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class IncomeExpensesAllocation {
+public class incomeExpensesHistoLog {
 
     private static void incomeExpensesAllocationModule() {
         final int INCOME_CATEGORIES = 5;

@@ -82,7 +82,7 @@ FISCAL-HARMONY (Root Directory)
     └── user_history.csv
 ```
 
-### Step 2
+### Step 3
 
 - Run **FiscalHarmony.java**
 - Enjoy
