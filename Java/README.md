@@ -19,6 +19,12 @@
 
 </pre>
 
+<div align="center">
+
+#### Other Authors [Previous C++]: Ideas by Previous [Deve](https://github.com/Ashio245)[lopers](https://github.com/rhyumiranda)
+
+</div>
+
 # MAIN FILE JAVA DIR MAP
 
 ```
