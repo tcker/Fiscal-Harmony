@@ -380,12 +380,12 @@ do {
 
         while (loggedIn) {
             System.out.println("\n\n                    ╔════════════════════════════════════════════════════════════════╗");
-            System.out.println("                    ║           Welcome, " + userEmail + "! I hope you have a great time!        ║");
+            System.out.println("                               Welcome, " + userEmail + "! I hope you have a great time!        ");
             System.out.printf("                               Your Total funds left: PHP %.2f                      \n", currentFunds);
             System.out.println("                    ╚════════════════════════════════════════════════════════════════╝");
             System.out.println("                         Here are our current available features, check them out!:\n");
             System.out.println("             ╔════[1]. Income and Expense Allocation");
-            System.out.println("          ╔══╩══[2]. Emergency Fund Calculator");
+            System.out.println("          ╔══╩══[2]. Savings Planner");
             // System.out.println("       ╔══╩═══[3]. Salary Calculator");
             System.out.println("      ╔═══╩═[3]. Log out");
             System.out.println("      ║");
@@ -397,7 +397,7 @@ do {
                     incomeExpensesAllocationModule();
                     break;
                 case 2:
-                    runEmergencyFundCalculator(scanner);
+                    runSavingsPlanner(scanner);
                     break;
                 // case 3:
                 //     System.out.println("Salary Calculator.");
@@ -486,7 +486,6 @@ do {
             income.add(amount);
             incomeCategories.add(category);
 
-            // Add entry to history log with date and time
             String timestamp = LocalDateTime.now().format(dateTimeFormatter);
             historyLog.add("[" + timestamp + "] Income: PHP " + amount + " from " + category);
 
@@ -819,86 +818,61 @@ do {
 
 //===================================================EMERGENCY CALCULATOR===================================================================
 
-    private static void runEmergencyFundCalculator(Scanner scanner) {
-        System.out.println("+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+");
-        System.out.println("\tYour Trusty Emergency Fund Calculator");
-        System.out.println("\t\tNon negative Values only");
-        System.out.println("+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+");
+private static void runSavingsPlanner(Scanner scanner) {
+    System.out.println("\t\t\t+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+");
+    System.out.println("\t\t\t                 Savings Planner");
+    System.out.println("\t\t\t+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+");
+    System.out.println("\t\t\t        Current Savings today: " + currentFunds);
+    System.out.println("\t\t\t+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+");
 
-        double totalExpensesPerMonth;
-        int numberOfMonths;
+    double totalExpensesPerMonth = 20000.00;  
+    int recommendedMonths = 6;  
 
-        totalExpensesPerMonth = getValidInput(scanner, "Enter your total monthly expenses: PHP ");
-        numberOfMonths = getValidInputInt(scanner, "Enter the number of months you want to cover: ");
+    double emergencyFund = totalExpensesPerMonth * recommendedMonths + 50;
+    System.out.printf("\n\t\t\tYou must have a total of PHP %.2f \n\t\t\tsaved in the next few months to ensure financial security.%n", emergencyFund);
 
-        System.out.println("You entered: " + numberOfMonths + " months \n");
+    double deficit = emergencyFund - currentFunds;
 
-        double emergencyFund = totalExpensesPerMonth * numberOfMonths + 50;
-        System.out.printf("\nYour recommended emergency fund is: PHP %.2f%n", emergencyFund);
-
-        System.out.println("=============================================================");
-        System.out.println("[1]. Back to Home [2]. Log out");
-        System.out.print("> ");
-
-        int backOrLogOut = getValidChoice(scanner);
-
-        if (backOrLogOut == 1) {
-            return; 
-        } else if (backOrLogOut == 2) {
-            System.out.println("Logging Out! Bye have a good time!");
-            return;
-        }
+    if (deficit > 0) {
+        System.out.printf("\t\t\tYou need to save an additional PHP %.2f \n\t\t\tto reach your target savings.%n", deficit);
+        int monthsToSave = (int) Math.ceil(deficit / totalExpensesPerMonth);
+        System.out.printf("\t\t\tYou need approximately %d month(s) \n\t\t\tto reach your savings goal.%n", monthsToSave);
+    } else {
+        System.out.printf("\t\t\tYou already have enough funds! \n\t\t\tYou have an excess of PHP %.2f.%n", -deficit);
     }
 
-    private static double getValidInput(Scanner scanner, String prompt) {
-        while (true) {
-            try {
-                System.out.print(prompt);
-                double input = scanner.nextDouble();
-                if (input < 0) {
-                    System.out.println("Invalid input. Please enter a non-negative numerical value.");
-                } else {
-                    return input;
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a valid numerical value.");
-                scanner.next();
+    System.out.println("\t\t\t=============================================================");
+    System.out.println("╔[1]. Back to Home [2]. Exit Savings Fund");
+    System.out.println("║");
+    System.out.print("╚═══> ");
+
+    int backOrLogOut = getValidChoice(scanner);
+
+    if (backOrLogOut == 1) {
+        return; 
+    } else if (backOrLogOut == 2) {
+        System.out.println("\t\t\tLogging Out! Bye, have a good time!");
+        return;
+    }
+}
+
+// Existing methods remain the same
+private static int getValidChoice(Scanner scanner) {
+    while (true) {
+        try {
+            int choice = scanner.nextInt();
+            if (choice == 1 || choice == 2) {
+                return choice;
+            } else {
+                System.out.println("\t\t\tInvalid input. Please enter a valid choice (1 or 2).");
             }
-        }
-    }
-
-    private static int getValidInputInt(Scanner scanner, String prompt) {
-        while (true) {
-            try {
-                System.out.print(prompt);
-                int input = scanner.nextInt();
-                if (input < 0) {
-                    System.out.println("Invalid input. Please enter a non-negative numerical value.");
-                } else {
-                    return input;
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a valid numerical value.");
-                scanner.next(); 
-            }
-        }
-    }
-
-    private static int getValidChoice(Scanner scanner) {
-        while (true) {
-            try {
-                int choice = scanner.nextInt();
-                if (choice == 1 || choice == 2) {
-                    return choice;
-                } else {
-                    System.out.println("Invalid input. Please enter a valid choice (1 or 2).");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a valid choice (1 or 2).");
-                scanner.next(); 
+        } catch (InputMismatchException e) {
+            System.out.println("\t\t\tInvalid input. Please enter a valid choice (1 or 2).");
+            scanner.next(); 
             }
         }
     }
 }
+
 
 //===================================================EMERGENCY CALCULATOR===================================================================
