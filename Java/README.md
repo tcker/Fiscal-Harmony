@@ -14,7 +14,8 @@
 ██║  ██║██║  ██║██║  ██║██║ ╚═╝ ██║╚██████╔╝██║ ╚████║   ██║   
 ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   
     
-<h1> Fiscal Harmony </h1>   
+<h1> Fiscal Harmony </h1> 
+<h2> Improved by @Tcker | Ideas by Previous Developers </h2>   
 
 </pre>
 
