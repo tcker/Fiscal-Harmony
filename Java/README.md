@@ -4,6 +4,8 @@
 
 </div>
 
+<div align="center">
+
 <pre align="center">
 
             ███████╗██╗███████╗ ██████╗ █████╗ ██╗             
