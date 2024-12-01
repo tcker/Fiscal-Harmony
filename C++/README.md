@@ -1,5 +1,5 @@
 
-#### [🔙 Go Back Root Readme](https://github.com/tcker/Fiscal-Harmony/blob/main/README.md)
+#### [🔙 Go Back Root Readme](https://github.com/tcker/Fiscal-Harmony)
 
 <p align="center">
   <img src="https://github.com/tcker/fiscal/asset/raw/main/fiscal_harmony_logo.png" alt="Logo" width="155" height="155">
