@@ -1,3 +1,5 @@
+<div align="center">
+
 <p align="center">
   <img src="https://github.com/tcker/Fiscal-Harmony/blob/main/assets/fiscal_harmony_logo.png" alt="Logo" width="155" height="155">
 </p>
@@ -21,6 +23,8 @@
 <h1> Fiscal Harmony </h1>                                                
 
 </pre>
+
+</div>
 
 <div align="justify">
 

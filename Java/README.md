@@ -1,3 +1,5 @@
+<div align="center">
+
 <pre align="center">
 
             ███████╗██╗███████╗ ██████╗ █████╗ ██╗             
@@ -18,6 +20,8 @@
 <h2> Improved by @Tcker | Ideas by Previous Developers </h2>   
 
 </pre>
+
+</div>
 
 <div align="center">
 
