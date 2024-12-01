@@ -37,6 +37,13 @@
 
 <div align="center">
 
+#### [Java Fiscal Harmony](https://github.com/tcker/Fiscal-Harmony/tree/main/Java)
+#### [C++ Fiscal Harmony](https://github.com/tcker/Fiscal-Harmony/tree/main/C%2B%2B)
+
+</div>
+
+<div align="center">
+
 | Language | Purpose                                      | Semester & Year           |
 |----------|----------------------------------------------|---------------------------|
 | C++      | Submission for Finals ITC111 Lec Lab         | 1st Semester, 1st Year     |
