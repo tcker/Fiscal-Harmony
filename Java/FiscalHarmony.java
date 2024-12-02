@@ -384,7 +384,7 @@ do {
             System.out.println("                    ╚════════════════════════════════════════════════════════════════╝");
             System.out.println("                         Here are our current available features, check them out!:\n");
             System.out.println("             ╔════[1]. Income and Expense Allocation");
-            System.out.println("          ╔══╩══[2]. Savings Planner");
+            System.out.println("          ╔══╩══[2]. Emergency Fund Planner");
             // System.out.println("       ╔══╩═══[3]. Salary Calculator");
             System.out.println("      ╔═══╩═[3]. Log out");
             System.out.println("      ║");
@@ -392,7 +392,7 @@ do {
             int featureOption = getValidOption(scanner);
 
             switch (featureOption) {
-                case 1:
+                case 1: 
                     incomeExpensesAllocationModule();
                     break;
                 case 2:
@@ -861,30 +861,20 @@ do {
 
 private static void runSavingsPlanner(Scanner scanner) {
     System.out.println("\t\t\t+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+");
-    System.out.println("\t\t\t                 Savings Planner");
+    System.out.println("\t\t\t                 Emergency Fund Planner");
     System.out.println("\t\t\t+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+");
     System.out.println("\t\t\t        Current Savings today: " + currentFunds);
     System.out.println("\t\t\t+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+");
-
+    
     int recommendedMonths = 6;  
 
     double emergencyFund = currentFunds * recommendedMonths + 50;
     System.out.printf("\n\t\t\tYou must have a total of PHP %.2f \n\t\t\tsaved in the next few months to ensure financial security.%n", emergencyFund);
 
-    // double deficit = emergencyFund - currentFunds;
-
-    // if (deficit > 0) {
-    //     System.out.printf("\t\t\tYou need to save an additional PHP %.2f \n\t\t\tto reach your target savings.%n", deficit);
-    //     int monthsToSave = (int) Math.ceil(deficit / totalExpensesPerMonth);
-    //     System.out.printf("\t\t\tYou need approximately %d month(s) \n\t\t\tto reach your savings goal.%n", monthsToSave);
-    // } else {
-    //     System.out.printf("\t\t\tYou already have enough funds! \n\t\t\tYou have an excess of PHP %.2f.%n", -deficit);
-    // }
-
     System.out.println("\t\t\t=============================================================");
-    System.out.println("╔[1]. Back to Home [2]. Exit Savings Fund");
+    System.out.println("╔[1]. Back to Home [2]. Exit Program");
     System.out.println("║");
-    System.out.print("╚═══> ");
+    System.out.print("╚═══> "); 
 
     int backOrLogOut = getValidChoice(scanner);
 
