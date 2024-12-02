@@ -10,21 +10,32 @@ public class EmergencyFundPlanner {
         runSavingsPlanner(scanner);
     }
 
-    private static void runSavingsPlanner(Scanner scanner) {
+    public static void runSavingsPlanner(Scanner scanner) {
+        double currentFunds = 1000.00; 
 
-        while (true) { // Loop to return to the menu after completing calculations
+        while (true) {
             System.out.println("\t\t\t+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+");
             System.out.println("\t\t\t                 Emergency Fund Planner");
             System.out.println("\t\t\t+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+");
             System.out.println("\t\t\t        Current Savings today: PHP " + currentFunds);
-            System.out.println("\t\t\t+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+");
+                System.out.println("\t\t\t+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+-x=+");
 
-            int recommendedMonths = 6;
+            double recommendedMonths = 6;
+            double emergencyFundGoal = currentFunds * recommendedMonths;
 
-            // Emergency fund goal
-            double emergencyFundGoal = currentFunds * recommendedMonths + 50;
             System.out.printf("\n\t\t\tYou must have a total of PHP %.2f \n\t\t\tsaved in the next few months to ensure financial security.%n",
                     emergencyFundGoal);
+
+            double waterBill = emergencyFundGoal * 0.1; 
+            double electricityBill = emergencyFundGoal * 0.2; 
+            double foodExpenses = emergencyFundGoal * 0.4; 
+            double otherExpenses = emergencyFundGoal * 0.3; 
+        
+            System.out.println("\n\t\t\tSuggested Segmentation:");
+            System.out.printf("\t\t\tWater Bill: PHP %.2f%n", waterBill);
+            System.out.printf("\t\t\tElectricity Bill: PHP %.2f%n", electricityBill);
+            System.out.printf("\t\t\tFood Expenses: PHP %.2f%n", foodExpenses);
+            System.out.printf("\t\t\tOther Expenses: PHP %.2f%n", otherExpenses);
 
             System.out.println("\t\t\t=============================================================");
             System.out.println("\t\t\t[1] How much emergency fund do I need?");
@@ -35,60 +46,49 @@ public class EmergencyFundPlanner {
             int userChoice = getValidChoice(scanner);
 
             switch (userChoice) {
-                case 1 -> calculateEmergencyFund(scanner); // After calculation, return to menu
+                case 1 -> calculateEmergencyFundWithSuggestions(scanner);
                 case 2 -> {
                     System.out.println("\t\t\tReturning to Home...");
-                    return; // Exits the method, simulating "Back to Home"
+                    return; 
                 }
                 case 3 -> {
                     System.out.println("\t\t\tExiting Program... Goodbye!");
-                    System.exit(0); // Immediately exits the program
+                    System.exit(0); 
                 }
             }
         }
     }
 
-    public static void calculateEmergencyFund(Scanner scanner) {
+    public static void calculateEmergencyFundWithSuggestions(Scanner scanner) {
         System.out.println("\t\t\t=============================================================");
         System.out.print("\t\t\tEnter your average monthly expenses (PHP): ");
-
         double monthlyExpenses = getValidDouble(scanner);
 
         System.out.print("\t\t\tEnter the number of months you want to save for: ");
         int months = getValidInt(scanner);
 
-        double requiredEmergencyFund = monthlyExpenses * months;
+        double totalEmergencyFund = monthlyExpenses * months;
 
         System.out.printf("\n\t\t\tYou need a total of PHP %.2f saved for %d months of financial security.%n",
-                requiredEmergencyFund, months);
+                totalEmergencyFund, months);
+
+
+        double waterBill = monthlyExpenses * 0.1; 
+        double electricityBill = monthlyExpenses * 0.2; 
+        double foodExpenses = monthlyExpenses * 0.4; 
+        double otherExpenses = monthlyExpenses * 0.3; 
+
+        System.out.println("\n\t\t\tSuggested Segmentation:");
+        System.out.printf("\t\t\tWater Bill: PHP %.2f%n", waterBill * months);
+        System.out.printf("\t\t\tElectricity Bill: PHP %.2f%n", electricityBill * months);
+        System.out.printf("\t\t\tFood Expenses: PHP %.2f%n", foodExpenses * months);
+        System.out.printf("\t\t\tOther Expenses: PHP %.2f%n", otherExpenses * months);
 
         System.out.println("\t\t\t=============================================================");
         System.out.println("\t\t\tReturning to Emergency Fund Planner...");
     }
 
-    public static int getValidInt(Scanner scanner) {
-        while (true) {
-            try {
-                return scanner.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("\t\t\tInvalid input. Please enter a valid number.");
-                scanner.next();
-            }
-        }
-    }
-
-    public static double getValidDouble(Scanner scanner) {
-        while (true) {
-            try {
-                return scanner.nextDouble();
-            } catch (InputMismatchException e) {
-                System.out.println("\t\t\tInvalid input. Please enter a valid number.");
-                scanner.next();
-            }
-        }
-    }
-
-    public static int getValidChoice(Scanner scanner) {
+    private static int getValidChoice(Scanner scanner) {
         while (true) {
             try {
                 int choice = scanner.nextInt();
@@ -99,7 +99,29 @@ public class EmergencyFundPlanner {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("\t\t\tInvalid input. Please enter a valid choice (1, 2, or 3).");
-                scanner.next();
+                scanner.next(); 
+            }
+        }
+    }
+
+    private static double getValidDouble(Scanner scanner) {
+        while (true) {
+            try {
+                return scanner.nextDouble();
+            } catch (InputMismatchException e) {
+                System.out.println("\t\t\tInvalid input. Please enter a valid number.");
+                scanner.next(); 
+            }
+        }
+    }
+
+    private static int getValidInt(Scanner scanner) {
+        while (true) {
+            try {
+                return scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("\t\t\tInvalid input. Please enter a valid number.");
+                scanner.next(); 
             }
         }
     }
