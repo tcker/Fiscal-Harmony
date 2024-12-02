@@ -885,10 +885,10 @@ public static void runSavingsPlanner(Scanner scanner) {
         System.out.printf("\t\t\tOther Expenses: PHP %.2f%n", otherExpenses);
 
         System.out.println("\t\t\t=============================================================");
-        System.out.println("\t\t\t[1] How much emergency fund do I need?");
-        System.out.println("\t\t\t[2] Back to Home");
-        System.out.println("\t\t\t[3] Exit Program");
-        System.out.print("\t\t\tChoose an option: ");
+        System.out.println("\t\t\t  ╔══[1] How much emergency fund do I need?");
+        System.out.println("\t\t\t ╔╩═[2] Back to Home");
+        System.out.println("\t\t\t╔╩═[3] Exit Program");
+        System.out.print("\t\t\t╚═══>Choose an option: ");
 
         int userChoice = getValidChoice(scanner);
 
